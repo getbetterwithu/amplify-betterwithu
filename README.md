@@ -1,5 +1,8 @@
 # Amplify 수업자료 도구 모음
 
+작업을 시작하는 Codex와 Claude는 먼저 [`작업-시작-전-필독.md`](작업-시작-전-필독.md)와
+[`인수인계/현재-작업-상태.md`](인수인계/현재-작업-상태.md)를 읽어야 합니다.
+
 중학교 수학 Amplify Classroom 수업자료를 만들 때 쓰는 도구들입니다.
 
 운영 주소: **https://amplify.betterwithu.kr/**
