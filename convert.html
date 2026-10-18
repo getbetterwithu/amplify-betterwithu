@@ -143,7 +143,7 @@ details.manual[open]>summary::before{content:'▾ '}
 .gcard .ga{color:var(--brand);font-weight:800;font-size:12pt;flex:none}
 .gcard.home2{background:#f6f8fb}
 footer{margin-top:26px;padding-top:18px;border-top:1px solid var(--line);font-size:9.5pt;color:var(--muted)}
-</style></head><body>
+</style><link rel="stylesheet" href="tool-theme.css"></head><body class="tool-page">
 
 <div class="hero">
   <span class="eyebrow">중학교 수학 · Amplify Classroom</span>
@@ -152,7 +152,9 @@ footer{margin-top:26px;padding-top:18px;border-top:1px solid var(--line);font-si
   <a class="home" href="./">← 도구 모음으로</a>
 </div>
 
-<details class="setup" id="setup">
+<section class="ai-connection" aria-label="AI 연결 상태"><div><strong id="sharedAiStatus">AI 설정 확인 중</strong><span>CL 코드 해석과 같은 설정을 사용합니다.</span></div><a href="settings.html">⚙ AI 사용 설정</a></section>
+
+<details class="setup" id="setup" hidden>
   <summary><span>⚙️ 사용 준비 <span style="font-weight:400;color:var(--muted);font-size:10pt">— 처음 한 번만 설정하시면 됩니다</span></span>
     <span class="badge none" id="badge">설정 필요</span></summary>
   <div class="sbody">
@@ -252,30 +254,37 @@ footer{margin-top:26px;padding-top:18px;border-top:1px solid var(--line);font-si
     <a class="gcard" href="math.html">
       <span class="gi">📐</span>
       <span class="gx"><b>수식 입력</b><em>선분·삼각형·닮음·분수 · 복사용 기호 23개</em></span>
-      <span class="ga">→</span>
+      <span class="ga" aria-hidden="true"></span>
     </a>
     <a class="gcard" href="text.html">
       <span class="gi">🎨</span>
       <span class="gx"><b>글자 꾸미기</b><em>크기·색·굵게 — 복사해서 붙이세요</em></span>
-      <span class="ga">→</span>
+      <span class="ga" aria-hidden="true"></span>
+    </a>
+    <a class="gcard" href="interpret.html">
+      <span class="gi">🧩</span>
+      <span class="gx"><b>CL 코드 해석</b><em>코드·캡처를 쉬운 설명으로</em></span>
+      <span class="ga" aria-hidden="true"></span>
     </a>
     <a class="gcard home2" href="./">
       <span class="gi">🏠</span>
       <span class="gx"><b>도구 모음</b><em>전체 목록 보기</em></span>
-      <span class="ga">→</span>
+      <span class="ga" aria-hidden="true"></span>
     </a>
   </div>
 </div>
 
 <footer>
-  <b>서울대학교사범대학부설중학교 허철호</b><br>
-  <a href="interpret.html">CL 해석기</a> · <a href="privacy.html">개인정보 및 AI 데이터 처리</a> · <a href="terms.html">이용 안내·저작권</a><br>
-  © 2026 허철호 · 비공식 Amplify 교육 보조 자료
+  <p class="tool-footer-purpose">Amplify 수업자료 제작을 돕는 교사용 교육 보조 도구입니다. 개인정보가 포함된 자료는 입력하지 마세요.</p>
+  <div class="tool-footer-links"><a href="mailto:jclover2@snu.ac.kr">jclover2@snu.ac.kr</a><a href="privacy.html">개인정보 및 AI 데이터 처리</a><a href="terms.html">이용 안내·저작권</a></div>
+  <p class="tool-footer-copy">© 2026 서울대학교사범대학부설중학교 허철호. All Rights Reserved.</p>
+  <small class="tool-footer-disclaimer">Amplify Education, Inc.와 제휴하거나 공식 승인을 받은 서비스가 아닙니다.</small>
 </footer>
 
 <script src="lib/jquery.min.js"></script>
 <script src="lib/mathquill.js"></script>
 <script src="shared-config.js" onerror="window.__noShare=1"></script>
+<script src="ai-settings.js"></script>
 <script>
 (function(){
 'use strict';
@@ -673,7 +682,7 @@ document.addEventListener('paste',function(e){
 /* ── 변환 ── */
 $('go').addEventListener('click',async function(){
   if(!img){msg('err','먼저 사진을 넣어 주세요.');return;}
-  if(!ready()){msg('err','먼저 <b>사용 준비</b>에서 키나 공유 암호를 설정해 주세요.');$('setup').open=true;return;}
+if(!ready()){msg('err','먼저 <a href="settings.html"><b>AI 사용 설정</b></a>에서 내 키나 공유 암호를 저장해 주세요.');return;}
   this.disabled=true;var old=this.textContent;this.textContent='바꾸는 중…';
   msg('go','AI가 사진을 읽고 있습니다. 10초쯤 걸립니다…');
   try{
@@ -703,8 +712,8 @@ function wait(ms){return new Promise(function(r){setTimeout(r,ms);});}
 
 async function convertOnce(){
   if(cfg.mode==='share'){
-    var r=await fetch(SHARE_ENDPOINT,{method:'POST',headers:{'content-type':'application/json'},
-      body:JSON.stringify({password:cfg.pass,prompt:PROMPT,image:img.data,mime:img.mime})});
+    var r=await fetch(window.AI_ENDPOINT||SHARE_ENDPOINT,{method:'POST',headers:{'content-type':'application/json'},
+      body:JSON.stringify({task:'convert',password:cfg.pass,image:img.data,mime:img.mime})});
     var d=await r.json().catch(function(){return{}});
     if(!r.ok)throw new Error(d.error||('오류 '+r.status));
     return d.text||'';
@@ -776,7 +785,7 @@ if(cfg.key)$('key').value=cfg.key;
 if(cfg.pass)$('pass').value=cfg.pass;
 if(cfg.mode==='share'){var sh=document.querySelector('.tab[data-t="share"]'); if(sh)sh.click();}
 setBadge();
-if(!ready())$('setup').open=true;
+if($('sharedAiStatus'))$('sharedAiStatus').textContent=window.BWUAI?BWUAI.label(BWUAI.read()):(ready()?'AI 연결됨':'AI 설정 필요');
 })();
 </script>
 </body></html>

@@ -1,7 +1,7 @@
 (function(){
   'use strict';
   var $=function(id){return document.getElementById(id)};
-  var imageData=null, imageMode=false, STORE='bwu_cl_gemini_key';
+  var imageData=null, imageMode=false;
   var SYSTEM=`당신은 Amplify Classroom의 Computation Layer(CL) 코드를 교사에게 설명하는 보조자다. 일반 프로그래밍 언어의 상식으로 빈칸을 지어내지 말고 아래 규칙과 입력에서 확인되는 사실만 확정적으로 말한다.
 
 [핵심 규칙]
@@ -24,21 +24,26 @@
   function switchMode(img){imageMode=img;$('codePanel').hidden=img;$('imagePanel').hidden=!img;$('codeTab').classList.toggle('on',!img);$('imageTab').classList.toggle('on',img)}
   $('codeTab').onclick=function(){switchMode(false)};$('imageTab').onclick=function(){switchMode(true)};
   $('image').onchange=function(){var f=this.files&&this.files[0];imageData=null;$('preview').hidden=true;if(!f)return;if(f.size>6*1024*1024){this.value='';showStatus('이미지는 6MB 이하만 사용할 수 있습니다.',true);return}var reader=new FileReader();reader.onload=function(){imageData={mimeType:f.type,data:String(reader.result).split(',')[1]};$('preview').src=reader.result;$('preview').hidden=false};reader.readAsDataURL(f)};
-  try{var saved=localStorage.getItem(STORE);if(saved){$('apiKey').value=saved;$('remember').checked=true}}catch(e){}
-  $('remember').onchange=function(){try{if(this.checked&&$('apiKey').value)localStorage.setItem(STORE,$('apiKey').value);else localStorage.removeItem(STORE)}catch(e){}};
+  function settings(){return window.BWUAI?BWUAI.read():{mode:'',key:'',password:'',model:''}}
+  function paintSettings(){var cfg=settings();$('aiStatus').textContent=window.BWUAI?BWUAI.label(cfg):'AI 설정 필요'}
+  paintSettings();window.addEventListener('focus',paintSettings);
   function render(d){var rows=(d.lines||[]).map(function(x){return '<tr><td><code>'+esc(x.code)+'</code></td><td>'+esc(x.kind)+'</td><td>'+esc(x.meaning)+'</td><td>'+esc(x.confidence)+'</td></tr>'}).join('');var flow=(d.flow||[]).map(esc).join(' → ');var warnings=(d.warnings||[]).map(function(x){return '<li>'+esc(x)+'</li>'}).join('')||'<li>별도로 확인된 주의점이 없습니다.</li>';var related=(d.related||[]).map(function(x){return '<li>'+esc(x)+'</li>'}).join('');$('result').innerHTML='<h2>해석 결과</h2><section><h3>인식한 코드</h3><pre><code>'+esc(d.recognizedCode)+'</code></pre></section><section><h3>한 문장 설명</h3><p>'+esc(d.summary)+'</p></section>'+(flow?'<section><h3>값의 흐름</h3><p><strong>'+flow+'</strong></p></section>':'')+'<section><h3>줄별 해석</h3><div style="overflow:auto"><table><thead><tr><th>코드</th><th>분류</th><th>설명</th><th>근거</th></tr></thead><tbody>'+rows+'</tbody></table></div></section><section><h3>주의할 점</h3><ul>'+warnings+'</ul></section>'+(related?'<section><h3>관련 학습 주제</h3><ul>'+related+'</ul><p><a href="https://cl.betterwithu.kr/">CL 학습자료에서 찾아보기 →</a></p></section>':'')}
   $('run').onclick=async function(){
     if(!$('adult').checked){showStatus('만 18세 이상 교사·성인 교육자 확인이 필요합니다.',true);return}
-    var key=$('apiKey').value.trim(),model=$('model').value.trim(),code=$('code').value.trim();
-    if(!key){showStatus('Gemini API 키를 입력해 주세요.',true);return}if(!model){showStatus('사용할 Gemini 모델 이름을 입력해 주세요.',true);return}if(imageMode&&!imageData){showStatus('해석할 화면 캡처를 선택해 주세요.',true);return}if(!imageMode&&!code){showStatus('해석할 CL 코드를 붙여 넣어 주세요.',true);return}
-    if($('remember').checked){try{localStorage.setItem(STORE,key)}catch(e){}}
+    var cfg=settings(),code=$('code').value.trim();
+    if(!window.BWUAI||!BWUAI.ready(cfg)){showStatus('먼저 AI 사용 설정에서 내 키나 공유 암호를 저장해 주세요.',true);return}if(imageMode&&!imageData){showStatus('해석할 화면 캡처를 선택해 주세요.',true);return}if(!imageMode&&!code){showStatus('해석할 CL 코드를 붙여 넣어 주세요.',true);return}
     $('run').disabled=true;$('result').innerHTML='';showStatus(imageMode?'이미지에서 CL 코드를 확인하고 있습니다…':'CL 문법과 값의 흐름을 확인하고 있습니다…');
     var parts=[{text:SYSTEM+'\n\n[사용자 입력]\n'+(imageMode?'첨부 이미지에서 CL 코드를 읽고 해석하라.':code)}];if(imageMode)parts.push({inlineData:imageData});
     try{
-      var url='https://generativelanguage.googleapis.com/v1beta/models/'+encodeURIComponent(model)+':generateContent?key='+encodeURIComponent(key);
-      var response=await fetch(url,{method:'POST',headers:{'content-type':'application/json'},body:JSON.stringify({contents:[{role:'user',parts:parts}],generationConfig:{temperature:.15,responseMimeType:'application/json'}})});
+      var response;
+      if(cfg.mode==='share'){
+        response=await fetch(window.AI_ENDPOINT||'/api/ai',{method:'POST',headers:{'content-type':'application/json'},body:JSON.stringify({task:'interpret',password:cfg.password,code:code,image:imageData&&imageData.data,mime:imageData&&imageData.mimeType})});
+      }else{
+        var url='https://generativelanguage.googleapis.com/v1beta/models/'+encodeURIComponent(cfg.model||'gemini-3.7-flash')+':generateContent?key='+encodeURIComponent(cfg.key);
+        response=await fetch(url,{method:'POST',headers:{'content-type':'application/json'},body:JSON.stringify({contents:[{role:'user',parts:parts}],generationConfig:{temperature:.15,responseMimeType:'application/json'}})});
+      }
       var payload=await response.json();if(!response.ok)throw new Error(payload.error&&payload.error.message||('HTTP '+response.status));
-      var text=payload.candidates&&payload.candidates[0]&&payload.candidates[0].content&&payload.candidates[0].content.parts&&payload.candidates[0].content.parts.map(function(p){return p.text||''}).join('');if(!text)throw new Error('Gemini가 빈 응답을 반환했습니다.');
+      var text=payload.text||(payload.candidates&&payload.candidates[0]&&payload.candidates[0].content&&payload.candidates[0].content.parts&&payload.candidates[0].content.parts.map(function(p){return p.text||''}).join(''));if(!text)throw new Error('Gemini가 빈 응답을 반환했습니다.');
       render(JSON.parse(text.replace(/^```json\s*|\s*```$/g,'')));showStatus('해석을 완료했습니다. 실제 수업 적용 전 CL 학습자료와 함께 확인해 주세요.');
     }catch(e){showStatus('해석하지 못했습니다: '+e.message,true)}finally{$('run').disabled=false}
   };

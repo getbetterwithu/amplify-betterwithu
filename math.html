@@ -142,7 +142,7 @@ footer .fbox{margin:18px auto 0;max-width:520px;padding:12px 20px;
 .gcard .ga{color:#0f4c81;font-weight:800;font-size:12pt;flex:none}
 .gcard.home2{background:#f6f8fb}
 @media print{.golinks{display:none}}
-</style></head><body>
+</style><link rel="stylesheet" href="tool-theme.css"></head><body class="tool-page">
 
 <div class="hero">
 <span class="eyebrow">중학교 수학 · Amplify Classroom</span>
@@ -217,15 +217,17 @@ footer .fbox{margin:18px auto 0;max-width:520px;padding:12px 20px;
 <div class="golinks">
   <div class="gt">다른 도구도 있습니다</div>
   <div class="gg">
-    <a class="gcard" href="convert.html"><span class="gi">🔄</span><span class="gx"><b>수식 변환</b><em>교과서 사진을 Amplify 수식으로</em></span><span class="ga">→</span></a>
-    <a class="gcard" href="text.html"><span class="gi">🎨</span><span class="gx"><b>글자 꾸미기</b><em>크기·색·굵게 — 복사해서 붙이세요</em></span><span class="ga">→</span></a>
-    <a class="gcard home2" href="./"><span class="gi">🏠</span><span class="gx"><b>도구 모음</b><em>전체 목록 보기</em></span><span class="ga">→</span></a>
+    <a class="gcard" href="convert.html"><span class="gi">🔄</span><span class="gx"><b>수식 변환</b><em>교과서 사진을 Amplify 수식으로</em></span><span class="ga" aria-hidden="true"></span></a>
+    <a class="gcard" href="text.html"><span class="gi">🎨</span><span class="gx"><b>글자 꾸미기</b><em>크기·색·굵게 — 복사해서 붙이세요</em></span><span class="ga" aria-hidden="true"></span></a>
+    <a class="gcard" href="interpret.html"><span class="gi">🧩</span><span class="gx"><b>CL 코드 해석</b><em>코드·캡처를 쉬운 설명으로</em></span><span class="ga" aria-hidden="true"></span></a>
+    <a class="gcard home2" href="./"><span class="gi">🏠</span><span class="gx"><b>도구 모음</b><em>전체 목록 보기</em></span><span class="ga" aria-hidden="true"></span></a>
   </div>
 </div>
 <footer>
-  <b>서울대학교사범대학부설중학교 허철호</b><br>
-  <a href="interpret.html">CL 해석기</a> · <a href="privacy.html">개인정보 및 AI 데이터 처리</a> · <a href="terms.html">이용 안내·저작권</a><br>
-  © 2026 허철호 · 비공식 Amplify 교육 보조 자료
+  <p class="tool-footer-purpose">Amplify 수업자료 제작을 돕는 교사용 교육 보조 도구입니다. 개인정보가 포함된 자료는 입력하지 마세요.</p>
+  <div class="tool-footer-links"><a href="mailto:jclover2@snu.ac.kr">jclover2@snu.ac.kr</a><a href="privacy.html">개인정보 및 AI 데이터 처리</a><a href="terms.html">이용 안내·저작권</a></div>
+  <p class="tool-footer-copy">© 2026 서울대학교사범대학부설중학교 허철호. All Rights Reserved.</p>
+  <small class="tool-footer-disclaimer">Amplify Education, Inc.와 제휴하거나 공식 승인을 받은 서비스가 아닙니다.</small>
 </footer>
 
 <script src="lib/jquery.min.js"></script>

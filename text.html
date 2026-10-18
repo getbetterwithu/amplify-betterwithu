@@ -8,7 +8,7 @@
   @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700;900&display=swap');
   * { box-sizing:border-box; }
   body { font-family:'Noto Sans KR',sans-serif; background:#eef1f4; color:#222; line-height:1.65; padding:30px 0 90px; margin:0;}
-  .wrap { max-width:760px; margin:0 auto; padding:0 22px; }
+  .wrap { max-width:1120px; margin:0 auto; padding:0 28px; }
 
   header.h { background:linear-gradient(120deg,#1f6f54,#2e9e76); color:#fff; border-radius:16px; padding:26px 32px; margin-bottom:18px;}
   header.h h1 { font-size:24px; font-weight:900; margin:0 0 6px;}
@@ -40,7 +40,14 @@
   .pal { background:#fff; border:2px solid #e0e4e8; border-radius:10px; overflow:hidden; display:flex; align-items:stretch;}
   .pal .ph { color:#fff; font-size:13px; font-weight:700; padding:0 14px; display:flex; align-items:center; min-width:74px; justify-content:center;}
   .pal .pb { padding:12px 14px; flex:1; display:flex; align-items:center;}
-  @media(max-width:620px){ .palette{grid-template-columns:1fr;} }
+  @media(max-width:620px){
+    .wrap{width:100%;max-width:100%;padding:0;overflow:hidden;}
+    .palette{grid-template-columns:1fr;}
+    a.xlink{flex-wrap:wrap;padding:16px;}
+    .xt{min-width:0;overflow-wrap:anywhere;}
+    .xa{margin-left:57px;}
+    .intro,.grab-card,.tipbox,.warn{overflow-wrap:anywhere;word-break:normal;}
+  }
 
   .tipbox { background:#e8f5e9; border-radius:10px; padding:16px 20px; font-size:14px; margin-top:18px;}
   .tipbox b{color:#2e7d32;}
@@ -89,8 +96,9 @@ a.xlink:hover { box-shadow:0 7px 22px rgba(18,60,107,.45); transform:translateY(
 .gcard.home2{background:#f6f8fb}
 @media print{.golinks{display:none}}
 </style>
+<link rel="stylesheet" href="tool-theme.css">
 </head>
-<body>
+<body class="tool-page">
 <div class="wrap">
 
 <header class="h">
@@ -207,15 +215,17 @@ a.xlink:hover { box-shadow:0 7px 22px rgba(18,60,107,.45); transform:translateY(
 <div class="golinks">
   <div class="gt">다른 도구도 있습니다</div>
   <div class="gg">
-    <a class="gcard" href="math.html"><span class="gi">📐</span><span class="gx"><b>수식 입력</b><em>선분·삼각형·닮음·분수 · 복사용 기호 23개</em></span><span class="ga">→</span></a>
-    <a class="gcard" href="convert.html"><span class="gi">🔄</span><span class="gx"><b>수식 변환</b><em>교과서 사진을 Amplify 수식으로</em></span><span class="ga">→</span></a>
-    <a class="gcard home2" href="./"><span class="gi">🏠</span><span class="gx"><b>도구 모음</b><em>전체 목록 보기</em></span><span class="ga">→</span></a>
+    <a class="gcard" href="math.html"><span class="gi">📐</span><span class="gx"><b>수식 입력</b><em>선분·삼각형·닮음·분수 · 복사용 기호 23개</em></span><span class="ga" aria-hidden="true"></span></a>
+    <a class="gcard" href="convert.html"><span class="gi">🔄</span><span class="gx"><b>수식 변환</b><em>교과서 사진을 Amplify 수식으로</em></span><span class="ga" aria-hidden="true"></span></a>
+    <a class="gcard" href="interpret.html"><span class="gi">🧩</span><span class="gx"><b>CL 코드 해석</b><em>코드·캡처를 쉬운 설명으로</em></span><span class="ga" aria-hidden="true"></span></a>
+    <a class="gcard home2" href="./"><span class="gi">🏠</span><span class="gx"><b>도구 모음</b><em>전체 목록 보기</em></span><span class="ga" aria-hidden="true"></span></a>
   </div>
 </div>
 <footer class="ftr">
-  <b>서울대학교사범대학부설중학교 허철호</b><br>
-  <a href="interpret.html">CL 해석기</a> · <a href="privacy.html">개인정보 및 AI 데이터 처리</a> · <a href="terms.html">이용 안내·저작권</a><br>
-  © 2026 허철호 · 비공식 Amplify 교육 보조 자료
+  <p class="tool-footer-purpose">Amplify 수업자료 제작을 돕는 교사용 교육 보조 도구입니다. 개인정보가 포함된 자료는 입력하지 마세요.</p>
+  <div class="tool-footer-links"><a href="mailto:jclover2@snu.ac.kr">jclover2@snu.ac.kr</a><a href="privacy.html">개인정보 및 AI 데이터 처리</a><a href="terms.html">이용 안내·저작권</a></div>
+  <p class="tool-footer-copy">© 2026 서울대학교사범대학부설중학교 허철호. All Rights Reserved.</p>
+  <small class="tool-footer-disclaimer">Amplify Education, Inc.와 제휴하거나 공식 승인을 받은 서비스가 아닙니다.</small>
 </footer>
 
 </div>

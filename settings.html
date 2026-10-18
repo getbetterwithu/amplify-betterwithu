@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="description" content="수식 변환과 CL 코드 해석에서 함께 사용하는 AI 연결 설정입니다.">
+  <title>AI 사용 설정 | BetterWithU</title>
+  <link rel="stylesheet" href="site.css">
+</head>
+<body class="workbook-home settings-page">
+  <a class="skip" href="#main">본문으로 건너뛰기</a>
+  <header class="topbar">
+    <a class="brand" href="index.html">BetterWithU<span>.</span></a>
+    <nav aria-label="주요 메뉴"><a href="index.html#tools">수업 제작 도구</a><a href="https://cl.betterwithu.kr/">CL 학습자료</a></nav>
+  </header>
+  <main id="main" class="panel settings-panel">
+    <a class="back-link" href="index.html#tools"><span aria-hidden="true">←</span> 수업 제작 도구</a>
+    <div class="page-title"><p class="eyebrow">ONE SETTING · TWO AI TOOLS</p><h1>AI 사용 설정</h1><p>여기서 한 번 설정하면 수식 변환과 CL 코드 해석에서 함께 사용합니다.</p></div>
+
+    <section class="box setting-box" aria-labelledby="method-title">
+      <h2 id="method-title">사용 방법을 선택하세요</h2>
+      <div class="tabs" role="tablist" aria-label="AI 연결 방법">
+        <button class="tab" id="shareTab" type="button">공유 암호 사용</button>
+        <button class="tab" id="mineTab" type="button">내 API 키 사용</button>
+      </div>
+      <div id="sharePanel">
+        <div class="field"><label for="password">공유 암호</label><input id="password" type="password" autocomplete="off" placeholder="전달받은 암호를 입력하세요"><small>운영자가 제공한 Gemini 키는 서버 환경변수에만 있으며 브라우저로 전달되지 않습니다.</small></div>
+      </div>
+      <div id="minePanel" hidden>
+        <div class="field"><label for="apiKey">본인의 Gemini API 키</label><input id="apiKey" type="password" autocomplete="off" placeholder="API 키를 입력하세요"><small>개인 키는 이 브라우저의 로컬 저장소에만 보관되며 Gemini API 호출에만 사용됩니다. 공용 기기에서는 사용하지 마세요.</small></div>
+        <div class="field"><label for="model">Gemini 모델</label><input id="model" type="text" value="gemini-3.7-flash" spellcheck="false"></div>
+        <p><a class="inline-button" href="https://aistudio.google.com/apikey" target="_blank" rel="noopener noreferrer">Google AI Studio에서 키 만들기 ↗</a></p>
+      </div>
+      <div class="setting-actions"><button class="action" id="save" type="button">설정 저장</button><button class="secondary-action" id="clear" type="button">설정 지우기</button></div>
+      <div id="status" class="status" role="status" aria-live="polite" hidden></div>
+    </section>
+
+    <section class="box setting-summary"><h2>이 설정을 사용하는 도구</h2><div class="setting-tools"><a href="convert.html"><strong>수식 변환</strong><span>교과서 사진 → Amplify 수식</span></a><a href="interpret.html"><strong>CL 코드 해석</strong><span>코드·캡처 → 쉬운 설명</span></a></div></section>
+  </main>
+  <footer class="site-footer"><div><a class="footer-brand" href="index.html">BetterWithU<span>.</span></a><p>Amplify 수업자료 제작과 Computation Layer 학습을 돕는 교사용 교육 보조 도구입니다.</p></div><div class="footer-info"><p>개인정보가 포함된 자료는 입력하지 말고, AI 결과는 수업 적용 전에 확인하세요.</p><div class="footer-links"><a href="mailto:jclover2@snu.ac.kr">jclover2@snu.ac.kr</a><a href="privacy.html">개인정보 및 AI 데이터 처리</a><a href="terms.html">이용 안내·저작권</a></div><p class="footer-copy">© 2026 서울대학교사범대학부설중학교 허철호. All Rights Reserved.</p></div><small class="footer-disclaimer">이 사이트는 독립적으로 제작한 비공식 교육 보조 자료이며, Amplify Education, Inc.와 제휴하거나 공식 승인을 받은 서비스가 아닙니다.</small></footer>
+  <script src="ai-settings.js"></script>
+  <script>
+  (function(){
+    var $=function(id){return document.getElementById(id)}, cfg=BWUAI.read();
+    function select(mode){cfg.mode=mode;$('shareTab').classList.toggle('on',mode==='share');$('mineTab').classList.toggle('on',mode==='mine');$('sharePanel').hidden=mode!=='share';$('minePanel').hidden=mode!=='mine'}
+    function message(text,error){$('status').hidden=false;$('status').className='status'+(error?' error':'');$('status').textContent=text}
+    $('password').value=cfg.password||'';$('apiKey').value=cfg.key||'';$('model').value=cfg.model||'gemini-3.7-flash';select(cfg.mode||'share');
+    $('shareTab').onclick=function(){select('share')};$('mineTab').onclick=function(){select('mine')};
+    $('save').onclick=function(){cfg.password=$('password').value.trim();cfg.key=$('apiKey').value.trim();cfg.model=$('model').value.trim()||'gemini-3.7-flash';if(cfg.mode==='share'&&!cfg.password){message('공유 암호를 입력해 주세요.',true);return}if(cfg.mode==='mine'&&!cfg.key){message('Gemini API 키를 입력해 주세요.',true);return}BWUAI.save(cfg);message('저장했습니다. 두 AI 도구에서 이 설정을 함께 사용합니다.')};
+    $('clear').onclick=function(){BWUAI.clear();cfg=BWUAI.read();$('password').value='';$('apiKey').value='';$('model').value=cfg.model;select('share');message('이 브라우저에 저장된 AI 설정을 지웠습니다.')};
+  })();
+  </script>
+</body></html>
