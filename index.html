@@ -1,90 +1,58 @@
-<!doctype html><html lang="ko"><head><meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
-<meta name="description" content="Amplify Classroom 수업자료를 만들 때 쓰는 도구 모음. 글자 꾸미기, 수식 입력, 교과서 사진 수식 변환. 서울대학교사범대학부설중학교 허철호.">
-<title>Amplify 수업자료 도구 모음</title>
-<style>
-*{box-sizing:border-box}
-:root{--ink:#12151b;--muted:#5f6b7f;--line:#e3e7ee;--soft:#f6f8fb;
-  --brand:#0f4c81;--accent:#b3005e;--ok:#0a7d54;--warn:#b8860b}
-html{-webkit-text-size-adjust:100%}
-body{font-family:"Pretendard","Malgun Gothic","맑은 고딕",-apple-system,BlinkMacSystemFont,"Apple SD Gothic Neo",sans-serif;
-  max-width:900px;margin:0 auto;padding:0 22px 70px;color:var(--ink);line-height:1.68;font-size:11pt;
-  background:#fff;-webkit-font-smoothing:antialiased}
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="description" content="교사를 위한 Amplify Classroom 도구. CL 코드 해석, 글자 꾸미기, 수식 입력과 변환, 한국어 CL 학습자료를 제공합니다.">
+  <title>Amplify 교사 도구 | BetterWithU</title>
+  <link rel="stylesheet" href="site.css">
+</head>
+<body>
+  <a class="skip" href="#main">본문으로 건너뛰기</a>
+  <header class="topbar">
+    <a class="brand" href="https://betterwithu.kr/">BetterWithU<span>.</span></a>
+    <nav aria-label="주요 메뉴">
+      <a class="active" href="index.html">홈</a><a href="interpret.html">CL 해석기</a><a href="https://cl.betterwithu.kr/">CL 학습자료</a><a href="#tools">제작 도구</a>
+    </nav>
+  </header>
+  <main id="main">
+    <section class="hero">
+      <div class="hero-copy">
+        <p class="eyebrow">FOR TEACHERS · AMPLIFY CLASSROOM</p>
+        <h1>CL은 이해하기 쉽게,<br>수업자료는 만들기 편하게.</h1>
+        <p class="lead">막막한 Computation Layer 코드는 풀어서 설명하고, 화면에 필요한 글자와 수식은 바로 만들어 쓰세요.</p>
+        <div class="hero-actions"><a class="button primary" href="interpret.html">CL 코드 해석하기</a><a class="button secondary" href="https://cl.betterwithu.kr/">CL 학습자료 보기</a></div>
+      </div>
+      <div class="code-card" aria-label="CL 코드 예시">
+        <div class="code-head"><span></span><span></span><span></span><b>graph</b></div>
+        <pre><code><i># 입력한 기울기를 그래프에 연결</i>
+number("m"): exp1.numericValue
 
-.hero{border-bottom:3px solid var(--brand);padding:44px 0 24px;margin-bottom:30px}
-.eyebrow{display:inline-block;background:var(--brand);color:#fff;font-size:9.5pt;font-weight:700;
-  letter-spacing:.04em;padding:4px 12px;border-radius:20px;margin-bottom:13px}
-h1{font-size:28pt;margin:0 0 10px;letter-spacing:-.03em;font-weight:800;line-height:1.22}
-.sub{color:var(--muted);font-size:11.5pt;margin:0;max-width:640px}
-
-.cards{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin:26px 0 0}
-@media(max-width:820px){.cards{grid-template-columns:1fr}}
-.card{display:flex;flex-direction:column;border:1px solid var(--line);border-radius:14px;
-  padding:24px 20px 20px;text-decoration:none;color:inherit;background:#fff;
-  transition:.16s;position:relative;overflow:hidden}
-.card::before{content:"";position:absolute;top:0;left:0;right:0;height:4px;background:var(--c,var(--brand));
-  transform:scaleX(0);transform-origin:left;transition:.22s}
-.card:hover{border-color:var(--c,var(--brand));transform:translateY(-3px);
-  box-shadow:0 8px 22px rgba(15,76,129,.11)}
-.card:hover::before{transform:scaleX(1)}
-.card .ic{font-size:30pt;line-height:1;margin-bottom:14px}
-.card .ti{font-size:14pt;font-weight:800;letter-spacing:-.02em;margin-bottom:7px}
-.card .de{font-size:10.2pt;color:var(--muted);line-height:1.68;flex:1;margin-bottom:16px}
-.card .go{font-size:10pt;font-weight:700;color:var(--c,var(--brand));display:flex;
-  align-items:center;gap:5px}
-.card .tag{position:absolute;top:16px;right:16px;font-size:8.5pt;font-weight:700;
-  background:#fdf3f8;color:var(--accent);border:1px solid #f6e0ec;padding:2px 9px;border-radius:20px}
-
-.tip{background:linear-gradient(180deg,#fffdf5,#fff9e8);border:1px solid #ecdfae;
-  border-radius:12px;padding:18px 22px;margin:32px 0 0;font-size:10.4pt;color:#5c4a1a;line-height:1.78}
-.tip b{color:#7a5200}
-footer{margin-top:50px;padding-top:20px;border-top:1px solid var(--line);
-  font-size:9.5pt;color:var(--muted);line-height:1.8}
-footer a{color:var(--brand)}
-</style></head><body>
-
-<div class="hero">
-  <span class="eyebrow">중학교 수학 · Amplify Classroom</span>
-  <h1>수업자료 도구 모음</h1>
-  <p class="sub">Amplify 화면을 만들 때 쓰는 도구들입니다. 교과서와 같은 모양으로 글자와 수식을 넣으실 수 있습니다.</p>
-</div>
-
-<div class="cards" id="cards"></div>
-
-<div class="tip">
-  <b>어떤 것부터 보면 좋을까요?</b><br>
-  글자 크기나 색을 바꾸고 싶으시면 <b>글자 꾸미기</b>, 선분·닮음·분수 같은 기호가 필요하시면 <b>수식 입력</b>을 보세요.
-  교과서 지면을 그대로 옮기고 싶으시면 <b>수식 변환</b>에 사진을 넣으시면 됩니다.
-</div>
-
-<footer>
-  Amplify에 직접 넣어 화면으로 확인한 내용입니다<br>
-2026 서울대학교사범대학부설중학교 <b>허철호</b> · 자유롭게 배포하셔도 됩니다. 다만 출처를 함께 표기해 주시기 바랍니다.
-</footer>
-
-<script>
-/* 페이지를 추가하실 때는 아래 배열에 한 줄만 넣으시면 됩니다. */
-var PAGES = [
-  { icon:"🎨", title:"글자 꾸미기", url:"text.html", color:"#b3005e",
-    desc:"크기·색·굵게. Amplify는 글자 서식 명령어가 통하지 않아, 이미 꾸며진 글자를 복사해 쓰셔야 합니다." },
-  { icon:"📐", title:"수식 입력", url:"math.html", color:"#0f4c81",
-    desc:"선분·삼각형·닮음·분수·각도. 명령어 25개와 복사용 기호 23개를 실기기에서 확인해 정리했습니다." },
-  { icon:"🔄", title:"수식 변환", url:"convert.html", color:"#0a7d54", tag:"새로 나옴",
-    desc:"교과서 사진을 넣으면 Amplify에 붙여넣을 수 있는 수식으로 바꿔 드립니다. 붙여넣기 전에 모양도 확인하실 수 있습니다." }
-];
-
-var box = document.getElementById('cards');
-PAGES.forEach(function(p){
-  var a = document.createElement('a');
-  a.className = 'card'; a.href = p.url;
-  a.style.setProperty('--c', p.color || '#0f4c81');
-  a.innerHTML =
-    (p.tag ? '<span class="tag">' + p.tag + '</span>' : '') +
-    '<div class="ic">' + p.icon + '</div>' +
-    '<div class="ti">' + p.title + '</div>' +
-    '<div class="de">' + p.desc + '</div>' +
-    '<div class="go">열기 <span>→</span></div>';
-  box.appendChild(a);
-});
-</script>
-</body></html>
+<i># 정답 여부를 대시보드에 표시</i>
+correct: this.numericValue = 3</code></pre>
+        <p>코드를 붙여넣으면 값의 흐름과 각 줄의 역할을 설명합니다.</p>
+      </div>
+    </section>
+    <section class="section featured-section" aria-labelledby="start-title">
+      <div class="section-heading"><p class="kicker">START HERE</p><h2 id="start-title">지금 필요한 일부터 시작하세요</h2></div>
+      <div class="feature-grid">
+        <a class="feature-card main-feature" href="interpret.html"><span class="badge">교사용 · BETA</span><span class="feature-icon">{ }</span><h3>CL 코드 해석기</h3><p>코드를 붙여넣거나 화면 캡처를 올리면 전체 역할, 값의 흐름, 줄별 의미와 주의점을 설명합니다.</p><span class="go">해석 시작하기 →</span></a>
+        <a class="feature-card reference-feature" href="https://cl.betterwithu.kr/"><span class="badge muted">REFERENCE</span><span class="feature-icon">⌕</span><h3>CL 학습자료</h3><p>구성요소별 sink·source, 함수, 타입, Advanced 예제를 한국어로 찾아봅니다.</p><span class="go">문서 찾아보기 →</span></a>
+      </div>
+    </section>
+    <section class="section" id="tools" aria-labelledby="tools-title">
+      <div class="section-heading"><p class="kicker">MAKE</p><h2 id="tools-title">수업자료 제작 도구</h2><p>필요한 결과를 만들고 Amplify 화면에 복사해 사용하세요.</p></div>
+      <div class="tool-grid">
+        <a class="tool-card pink" href="text.html"><span class="tool-icon">Aa</span><h3>글자 꾸미기</h3><p>크기·색·굵기를 적용한 글자를 만들어 복사합니다.</p><span>열기 →</span></a>
+        <a class="tool-card blue" href="math.html"><span class="tool-icon">∠</span><h3>수식 입력</h3><p>선분·각도·분수 등 수학 기호와 명령어를 찾아봅니다.</p><span>열기 →</span></a>
+        <a class="tool-card green" href="convert.html"><span class="tool-icon">⇄</span><h3>수식 변환</h3><p>교과서 이미지를 Amplify에 붙여넣을 수식으로 바꿉니다.</p><span>열기 →</span></a>
+      </div>
+    </section>
+    <aside class="notice"><strong>개인정보를 지켜 주세요.</strong>CL 해석기와 수식 변환기는 사용자가 입력한 API 키로 AI를 호출합니다. 학생 이름·얼굴·이메일 등 개인정보가 담긴 이미지는 올리지 마세요.</aside>
+  </main>
+  <footer class="site-footer">
+    <div><a class="footer-brand" href="https://betterwithu.kr/">BetterWithU<span>.</span></a><p>학교 현장에서 직접 만들고 검증하는 교사용 수업 도구입니다.</p></div>
+    <div class="footer-info"><strong>서울대학교사범대학부설중학교 허철호</strong><div class="footer-links"><a href="privacy.html">개인정보 및 AI 데이터 처리</a><a href="terms.html">이용 안내·저작권</a><a href="https://github.com/getbetterwithu/desmos-text-guide">GitHub</a></div><small>© 2026 허철호. 이 사이트는 Amplify Education, Inc.와 제휴하거나 공식 승인을 받은 서비스가 아닙니다.</small></div>
+  </footer>
+</body>
+</html>

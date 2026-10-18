@@ -2,14 +2,27 @@
 
 중학교 수학 Amplify Classroom 수업자료를 만들 때 쓰는 도구들입니다.
 
-**https://getbetterwithu.github.io/desmos-text-guide/**
+운영 주소: **https://amplify.betterwithu.kr/**
 
 | 페이지 | 내용 |
 |---|---|
 | `index.html` | 홈 — 도구 카드 목록 |
+| `interpret.html` | 교사용 CL 코드 해석기 (Gemini API 키 사용) |
 | `text.html` | 글자 꾸미기 (크기·색·굵게) |
 | `math.html` | 수식 입력 (명령어 25개 + 복사용 기호 23개) |
 | `convert.html` | 수식 변환 (교과서 사진 → Amplify 수식) |
+| `privacy.html` | 개인정보 및 AI 데이터 처리 안내 |
+| `terms.html` | 이용 안내·저작권·비제휴 고지 |
+
+CL 학습자료는 별도 저장소에서 관리하며 `https://cl.betterwithu.kr/`로 연결합니다.
+
+## CL 코드 해석기
+
+- 만 18세 이상 교사·성인 교육자용입니다.
+- 사용자가 입력한 Gemini API 키로 브라우저에서 직접 요청합니다.
+- API 키는 기본적으로 저장하지 않고, 사용자가 선택한 경우에만 브라우저 localStorage에 저장합니다.
+- 코드 붙여넣기와 6MB 이하 PNG·JPG·WebP 이미지 입력을 지원합니다.
+- 학생 개인정보·민감정보·기밀정보를 입력하지 않도록 화면에 안내합니다.
 
 ## 페이지를 추가하려면
 

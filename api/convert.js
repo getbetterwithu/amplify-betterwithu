@@ -13,12 +13,15 @@
 const MODEL = process.env.GEMINI_MODEL || 'gemini-3.7-flash';
 
 export default async function handler(req, res) {
-  // 이 프록시는 공개 페이지에서 부른다 — GitHub Pages 출처만 허용
+  // 이 프록시는 공개 페이지에서 부른다 — 운영 주소와 로컬 개발 주소만 허용
   const origin = req.headers.origin || '';
   const allowed = [
     'https://getbetterwithu.github.io',
+    'https://amplify.betterwithu.kr',
     'http://localhost:8080',
     'http://127.0.0.1:8080',
+    'http://localhost:8875',
+    'http://127.0.0.1:8875',
   ];
   if (allowed.includes(origin)) {
     res.setHeader('Access-Control-Allow-Origin', origin);
