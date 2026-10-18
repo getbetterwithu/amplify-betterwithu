@@ -11,6 +11,7 @@
 |---|---|
 | `index.html` | 홈 — 도구 카드 목록 |
 | `settings.html` | 수식 변환·CL 해석 공통 AI 설정 |
+| `gemini-key.html` | Gemini API 키 발급 안내(스크린샷은 `img/gemini-key/`) |
 | `interpret.html` | 교사용 CL 코드 해석기 |
 | `text.html` | 글자 꾸미기 (크기·색·굵게) |
 | `math.html` | 수식 입력 (명령어 25개 + 복사용 기호 23개) |
@@ -43,7 +44,7 @@ CL 학습자료는 별도 저장소에서 관리하며 `https://cl.betterwithu.k
 
 현재 공통 설정은 Google Gemini를 사용합니다. 모델 이름은 설정 화면에서 바꿀 수 있습니다.
 
-키 발급 안내: [노션 페이지](https://juneywooky.notion.site/Gemini-API-3d8cd3403dc38142aff2c200dc32390a)
+키 발급 안내: [`gemini-key.html`](gemini-key.html)
 
 ### 공유 키 (선택) — Vercel 프록시
 
