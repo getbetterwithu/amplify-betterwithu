@@ -9,7 +9,7 @@
   <section class="box" aria-labelledby="inputTitle"><h2 id="inputTitle">1. 해석할 내용</h2>
     <div class="tabs" role="tablist"><button class="tab on" id="codeTab" type="button">코드 붙여넣기</button><button class="tab" id="imageTab" type="button">화면 캡처 올리기</button></div>
     <div id="codePanel" class="field"><label for="code">CL 코드</label><textarea id="code" spellcheck="false" placeholder='예:&#10;number("m"): exp1.numericValue&#10;correct: this.numericValue = 3'></textarea></div>
-    <div id="imagePanel" class="upload" hidden><label for="image"><strong>PNG·JPG·WebP 이미지 선택</strong><br><small>최대 6MB · 개인정보가 포함된 부분은 먼저 가려 주세요.</small></label><br><input id="image" type="file" accept="image/png,image/jpeg,image/webp"><img id="preview" class="preview" alt="선택한 이미지 미리보기" hidden></div>
+    <div id="imagePanel" class="upload" hidden><label for="image"><strong>PNG·JPG·WebP 이미지 선택</strong><br><small>최대 2.5MB · 개인정보가 포함된 부분은 먼저 가려 주세요.</small></label><br><input id="image" type="file" accept="image/png,image/jpeg,image/webp"><img id="preview" class="preview" alt="선택한 이미지 미리보기" hidden></div>
   </section>
   <section class="ai-connection" aria-label="AI 연결 상태"><div><strong id="aiStatus">AI 설정 확인 중</strong><span>수식 변환과 같은 설정을 사용합니다.</span></div><a href="settings.html">⚙ AI 사용 설정</a></section>
   <button class="action" id="run" type="button">이 CL 코드 해석하기</button><div id="status" class="status" role="status" aria-live="polite" hidden></div><article id="result" class="result" aria-live="polite"></article>

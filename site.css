@@ -26,3 +26,11 @@ html,body{max-width:100%;overflow-x:hidden}
 /* Single-column footer with a unified brand introduction */
 .site-footer{display:flex;flex-direction:column;gap:18px;padding-top:42px}.site-footer>div:first-child{display:flex;align-items:baseline;gap:22px;min-width:0}.site-footer>div:first-child p{margin:0;color:#bbb8b0;font-size:13px;white-space:nowrap}.site-footer .footer-brand{flex:none;font-size:31px}.footer-info{gap:12px}.footer-info>p{margin:0}.footer-disclaimer{grid-column:auto;margin:0}
 @media(max-width:620px){.site-footer>div:first-child{align-items:flex-start;flex-direction:column;gap:3px}.site-footer>div:first-child p{white-space:normal}}
+
+/* Final interaction and contrast pass */
+.topbar nav a.active,.primary,.go,.tool-card>span:last-child,.settings-button,.ai-connection a,.inline-button{color:#2f241f}
+.tool-group-head{min-height:220px;margin-bottom:32px}
+.tool-group .tool-card:hover,.single-feature .feature-card:hover{transform:translateY(-6px) rotate(0);box-shadow:0 24px 38px -22px rgba(58,58,58,.62)}
+.tool-group .tool-card:hover:before,.single-feature .feature-card:hover:before{transform:rotate(1deg) translateY(-2px)}
+@media(max-width:960px){.tool-group-head{min-height:0;margin-bottom:28px}}
+@media(prefers-reduced-motion:reduce){.tool-group .tool-card:hover,.single-feature .feature-card:hover{transform:none}}

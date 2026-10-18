@@ -655,8 +655,8 @@ async function callAI(prompt, im, maxTok){
 /* ── 이미지 ── */
 var img=null;
 function setImg(f){
-  if(!f||!/^image\//.test(f.type)){msg('err','이미지 파일만 넣으실 수 있습니다.');return;}
-  if(f.size>7*1024*1024){msg('err','사진이 너무 큽니다(7MB 넘음). 필요한 부분만 잘라서 넣어 주세요.');return;}
+  if(!f||!/^image\/(png|jpeg|webp)$/i.test(f.type)){msg('err','PNG·JPG·WebP 이미지만 넣으실 수 있습니다.');return;}
+  if(f.size>2.5*1024*1024){msg('err','사진은 2.5MB 이하만 사용할 수 있습니다. 필요한 부분만 잘라서 넣어 주세요.');return;}
   var rd=new FileReader();
   rd.onload=function(){
     img={data:rd.result.split(',')[1],mime:f.type};
@@ -712,7 +712,7 @@ function wait(ms){return new Promise(function(r){setTimeout(r,ms);});}
 
 async function convertOnce(){
   if(cfg.mode==='share'){
-    var r=await fetch(window.AI_ENDPOINT||SHARE_ENDPOINT,{method:'POST',headers:{'content-type':'application/json'},
+    var r=await fetch(window.AI_ENDPOINT||'/api/ai',{method:'POST',headers:{'content-type':'application/json'},
       body:JSON.stringify({task:'convert',password:cfg.pass,image:img.data,mime:img.mime})});
     var d=await r.json().catch(function(){return{}});
     if(!r.ok)throw new Error(d.error||('오류 '+r.status));
@@ -766,12 +766,6 @@ $('copy').addEventListener('click',function(){
 });
 
 /* ── 시작 ── */
-var SHARE_ENDPOINT=(window.SHARE_ENDPOINT||'');
-if(!SHARE_ENDPOINT){
-  // 공유 기능이 아직 연결되지 않았으면 그 탭을 숨긴다
-  var st=document.querySelector('.tab[data-t="share"]'); if(st)st.style.display='none';
-}
-
 if(!PROV[cfg.prov])cfg.prov='gemini';   /* 없어진 곳(upstage 등)을 쓰고 계셨다면 */
 $('prov').value=cfg.prov;
 if(cfg.model){

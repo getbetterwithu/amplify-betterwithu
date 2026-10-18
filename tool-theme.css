@@ -11,3 +11,6 @@ body.tool-page{--ink:#363838;--muted:#5c625f;--brand:#1eaa9d;--accent:#e8683a;--
 /* Unified navigation and four-tool directory */
 .tool-page .home{min-height:42px!important;margin-top:16px!important;padding:7px 15px!important;border:2px solid #363838!important;border-radius:11px!important;background:#ffe66d!important;color:#363838!important;font-weight:900!important;box-shadow:4px 4px 0 #1eaa9d!important;transform:rotate(-1deg)!important;transition:transform .16s,box-shadow .16s!important}.tool-page .home:hover{transform:translateY(-2px) rotate(0)!important;box-shadow:5px 6px 0 #1eaa9d!important;text-decoration:none!important}.tool-page .golinks .gg{grid-template-columns:repeat(2,minmax(0,1fr))!important}.tool-page .gcard:nth-child(3){background:#ffd1bd!important;transform:rotate(-.35deg)!important}.tool-page .gcard.home2{background:#fff!important;border:2px solid #363838!important;transform:rotate(.35deg)!important}
 @media(max-width:760px){.tool-page .golinks .gg{grid-template-columns:1fr!important}.tool-page .gcard:nth-child(3),.tool-page .gcard.home2{transform:none!important}}
+
+/* Orange controls use dark text for readable contrast. */
+.tool-page .b-go,.tool-page a.gobtn,.tool-page .gcard .ga{color:#2f241f!important}

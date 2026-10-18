@@ -3,7 +3,7 @@
 
   var STORE = 'bwu_ai_settings_v1';
   var LEGACY = 'dtg_conv_v3';
-  var defaults = { mode: 'share', provider: 'gemini', key: '', password: '', model: 'gemini-3.7-flash' };
+  var defaults = { mode: 'mine', provider: 'gemini', key: '', password: '', model: 'gemini-3.7-flash' };
 
   function read() {
     var value = Object.assign({}, defaults);
@@ -11,7 +11,7 @@
       var saved = JSON.parse(localStorage.getItem(STORE) || 'null');
       if (saved) return Object.assign(value, saved);
       var old = JSON.parse(localStorage.getItem(LEGACY) || 'null');
-      if (old) {
+      if (old && (!old.prov || old.prov === 'gemini')) {
         value.mode = old.mode || value.mode;
         value.provider = old.prov || value.provider;
         value.key = old.key || '';
@@ -25,6 +25,7 @@
 
   function save(value) {
     var clean = Object.assign({}, defaults, value || {});
+    clean.provider = 'gemini';
     try {
       localStorage.setItem(STORE, JSON.stringify(clean));
       localStorage.setItem(LEGACY, JSON.stringify({mode:clean.mode,prov:'gemini',key:clean.key,pass:clean.password,model:clean.model,endpoint:''}));
