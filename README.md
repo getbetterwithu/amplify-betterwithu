@@ -51,7 +51,7 @@ CL 학습자료는 별도 저장소에서 관리하며 `https://cl.betterwithu.k
 
 **1. Vercel에 레포 연결**
 
-[vercel.com/new](https://vercel.com/new) → GitHub 계정 연결 → `desmos-text-guide` Import
+[vercel.com/new](https://vercel.com/new) → GitHub 계정 연결 → `amplify-betterwithu` Import
 → 설정은 건드리지 말고 **Deploy**. (프레임워크 자동 감지 = Other 로 두면 됩니다.)
 
 **2. 환경변수 등록**
