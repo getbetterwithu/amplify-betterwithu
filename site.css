@@ -34,3 +34,18 @@ html,body{max-width:100%;overflow-x:hidden}
 .tool-group .tool-card:hover:before,.single-feature .feature-card:hover:before{transform:rotate(1deg) translateY(-2px)}
 @media(max-width:960px){.tool-group-head{min-height:0;margin-bottom:28px}}
 @media(prefers-reduced-motion:reduce){.tool-group .tool-card:hover,.single-feature .feature-card:hover{transform:none}}
+
+/* Hub structure while preserving the original workbook visual language */
+.hub-four-grid{grid-template-columns:repeat(4,minmax(0,1fr));gap:22px}
+.hub-four-grid .tool-card{min-width:0;min-height:300px;padding:26px 22px}
+.hub-four-grid .tool-card .badge{order:-1;align-self:flex-start;margin-bottom:5px}
+.hub-four-grid .tool-card.yellow{background:var(--yellow);transform:rotate(.5deg)}
+.hub-four-grid .status-ready{background:#fff;color:#166d63;border:2px solid #166d63}
+.hub-four-grid .status-key{background:var(--coral);color:#2f241f;border:2px solid var(--coral-dark);box-shadow:0 3px 0 var(--coral-dark)}
+.hub-four-grid .status-guide{background:var(--ink);color:#fff;border:2px solid var(--ink)}
+.hub-learn-card{min-height:270px;padding-right:38px}
+.hub-settings-link{display:flex;align-items:center;justify-content:space-between;gap:24px;margin-top:24px;padding:16px 20px;border:2px solid var(--ink);border-radius:13px;background:#fff;color:var(--ink);text-decoration:none;box-shadow:4px 4px 0 var(--yellow)}
+.hub-settings-link:hover{transform:translateY(-2px);box-shadow:4px 6px 0 var(--teal-soft)}
+.hub-settings-link>span{display:flex;align-items:baseline;gap:14px}.hub-settings-link strong{font-family:Jua,sans-serif;font-size:20px;font-weight:400}.hub-settings-link small{color:var(--muted);font-size:13px}.hub-settings-link>span:last-child{flex:none;font-weight:900}.hub-settings-link .icon{width:18px;height:18px;vertical-align:-4px}
+@media(max-width:1080px){.hub-four-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:620px){.hub-four-grid{grid-template-columns:1fr}.hub-four-grid .tool-card{min-height:255px}.hub-learn-card{padding-right:24px}.hub-settings-link,.hub-settings-link>span{align-items:flex-start;flex-direction:column}.hub-settings-link{gap:12px}.hub-settings-link>span{gap:3px}}

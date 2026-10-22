@@ -15,7 +15,7 @@
   </header>
   <main id="main" class="panel settings-panel">
     <a class="back-link" href="index.html#tools"><span aria-hidden="true">←</span> 수업 제작 도구</a>
-    <div class="page-title"><p class="eyebrow">ONE SETTING · TWO AI TOOLS</p><h1>AI 사용 설정</h1><p>본인의 Gemini API 키 사용을 권장합니다. 연수 중 잠깐 체험할 때만 전달받은 공유 암호를 사용하세요.</p></div>
+    <div class="page-title"><p class="eyebrow">AI CONNECTION SETTINGS</p><h1>AI 사용 설정</h1><p>본인의 Gemini API 키 사용을 권장합니다. 연수 중 잠깐 체험할 때만 전달받은 공유 암호를 사용하세요.</p></div>
 
     <section class="box setting-box" aria-labelledby="method-title">
       <h2 id="method-title">사용 방법을 선택하세요</h2>
@@ -46,7 +46,7 @@
     function message(text,error){$('status').hidden=false;$('status').className='status'+(error?' error':'');$('status').textContent=text}
     $('password').value=cfg.password||'';$('apiKey').value=cfg.key||'';$('model').value=cfg.model||'gemini-3.7-flash';select(cfg.mode||'mine');
     $('shareTab').onclick=function(){select('share')};$('mineTab').onclick=function(){select('mine')};
-    $('save').onclick=function(){cfg.password=$('password').value.trim();cfg.key=$('apiKey').value.trim();cfg.model=$('model').value.trim()||'gemini-3.7-flash';if(cfg.mode==='share'&&!cfg.password){message('공유 암호를 입력해 주세요.',true);return}if(cfg.mode==='mine'&&!cfg.key){message('Gemini API 키를 입력해 주세요.',true);return}BWUAI.save(cfg);message('저장했습니다. 두 AI 도구에서 이 설정을 함께 사용합니다.')};
+    $('save').onclick=function(){cfg.password=$('password').value.trim();cfg.key=$('apiKey').value.trim();cfg.model=$('model').value.trim()||'gemini-3.7-flash';if(cfg.mode==='share'&&!cfg.password){message('공유 암호를 입력해 주세요.',true);return}if(cfg.mode==='mine'&&!cfg.key){message('Gemini API 키를 입력해 주세요.',true);return}BWUAI.save(cfg);message('저장했습니다. AI 수식 변환에서 이 설정을 사용합니다.')};
     $('clear').onclick=function(){BWUAI.clear();cfg=BWUAI.read();$('password').value='';$('apiKey').value='';$('model').value=cfg.model;select('mine');message('이 브라우저에 저장된 AI 설정을 지웠습니다.')};
   })();
   </script>
