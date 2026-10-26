@@ -15,7 +15,7 @@
 | `interpret.html` | CL 해석 스킬 소개·설치 안내(다운로드는 준비 중) |
 | `text.html` | 글자 꾸미기 (크기·색·굵게) |
 | `math.html` | 수식 입력 (명령어 25개 + 복사용 기호 23개, 입력 칸을 누르면 복사, AI 수식 스킬 안내) |
-| `skill/amplify-math/` | Claude·GPT·Gemini용 Amplify 수식 스킬 (`SKILL.md`, `references/rules.md`, `instructions.md`). 규칙을 고치면 `skill/amplify-math.zip`도 다시 만듭니다 |
+| `skill/amplify-math/` | Claude·GPT·Gemini용 Amplify 수식 스킬 (`SKILL.md`, `references/rules.md`, `instructions.md`). 규칙을 고치면 `skill/amplify-math.zip`도 다시 만듭니다. Codex CLI·Gemini CLI는 GitHub 주소로 직접 설치 가능(명령은 `math.html`에 있음) |
 | `convert.html` | 수식 변환 (교과서 사진 → Amplify 수식) |
 | `privacy.html` | 개인정보 및 AI 데이터 처리 안내 |
 | `terms.html` | 이용 안내·저작권·비제휴 고지 |

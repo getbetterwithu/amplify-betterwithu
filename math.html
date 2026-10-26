@@ -262,6 +262,15 @@ code.cp.done::after{content:"복사됨";color:#fff}
     <ol><li>Gem 만들기에서 지침 칸에 <b>지침문</b>을 붙여넣습니다.</li><li>지식 파일에 <b>rules.md</b>를 추가합니다.</li><li>그 Gem에서 수식을 요청합니다.</li></ol>
     <p><button class="aibtn" data-fetch="skill/amplify-math/instructions.md">지침문 복사</button></p></div>
 </div>
+<details class="aibox" style="margin:10px 0">
+<summary style="cursor:pointer;font-weight:700">터미널(명령줄) 버전을 쓰신다면: GitHub 주소로 바로 설치</summary>
+<p>Codex CLI와 Gemini CLI는 GitHub 주소로 스킬을 설치할 수 있습니다. 웹·앱 버전에는 해당하지 않습니다. 아래 명령을 누르면 복사됩니다.</p>
+<p><b>Codex CLI</b> — Codex 안에서 입력하고, 설치 뒤 Codex를 다시 시작합니다.</p>
+<p><code data-copy>$skill-installer install https://github.com/getbetterwithu/amplify-betterwithu/tree/main/skill/amplify-math</code></p>
+<p><b>Gemini CLI</b> — 터미널에서 입력하고, 설치 뒤 Gemini 안에서 <code>/skills list</code>로 확인합니다.</p>
+<p><code data-copy>gemini skills install https://github.com/getbetterwithu/amplify-betterwithu.git --path skill/amplify-math</code></p>
+<p class="note">각 도구 공식 문서 기준이며 제품이 바뀌면 명령이 달라질 수 있습니다. 스킬은 AI의 권한으로 실행되므로, 이 저장소의 파일 내용을 먼저 확인하셔도 좋습니다.</p>
+</details>
 <p class="note"><b>설치 없이 한 번만 쓰려면</b> 새 대화 첫머리에 지침문을 붙여넣고 rules.md를 첨부(또는 내용을 붙여넣기)하세요. 메뉴 이름은 각 서비스가 바꿀 수 있습니다.</p>
 <p class="note">AI의 결과는 틀릴 수 있습니다. 이 규칙은 2026-10-26 Amplify 편집기 시험 결과이며 전수 검사가 아니고, 학생 화면은 확인하지 않았습니다. 수업에 쓰기 전에 Amplify 미리보기에서 확인해 주세요.</p>
 </div>
