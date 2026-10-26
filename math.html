@@ -164,6 +164,20 @@ code.cp.done::after{content:"복사됨";color:#fff}
 .aibox ol{margin:6px 0 0;padding-left:19px;font-size:10pt;line-height:1.6}
 .aibtn{font-family:inherit;font-size:10pt;font-weight:700;background:#eef1f6;color:#39435c;border:1.5px solid #e3e7ee;border-radius:9px;padding:8px 14px;cursor:pointer}
 .aibtn:hover{border-color:var(--brand);background:#f6f9fd}
+/* 알림장 카드: 위 규칙표와 성격이 다른 별도 안내 */
+body .aisec{position:relative;margin:56px 0 12px;padding:36px 28px 22px 54px;
+  background:#fff8c9 repeating-linear-gradient(transparent 0 31px,rgba(30,170,157,.16) 31px 32px);
+  border:2px solid #363838;border-radius:6px;box-shadow:7px 7px 0 #1eaa9d;transform:rotate(-.35deg)}
+body .aisec:before{content:"";position:absolute;top:-15px;left:44px;width:92px;height:27px;
+  background:rgba(255,138,92,.6);border:1px solid rgba(0,0,0,.06);transform:rotate(-3deg)}
+body .aisec:after{content:"";position:absolute;left:36px;top:0;bottom:0;width:2px;background:#ff9b86}
+.aitag{display:inline-block;background:#363838;color:#ffe66d;font-size:9.5pt;font-weight:800;
+  letter-spacing:.08em;padding:3px 13px;border-radius:999px}
+body .aisec h2{margin:10px 0 10px;padding:0;border:0;font-size:16pt}
+body .aisec .aibox{background:#fff;border:2px solid #363838;border-radius:10px}
+body .aisec .note{color:#4d5551}
+@media(max-width:760px){body .aisec{padding:34px 16px 18px 34px;transform:none;box-shadow:5px 5px 0 #1eaa9d}
+  body .aisec:after{left:20px} body .aisec:before{left:28px}}
 @media print{.aisec{display:none}}
 </style><link rel="stylesheet" href="tool-theme.css"></head><body class="tool-page">
 
@@ -241,7 +255,8 @@ code.cp.done::after{content:"복사됨";color:#fff}
 </tbody></table></div>
 
 <div class="aisec">
-<h2 class="c q" style="margin-top:34px">AI에게 수식을 맡기고 싶다면: Amplify 수식 스킬</h2>
+<span class="aitag">알림장 · AI 수식 스킬</span>
+<h2>AI에게 수식을 맡기고 싶다면: Amplify 수식 스킬</h2>
 <p class="note" style="margin-top:0">위 규칙을 AI가 미리 알고 있게 하는 파일입니다. 교과서 수식을 Amplify용으로 옮기거나, 쓴 수식이 Amplify에서 그려질지 검수할 때 씁니다. <b>Claude, GPT, Gemini 어느 쪽에서든</b> 쓸 수 있습니다.</p>
 <div class="kbtns">
   <a class="kbtn" href="skill/amplify-math.zip" download>⬇ Claude용 스킬(zip)</a>
