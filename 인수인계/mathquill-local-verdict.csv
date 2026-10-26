@@ -1,0 +1,73 @@
+command,in_registry,local_latex_render,prompt_action,notes
+overline,see registry,ok,allow,\overline{\mathrm{AB}}
+underline,see registry,ok,allow,\underline{\mathrm{CD}}
+overleftrightarrow,see registry,ok,allow,\overleftrightarrow{\mathrm{PQ}}
+overarc,see registry,ok,allow,\overarc{\mathrm{AB}}
+triangle,see registry,ok,allow,\triangle\mathrm{ABC}
+angle,see registry,ok,allow,\angle\mathrm{A}
+degree,see registry,ok,allow,40\degree
+perp,see registry,ok,allow,\perp
+parallelogram,see registry,ok,allow,\parallelogram
+bigcirc,see registry,ok,allow,\bigcirc
+mathrm,see registry,ok,allow,\mathrm{ABC}
+mathbf,see registry,ok,allow,\mathbf{A}
+textcolor,see registry,ok,allow,\textcolor{red}{A}
+frac,see registry,ok,allow,\frac{1}{2}
+sqrt,see registry,ok,allow,\sqrt{2}
+sqrt3,see registry,ok,allow,\sqrt[3]{8}
+neq,see registry,ok,allow,\ne
+leq,see registry,ok,allow,\le
+geq,see registry,ok,allow,\ge
+times_div,see registry,ok,allow,\times\div
+infty,see registry,ok,allow,\infty
+to,see registry,ok,allow,\to
+pm_mp,see registry,ok,allow,\pm\mp
+cdot,see registry,ok,allow,\cdot
+cbrt,see registry,empty,use \sqrt[3]{},
+lim,see registry,renders,OK locally; confirm on Amplify,\lim
+lim_sub,see registry,renders,review,\lim_{x\to0}
+dfrac,see registry,alias→frac,use \frac,\frac{1}{2}
+cfrac,see registry,alias→frac,use \frac,\frac{1}{2}
+therefore,see registry,not-rendered,unicode∴,
+because,see registry,not-rendered,unicode∵,
+equiv,see registry,not-rendered,unicode≡,
+sim,see registry,renders,unicode∽,\sim
+backsim,see registry,not-rendered,forbid,
+parallel,see registry,renders,unicode⫽,\parallel
+Rightarrow,see registry,not-rendered,unicode⇒,
+Leftrightarrow,see registry,not-rendered,unicode⇔,
+ldots,see registry,not-rendered,unicode… outside or …,
+cdots,see registry,not-rendered,forbid/unicode,
+propto,see registry,not-rendered,unicode∝,
+bot,see registry,not-rendered,forbid,
+text,see registry,not-rendered,forbid,
+underbrace,see registry,not-rendered,forbid,
+quad,see registry,not-rendered,use \ ,
+cong,see registry,renders,review,\cong
+nsim,see registry,renders,review,\nsim
+mathbb,see registry,not-rendered,forbid,
+overbrace,see registry,not-rendered,forbid,
+leftarrow,see registry,not-rendered,forbid,
+implies,see registry,not-rendered,unicode⇒,
+unicode_sim,see registry,unicode-ok,allow,∽
+unicode_equiv,see registry,unicode-ok,allow,≡
+unicode_parallel,see registry,unicode-ok,allow,⫽
+unicode_therefore,see registry,unicode-ok,allow,∴
+unicode_because,see registry,unicode-ok,allow,∵
+unicode_implies,see registry,unicode-ok,allow,⇒
+sum,see registry,ok,allow,\sum_{k=1}^{n}k
+int,see registry,ok,allow,\int_{0}^{1}x
+binom,see registry,ok,allow,\binom{n}{k}
+nthroot,see registry,ok,allow,\sqrt[3]{8}
+vec,see registry,ok,allow,\vec{a}
+hat,see registry,ok,allow,\hat{a}
+left_right,see registry,ok,allow,\left(\frac{1}{2}\right)
+sin,see registry,ok,allow,\sin x
+log,see registry,ok,allow,\log_{10}x
+space_cmd,see registry,ok,allow,a\ b
+percent,see registry,ok,allow,\%\operatorname{of}
+square,see registry,ok,allow,\square
+measuredangle,see registry,ok,allow,\measuredangle
+forall,see registry,ok,allow,\forall
+prod,see registry,ok,allow,\prod_{i=1}^{n}i
+overline_nested,see registry,ok,allow,\mathbf{\overline{\mathrm{AB}}}
