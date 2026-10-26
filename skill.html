@@ -46,7 +46,7 @@
       <ol>
         <li><b>먼저 체험해 보고 싶다</b> → <a href="convert.html">AI 수식 변환 · 웹에서 먼저 해보기</a>에서 교과서 사진을 바꿔 보고, 마음에 들면 아래 방법으로 내 AI에 설치하세요.</li>
         <li><b>AI를 대화창으로만 써 봤다</b> → 아래 <b>① 처음이라면</b>. 코딩 지식 없이 화면만 따라 하면 됩니다.</li>
-        <li><b>Claude Code, Codex, Gemini CLI 같은 코딩 에이전트를 쓴다</b> → <b>② 경험자</b>. 에이전트에게 설치를 시키면 됩니다.</li>
+        <li><b>Claude Code, Codex, Antigravity 같은 코딩 에이전트를 쓴다</b> → <b>② 경험자</b>. 에이전트에게 설치를 시키면 됩니다.</li>
         <li><b>설치가 막히거나 한 번만 쓰고 싶다</b> → <b>③ 설치 없이 붙여넣기</b>. 가장 확실합니다.</li>
       </ol>
     </section>
@@ -73,21 +73,27 @@
 
     <section class="guide-step" id="expert" aria-labelledby="e-title">
       <h2 id="e-title"><span class="guide-num" aria-hidden="true">②</span>바이브코딩을 해 보셨다면 — 코딩 에이전트로 설치</h2>
-      <p class="guide-goal">Claude Code, Codex, Gemini CLI처럼 터미널에서 파일을 만들고 명령을 실행하는 에이전트가 이미 있다면, <b>GitHub 주소를 주고 설치를 시키는 것</b>이 가장 쉽습니다.</p>
+      <p class="guide-goal">Claude Code, Codex, Antigravity처럼 터미널에서 파일을 만들고 명령을 실행하는 에이전트가 이미 있다면, <b>GitHub 주소를 주고 설치를 시키는 것</b>이 가장 쉽습니다.</p>
       <ol class="guide-steps">
         <li><b>아래 문장을 복사해 에이전트에 붙여넣습니다.</b>
-          <pre class="gs-pre" id="t-agent">이 GitHub 저장소의 skill/amplify-math 폴더를 내 스킬 폴더에 설치해 줘: https://github.com/getbetterwithu/amplify-betterwithu/tree/main/skill/amplify-math</pre>
+          <pre class="gs-pre" id="t-agent">이 GitHub 저장소의 스킬(skills/amplify-math 폴더)을 내 스킬 폴더에 설치해 줘: https://github.com/getbetterwithu/amplify-math</pre>
           <button class="gs-btn" type="button" data-copy-id="t-agent">문장 복사</button>
           <small>에이전트가 폴더를 받아 자기 스킬 폴더에 넣습니다. 설치 뒤 에이전트를 다시 시작하라고 하면 따르세요.</small></li>
-        <li><b>직접 명령으로 설치하려면</b> 아래를 쓰세요. 각 도구 공식 문서 기준이며, 제품이 바뀌면 명령이 달라질 수 있습니다.
-          <p style="margin:10px 0 2px"><b>Codex CLI</b> — Codex 안에서 입력하고, 설치 뒤 다시 시작합니다.</p>
-          <pre class="gs-pre" id="t-codex">$skill-installer install https://github.com/getbetterwithu/amplify-betterwithu/tree/main/skill/amplify-math</pre>
-          <button class="gs-btn" type="button" data-copy-id="t-codex">복사</button>
-          <p style="margin:12px 0 2px"><b>Gemini CLI</b> — 터미널에서 입력하고, 설치 뒤 Gemini 안에서 <code>/skills list</code>로 확인합니다.</p>
-          <pre class="gs-pre" id="t-gcli">gemini skills install https://github.com/getbetterwithu/amplify-betterwithu.git --path skill/amplify-math</pre>
-          <button class="gs-btn" type="button" data-copy-id="t-gcli">복사</button>
-          <p style="margin:12px 0 2px"><b>Claude Code</b> — <a href="skill/amplify-math.zip" download>zip</a>을 풀어 <code>amplify-math</code> 폴더를 내 스킬 폴더(<code>~/.claude/skills/</code>)에 넣습니다.</p></li>
-        <li>설치한 스킬은 에이전트의 권한으로 실행됩니다. 이 스킬은 규칙 문서와 지침만 들어 있고 내용은 <a href="https://github.com/getbetterwithu/amplify-betterwithu/tree/main/skill/amplify-math" target="_blank" rel="noopener noreferrer">GitHub ↗</a>에서 볼 수 있습니다.</li>
+        <li><b>직접 명령으로 설치하려면</b> 터미널에 아래를 한 줄씩 차례로 입력하세요. 설치 뒤 도구를 다시 시작합니다. 제품이 바뀌면 명령이 달라질 수 있습니다.
+          <p style="margin:10px 0 2px"><b>Claude Code</b></p>
+          <pre class="gs-pre" id="t-claude">claude plugin marketplace add getbetterwithu/amplify-math
+claude plugin install amplify-math@amplify-math</pre>
+          <button class="gs-btn" type="button" data-copy-id="t-claude">복사</button>
+          <p style="margin:12px 0 2px"><b>Antigravity</b> — 설치 결과에 <code>skills : 1 processed</code>가 보이면 됩니다.</p>
+          <pre class="gs-pre" id="t-agy">agy plugin install https://github.com/getbetterwithu/amplify-math
+agy plugin list</pre>
+          <button class="gs-btn" type="button" data-copy-id="t-agy">복사</button>
+          <p style="margin:12px 0 2px"><b>Codex CLI</b> — <code>codex plugin list</code>에서 <code>installed, enabled</code>로 보이면 됩니다.</p>
+          <pre class="gs-pre" id="t-codex">codex plugin marketplace add getbetterwithu/amplify-math
+codex plugin add amplify-math@amplify-math
+codex plugin list</pre>
+          <button class="gs-btn" type="button" data-copy-id="t-codex">복사</button></li>
+        <li>설치한 스킬은 에이전트의 권한으로 실행됩니다. 이 스킬은 규칙 문서와 지침만 들어 있고 내용은 <a href="https://github.com/getbetterwithu/amplify-math" target="_blank" rel="noopener noreferrer">GitHub ↗</a>에서 볼 수 있습니다.</li>
       </ol>
     </section>
 
@@ -108,8 +114,17 @@
         <a class="guide-btn" href="skill/amplify-math.zip" download>스킬 zip (Claude·ChatGPT·Gemini)</a>
         <a class="guide-btn plain" href="skill/amplify-math/references/rules.md" download>규칙 파일 rules.md</a>
         <a class="guide-btn plain" href="skill/amplify-math/instructions.md" download>지침문 instructions.md</a>
-        <a class="guide-btn plain" href="https://github.com/getbetterwithu/amplify-betterwithu/tree/main/skill/amplify-math" target="_blank" rel="noopener noreferrer">GitHub에서 보기 ↗</a>
+        <a class="guide-btn plain" href="https://github.com/getbetterwithu/amplify-math" target="_blank" rel="noopener noreferrer">GitHub에서 보기 ↗</a>
       </div>
+    </section>
+
+    <section class="guide-step" id="repos" aria-labelledby="r-title">
+      <h2 id="r-title"><span class="guide-num" aria-hidden="true">🔗</span>관련 공개 저장소</h2>
+      <table class="hubtbl"><thead><tr><th>저장소</th><th>내용</th></tr></thead><tbody>
+        <tr><td><a href="https://github.com/getbetterwithu/amplify-math" target="_blank" rel="noopener noreferrer">amplify-math ↗</a></td><td>Amplify 수식 스킬 (이 페이지의 스킬). 위 ② 명령으로 설치합니다.</td></tr>
+        <tr><td><a href="https://github.com/getbetterwithu/amplify-cl-interpreter" target="_blank" rel="noopener noreferrer">amplify-cl-interpreter ↗</a></td><td>CL 코드 해석 스킬. 같은 방식으로 설치합니다. 명령은 저장소 README를 보세요.</td></tr>
+        <tr><td><a href="https://github.com/getbetterwithu/amplify-betterwithu" target="_blank" rel="noopener noreferrer">amplify-betterwithu ↗</a></td><td>이 사이트의 소스입니다.</td></tr>
+      </tbody></table>
     </section>
 
     <section class="guide-step" id="status" aria-labelledby="s-title">
@@ -119,7 +134,7 @@
         <tr><td>ChatGPT 스킬</td><td class="no">무료 계정은 불가 (Plus 이상)</td><td>무료는 ③ 붙여넣기 사용</td></tr>
         <tr><td>Gemini 스킬</td><td class="ok">무료도 가능 (무료였던 Gems가 스킬로 바뀝니다)</td><td>zip을 풀어 폴더째 업로드</td></tr>
         <tr><td>붙여넣기</td><td class="ok">모든 AI에서 가능</td><td>방식상 설치가 필요 없음</td></tr>
-        <tr><td>Codex CLI · Gemini CLI</td><td class="no">자료마다 다름</td><td>터미널 사용자용</td></tr>
+        <tr><td>Claude Code · Antigravity · Codex CLI</td><td class="no">각 도구의 요금제에 따름</td><td>터미널 사용자용</td></tr>
       </tbody></table>
       <p class="guide-note">서비스 요금제와 메뉴는 바뀔 수 있습니다. AI의 결과는 틀릴 수 있으니 수업에 쓰기 전에 Amplify 미리보기에서 확인해 주세요.</p>
     </section>
