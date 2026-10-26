@@ -4,9 +4,9 @@
 .guide-summary{margin:22px 0 8px;padding:20px 24px;border:2px solid var(--ink);border-radius:16px;background:var(--yellow);box-shadow:5px 5px 0 var(--ink)}
 .guide-summary h2{margin:0 0 8px;font:400 24px/1.3 Jua,sans-serif}
 .guide-summary ol{margin:0;padding-left:22px}
-.guide-summary li{margin:4px 0;font-weight:700;color:#1E2A38}
+.guide-summary li{margin:4px 0;font-weight:700;color:#2f241f}
 .guide-warn{margin:22px 0;padding:20px 24px;border:2px dashed var(--teal);border-radius:16px;background:#fff}
-.guide-warn h2{margin:0 0 8px;font:400 22px/1.3 Jua,sans-serif;color:#4A5D23}
+.guide-warn h2{margin:0 0 8px;font:400 22px/1.3 Jua,sans-serif;color:#0f6f66}
 .guide-warn ul{margin:0;padding-left:20px}
 .guide-warn li{margin:6px 0}
 .guide-step{margin:36px 0 0;padding:26px 24px 28px;background:#fff;border:1px solid var(--line);border-radius:18px}
@@ -16,20 +16,20 @@
 .guide-steps{margin:0;padding:0;list-style:none;counter-reset:s}
 .guide-steps>li{position:relative;margin:0;padding:12px 0 12px 44px;border-top:1px dashed var(--line);counter-increment:s}
 .guide-steps>li:first-child{border-top:0}
-.guide-steps>li:before{content:counter(s);position:absolute;left:0;top:13px;display:grid;place-items:center;width:30px;height:30px;border-radius:50%;background:var(--peach);color:#1E2A38;font-weight:900}
+.guide-steps>li:before{content:counter(s);position:absolute;left:0;top:13px;display:grid;place-items:center;width:30px;height:30px;border-radius:50%;background:var(--peach);color:#2f241f;font-weight:900}
 .guide-steps b{font-weight:900}
 .guide-steps small,.guide-note{display:block;margin-top:4px;color:var(--muted);font-size:14.5px;line-height:1.6}
-.guide-kbd{display:inline-block;padding:0 7px;border:1px solid var(--line);border-bottom-width:2px;border-radius:6px;background:#FAF7F0;font:600 13px/1.7 "JetBrains Mono",monospace}
-.guide-btn{display:inline-flex;align-items:center;gap:8px;min-height:48px;margin:8px 10px 4px 0;padding:10px 20px;border:2px solid var(--ink);border-radius:13px;background:var(--coral);color:#1E2A38;font-weight:900;text-decoration:none;box-shadow:4px 4px 0 var(--ink)}
+.guide-kbd{display:inline-block;padding:0 7px;border:1px solid var(--line);border-bottom-width:2px;border-radius:6px;background:#faf7ee;font:600 13px/1.7 "JetBrains Mono",monospace}
+.guide-btn{display:inline-flex;align-items:center;gap:8px;min-height:48px;margin:8px 10px 4px 0;padding:10px 20px;border:2px solid var(--ink);border-radius:13px;background:var(--coral);color:#2f241f;font-weight:900;text-decoration:none;box-shadow:4px 4px 0 var(--ink)}
 .guide-btn.plain{background:#fff}
 .guide-btn:hover{transform:translate(-1px,-1px)}
-.guide-fig{margin:14px 0 4px;padding:10px;border:1px solid var(--line);border-radius:14px;background:#EEF1E3}
-.guide-image-open{display:block;width:100%;padding:0;border:0;border-radius:9px;background:#1E2A38;cursor:zoom-in;overflow:hidden}
-.guide-fig img{display:block;width:100%;height:auto;border-radius:9px;background:#1E2A38}
+.guide-fig{margin:14px 0 4px;padding:10px;border:1px solid var(--line);border-radius:14px;background:#f6f3ea}
+.guide-image-open{display:block;width:100%;padding:0;border:0;border-radius:9px;background:#1b1b1b;cursor:zoom-in;overflow:hidden}
+.guide-fig img{display:block;width:100%;height:auto;border-radius:9px;background:#1b1b1b}
 .guide-fig figcaption{margin:8px 4px 2px;color:var(--muted);font-size:14.5px;line-height:1.6}
 .guide-image-open:focus-visible{outline:4px solid var(--coral);outline-offset:3px}
 .guide-lightbox[hidden]{display:none}
-.guide-lightbox{position:fixed;z-index:1000;inset:0;display:grid;place-items:center;padding:64px 24px 24px;background:rgba(30,42,56,.88);cursor:zoom-out}
+.guide-lightbox{position:fixed;z-index:1000;inset:0;display:grid;place-items:center;padding:64px 24px 24px;background:rgba(18,25,23,.88);cursor:zoom-out}
 .guide-lightbox img{display:block;max-width:min(1400px,96vw);max-height:calc(100vh - 88px);width:auto;height:auto;border-radius:12px;box-shadow:0 18px 60px rgba(0,0,0,.45);cursor:zoom-out}
 .guide-lightbox-close{position:fixed;top:16px;right:20px;display:grid;place-items:center;width:46px;height:46px;border:2px solid #fff;border-radius:50%;background:var(--board);color:#fff;font:700 30px/1 sans-serif;cursor:pointer}
 .guide-lightbox-close:focus-visible{outline:4px solid var(--yellow);outline-offset:3px}

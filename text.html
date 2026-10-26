@@ -7,37 +7,37 @@
 <style>
   @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700;900&display=swap');
   * { box-sizing:border-box; }
-  body { font-family:'Noto Sans KR',sans-serif; background:#EEF1E3; color:#222; line-height:1.65; padding:30px 0 90px; margin:0 auto;}
+  body { font-family:'Noto Sans KR',sans-serif; background:#eef1f4; color:#222; line-height:1.65; padding:30px 0 90px; margin:0 auto;}
   .wrap { width:100%; max-width:1180px; margin:0 auto; padding:0 30px; }
 
-  header.h { background:linear-gradient(120deg,#3a4a1b,#4A5D23); color:#fff; border-radius:16px; padding:26px 32px; margin-bottom:18px;}
+  header.h { background:linear-gradient(120deg,#1f6f54,#2e9e76); color:#fff; border-radius:16px; padding:26px 32px; margin-bottom:18px;}
   header.h h1 { font-size:24px; font-weight:900; margin:0 0 6px;}
   header.h p { font-size:14.5px; opacity:.96; margin:0;}
 
   .intro { background:#fff; border-radius:13px; padding:18px 22px; margin-bottom:24px; box-shadow:0 2px 8px rgba(0,0,0,.05); font-size:14.5px;}
-  .intro b { color:#4A5D23;}
-  .intro .key { background:#F6EFDD; border-left:4px solid #C9A66B; padding:11px 15px; border-radius:0 8px 8px 0; margin-top:12px; font-size:14px;}
+  .intro b { color:#1f6f54;}
+  .intro .key { background:#fff8e1; border-left:4px solid #ffb300; padding:11px 15px; border-radius:0 8px 8px 0; margin-top:12px; font-size:14px;}
   .step { display:flex; gap:10px; margin-top:10px; align-items:flex-start;}
-  .step .num { background:#4A5D23; color:#fff; font-weight:900; width:24px; height:24px; border-radius:50%; display:flex; align-items:center; justify-content:center; font-size:13px; flex-shrink:0; margin-top:1px;}
+  .step .num { background:#2e9e76; color:#fff; font-weight:900; width:24px; height:24px; border-radius:50%; display:flex; align-items:center; justify-content:center; font-size:13px; flex-shrink:0; margin-top:1px;}
   .step .txt { flex:1; }
 
-  h2.sec { font-size:18px; color:#4A5D23; margin:30px 0 8px; padding-bottom:6px; border-bottom:2px solid #D8E2C4;}
+  h2.sec { font-size:18px; color:#1f6f54; margin:30px 0 8px; padding-bottom:6px; border-bottom:2px solid #cfe3d8;}
   .sec-desc { font-size:13.5px; color:#666; margin:0 0 14px;}
 
   /* 복사 카드 — 이 안의 글자를 드래그 복사 */
-  .grab-card { background:#fff; border:2px solid #D8E2C4; border-radius:12px; margin-bottom:14px; overflow:hidden; box-shadow:0 2px 10px rgba(0,0,0,.05);}
-  .grab-card .gh { background:#D8E2C4; padding:7px 16px; font-size:12px; font-weight:700; color:#4A5D23;}
+  .grab-card { background:#fff; border:2px solid #b8e0c8; border-radius:12px; margin-bottom:14px; overflow:hidden; box-shadow:0 2px 10px rgba(0,0,0,.05);}
+  .grab-card .gh { background:#e8f5e9; padding:7px 16px; font-size:12px; font-weight:700; color:#2e7d32;}
   .grab-card .gbody { padding:18px 20px; }
   /* 실제 Amplify에 들어갈 모습 = 여기 그대로 렌더 (드래그 복사 대상) */
   .grab-card .gbody .p-h1 { font-size:30px; font-weight:700; margin:0;}
   .grab-card .gbody .p-h2 { font-size:25px; font-weight:700; margin:0;}
   .grab-card .gbody .p-normal { font-size:17px; margin:0;}
   .green{color:green;} .orange{color:orange;} .pink{color:deeppink;} .blue{color:blue;} .red{color:red;}
-  .grab-card .note { background:#FAF7F0; border-top:1px dashed #D8E2C4; padding:7px 16px; font-size:12px; color:#888;}
+  .grab-card .note { background:#fafdfb; border-top:1px dashed #d8e8de; padding:7px 16px; font-size:12px; color:#888;}
 
   /* 색상 팔레트 */
   .palette { display:grid; grid-template-columns:1fr 1fr; gap:10px; }
-  .pal { background:#fff; border:2px solid #D8E2C4; border-radius:10px; overflow:hidden; display:flex; align-items:stretch;}
+  .pal { background:#fff; border:2px solid #e0e4e8; border-radius:10px; overflow:hidden; display:flex; align-items:stretch;}
   .pal .ph { color:#fff; font-size:13px; font-weight:700; padding:0 14px; display:flex; align-items:center; min-width:74px; justify-content:center;}
   .pal .pb { padding:12px 14px; flex:1; display:flex; align-items:center;}
   @media(max-width:620px){
@@ -49,12 +49,12 @@
     .intro,.grab-card,.tipbox,.warn{overflow-wrap:anywhere;word-break:normal;}
   }
 
-  .tipbox { background:#D8E2C4; border-radius:10px; padding:16px 20px; font-size:14px; margin-top:18px;}
-  .tipbox b{color:#4A5D23;}
+  .tipbox { background:#e8f5e9; border-radius:10px; padding:16px 20px; font-size:14px; margin-top:18px;}
+  .tipbox b{color:#2e7d32;}
   .warn { background:#ffebee; border-radius:10px; padding:14px 18px; font-size:13.5px; margin-top:12px; color:#b71c1c;}
   .warn b{color:#8b0000;}
   a.xlink { display:flex; align-items:center; gap:15px; text-decoration:none;
-  background:linear-gradient(120deg,#3a4a1b,#4A5D23); color:#fff;
+  background:linear-gradient(120deg,#123c6b,#1e5fa8); color:#fff;
   border:none; border-radius:14px; padding:17px 22px; margin:0 0 20px;
   box-shadow:0 4px 14px rgba(18,60,107,.30); transition:.18s; }
 a.xlink:hover { box-shadow:0 7px 22px rgba(18,60,107,.45); transform:translateY(-2px); }
@@ -64,36 +64,36 @@ a.xlink:hover { box-shadow:0 7px 22px rgba(18,60,107,.45); transform:translateY(
 .xt { flex:1; font-size:15.5px; font-weight:600; line-height:1.45; }
 .xt b { font-weight:800; }
 .xt em { display:block; font-style:normal; font-size:12.5px; opacity:.82; font-weight:400; margin-top:2px; }
-.xa { flex:none; background:#C9A66B; color:#3a4a1b; font-size:13.5px; font-weight:800;
+.xa { flex:none; background:#ffd54a; color:#123c6b; font-size:13.5px; font-weight:800;
   padding:9px 16px; border-radius:9px; white-space:nowrap; }
-.ftr { text-align:center; margin:40px 0 10px; padding-top:22px; border-top:2px solid #D8E2C4; }
-.ftr .fwho { font-size:15px; color:#1E2A38; letter-spacing:-.2px; }
+.ftr { text-align:center; margin:40px 0 10px; padding-top:22px; border-top:2px solid #dbe2e6; }
+.ftr .fwho { font-size:15px; color:#37474f; letter-spacing:-.2px; }
 .ftr .fwho b { font-weight:800; margin-left:2px; }
-.ftr .fyear { color:#8a93a0; font-weight:600; margin-right:5px; }
+.ftr .fyear { color:#9aa7b0; font-weight:600; margin-right:5px; }
 .ftr .fbox { margin:14px auto 0; max-width:480px; padding:11px 18px; background:#fff;
-  border:1px solid #D8E2C4; border-radius:9px; font-size:13px; color:#8a93a0; line-height:1.6; }
-.home{display:inline-block;margin-top:12px;font-size:10pt;color:#4A5D23;text-decoration:none;font-weight:600;border:0}
+  border:1px solid #dde4e8; border-radius:9px; font-size:13px; color:#78909c; line-height:1.6; }
+.home{display:inline-block;margin-top:12px;font-size:10pt;color:#0f4c81;text-decoration:none;font-weight:600;border:0}
 .home:hover{text-decoration:underline}
 
 .kbtns{display:flex;gap:8px;flex-wrap:wrap;margin-top:10px}
 .kbtn{display:inline-flex;align-items:center;gap:7px;padding:9px 15px;border-radius:9px;
-  text-decoration:none;font-size:10pt;font-weight:700;border:1.5px solid #D8E2C4;
-  background:#fff;color:#2d3a4a;transition:.14s}
-.kbtn:hover{border-color:#4A5D23;background:#EEF1E3;transform:translateY(-1px)}
-.golinks{margin:44px 0 0;padding-top:26px;border-top:1px solid #D8E2C4}
-.golinks .gt{font-size:10.4pt;font-weight:700;color:#4d5866;margin-bottom:12px}
+  text-decoration:none;font-size:10pt;font-weight:700;border:1.5px solid #e3e7ee;
+  background:#fff;color:#39435c;transition:.14s}
+.kbtn:hover{border-color:#0f4c81;background:#f6f9fd;transform:translateY(-1px)}
+.golinks{margin:44px 0 0;padding-top:26px;border-top:1px solid #e3e7ee}
+.golinks .gt{font-size:10.4pt;font-weight:700;color:#5f6b7f;margin-bottom:12px}
 .golinks .gg{display:grid;grid-template-columns:repeat(3,1fr);gap:11px}
 @media(max-width:760px){.golinks .gg{grid-template-columns:1fr}}
-.gcard{display:flex;align-items:center;gap:12px;padding:15px 17px;border:1.6px solid #D8E2C4;
+.gcard{display:flex;align-items:center;gap:12px;padding:15px 17px;border:1.6px solid #e3e7ee;
   border-radius:12px;text-decoration:none;color:inherit;background:#fff;transition:.15s}
-.gcard:hover{border-color:#4A5D23;background:#EEF1E3;transform:translateY(-2px);
+.gcard:hover{border-color:#0f4c81;background:#f6f9fd;transform:translateY(-2px);
   box-shadow:0 5px 15px rgba(15,76,129,.10)}
 .gcard .gi{font-size:20pt;line-height:1;flex:none}
 .gcard .gx{flex:1;display:flex;flex-direction:column;gap:3px;min-width:0}
 .gcard .gx b{font-size:11.4pt;letter-spacing:-.02em}
-.gcard .gx em{font-style:normal;font-size:9.3pt;color:#4d5866;line-height:1.5}
-.gcard .ga{color:#4A5D23;font-weight:800;font-size:12pt;flex:none}
-.gcard.home2{background:#EEF1E3}
+.gcard .gx em{font-style:normal;font-size:9.3pt;color:#5f6b7f;line-height:1.5}
+.gcard .ga{color:#0f4c81;font-weight:800;font-size:12pt;flex:none}
+.gcard.home2{background:#f6f8fb}
 @media print{.golinks{display:none}}
 </style>
 <link rel="stylesheet" href="tool-theme.css">
