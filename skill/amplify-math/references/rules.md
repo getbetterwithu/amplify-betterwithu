@@ -59,11 +59,14 @@ Amplify Classroom(Desmos)의 메모·수식 답변·CL에 들어갈 수학 수�
 | 세제곱근 | `\cbrt{8}` | `\sqrt[3]{8}` |
 | 분수 | `1\over 2` | `\frac{1}{2}` |
 | 조합 | `n\choose k` | `\binom{n}{k}` |
-| 평행 | `\|` `\mathbin{//}` (수식이 통째로 빈칸) | `⫽` |
-| 간격 | `\quad` | `\ ` |
+| 평행 | `\|` `\Vert` `\vert\vert` `\sslash` `\mathbin{//}` `\text{//}` (수식이 통째로 빈칸) | `⫽` |
+| 간격 | `\quad` `\;` `\:` `\!` (`\;` `\:` `\!`는 수식이 통째로 빈칸) | `\ ` (`\!`는 그냥 뺍니다) |
+| 서식 래퍼 | `\mathbin{}` `\mathrel{}` (수식이 통째로 빈칸) | 안의 내용만 씁니다 |
 | 말줄임 | `\ldots` `\cdots` | `…`를 백틱 밖에 |
 | 글자 | `\text{AB}` | 한글·설명은 백틱 밖, 꼭짓점은 `\mathrm{AB}` |
 | 그 밖 | `\underbrace` `\overbrace` `\mathbb` `\propto` `\bot` `\leftarrow` `\backsim` | 쓰지 않음 (`∝`은 유니코드로 가능) |
+
+위 표의 "수식이 통째로 빈칸" 항목 중 평행·간격·서식 래퍼는 이 사이트의 미리보기 엔진(MathQuill)에서 시험한 결과이고, Amplify 본 화면에서 하나씩 다시 시험하지는 않았습니다. 같은 계열 엔진이므로 같은 결과일 가능성이 높습니다.
 
 `\dfrac`와 `\cfrac`는 그려지지만 `\frac`과 같으므로 `\frac`만 씁니다.
 
