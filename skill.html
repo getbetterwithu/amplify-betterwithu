@@ -1,0 +1,151 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="description" content="Amplify 수식 스킬을 Claude, ChatGPT, Gemini에 설치하는 방법을 처음 하는 분과 코딩 에이전트를 쓰는 분으로 나누어 안내합니다.">
+  <title>Amplify 수식 스킬 설치 안내 | BetterWithU</title>
+  <link rel="stylesheet" href="site.css">
+  <link rel="stylesheet" href="guide.css">
+  <style>
+    .gs-pre{white-space:pre-wrap;word-break:break-word;background:#fffdf6;border:1.5px dashed #b9b3a0;border-radius:10px;padding:12px 14px;font-size:14px;line-height:1.65;margin:8px 0 10px;max-height:260px;overflow:auto}
+    .gs-btn{font:inherit;font-weight:800;font-size:14px;background:#ffe66d;color:#2f241f;border:2px solid #363838;border-radius:999px;padding:7px 16px;cursor:pointer;box-shadow:3px 3px 0 #1eaa9d}
+    .gs-btn:hover{transform:translateY(-1px)}
+    .gs-toast{position:fixed;left:50%;bottom:26px;transform:translateX(-50%);background:#12151b;color:#fff;font-size:14px;font-weight:700;padding:9px 18px;border-radius:999px;opacity:0;pointer-events:none;transition:.18s;z-index:60}
+    .gs-toast.on{opacity:.95}
+    .gs-tag{display:inline-block;font-size:12px;font-weight:800;padding:2px 10px;border-radius:999px;margin-left:8px;vertical-align:2px;background:#d9f3ee;color:#0f5f55}
+    .gs-tag.hold{background:#ffe9c2;color:#8a4b00}
+  
+    .hub3{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px;margin:14px 0}
+    @media(max-width:760px){.hub3{grid-template-columns:1fr}}
+    .hubcard{border:2px solid #363838;border-radius:12px;padding:16px 18px;background:#fff;display:flex;flex-direction:column;gap:6px}
+    .hubcard h3{margin:0;font-size:19px}
+    .hubcard p{margin:0;font-size:14.5px;line-height:1.6;color:#4d5551}
+    .hubcard .guide-btn{margin-top:auto;align-self:flex-start}
+    .hubtbl{width:100%;border-collapse:collapse;font-size:14.5px;margin:10px 0}
+    .hubtbl th,.hubtbl td{border:1px solid #d8d5ca;padding:8px 10px;text-align:left;vertical-align:top}
+    .hubtbl th{background:#fff8e1}
+    .hubtbl .ok{color:#0f5f55;font-weight:800}.hubtbl .no{color:#8a4b00;font-weight:800}
+  </style>
+</head>
+<body class="workbook-home settings-page">
+  <a class="skip" href="#main">본문으로 건너뛰기</a>
+  <header class="topbar">
+    <a class="brand" href="index.html">BetterWithU<span>.</span></a>
+    <nav aria-label="주요 메뉴"><a href="index.html#tools">수업 제작 도구</a><a href="https://cl.betterwithu.kr/">CL 학습자료</a></nav>
+  </header>
+  <main id="main" class="panel guide-panel">
+    <a class="back-link" href="math.html#aiskill"><span aria-hidden="true">←</span> 수식 입력 안내</a>
+    <div class="page-title"><p class="eyebrow">AI SKILL · AMPLIFY MATH</p><h1>Amplify 수식 스킬 설치 안내</h1><p class="guide-lead">내가 쓰는 AI가 Amplify 수식 규칙을 미리 알게 하는 파일입니다. 교과서 수식을 Amplify용으로 옮기거나, 쓴 수식이 Amplify에서 그려질지 검수할 때 씁니다. <b>Claude, ChatGPT, Gemini 중 하나만 성공해도 충분합니다.</b></p></div>
+
+    <section class="guide-summary" aria-labelledby="pick-title">
+      <h2 id="pick-title">어느 방법이 나에게 맞나요?</h2>
+      <ol>
+        <li><b>AI를 대화창으로만 써 봤다</b> → 아래 <b>① 처음이라면</b>. 코딩 지식 없이 화면만 따라 하면 됩니다.</li>
+        <li><b>Claude Code, Codex, Gemini CLI 같은 코딩 에이전트를 쓴다</b> → <b>② 경험자</b>. 에이전트에게 설치를 시키면 됩니다.</li>
+        <li><b>설치가 막히거나 한 번만 쓰고 싶다</b> → <b>③ 설치 없이 붙여넣기</b>. 가장 확실합니다.</li>
+      </ol>
+    </section>
+
+    <section class="guide-step" id="beginner" aria-labelledby="b-title">
+      <h2 id="b-title"><span class="guide-num" aria-hidden="true">①</span>처음이라면 — 웹·앱에서 설치</h2>
+      <p class="guide-goal">이미 계정이 있는 AI 하나를 고르세요. 화면 그림과 복사 버튼이 들어 있는 안내로 이어집니다.</p>
+      <div class="hub3">
+        <div class="hubcard"><h3>Claude</h3>
+          <p>zip을 <b>풀지 않고 그대로</b> 올립니다.</p>
+          <p>무료 플랜 화면에서도 Skills 메뉴가 열렸습니다.</p>
+          <a class="guide-btn" href="skill-claude.html">Claude 안내 열기</a></div>
+        <div class="hubcard"><h3>ChatGPT</h3>
+          <p>zip을 <b>풀지 않고 그대로</b> 올립니다.</p>
+          <p>무료 계정에서 메뉴가 열리는지는 확인하지 못했습니다.</p>
+          <a class="guide-btn" href="skill-chatgpt.html">ChatGPT 안내 열기</a></div>
+        <div class="hubcard"><h3>Gemini</h3>
+          <p>zip을 풀어 <b>폴더째</b> 올립니다.</p>
+          <p>2026-10-26에 업로드와 시험을 마친 방법입니다.</p>
+          <a class="guide-btn" href="skill-gemini.html">Gemini 안내 열기</a></div>
+      </div>
+      <p class="guide-note">세 가지 모두 <b>업로드 → 수동(복사해 붙여넣기) → AI로 만들기</b> 순서로 안내합니다. 업로드가 안 되면 수동으로 하면 됩니다.</p>
+    </section>
+
+    <section class="guide-step" id="expert" aria-labelledby="e-title">
+      <h2 id="e-title"><span class="guide-num" aria-hidden="true">②</span>바이브코딩을 해 보셨다면 — 코딩 에이전트로 설치</h2>
+      <p class="guide-goal">Claude Code, Codex, Gemini CLI처럼 터미널에서 파일을 만들고 명령을 실행하는 에이전트가 이미 있다면, <b>GitHub 주소를 주고 설치를 시키는 것</b>이 가장 쉽습니다.</p>
+      <ol class="guide-steps">
+        <li><b>아래 문장을 복사해 에이전트에 붙여넣습니다.</b>
+          <pre class="gs-pre" id="t-agent">이 GitHub 저장소의 skill/amplify-math 폴더를 내 스킬 폴더에 설치해 줘: https://github.com/getbetterwithu/amplify-betterwithu/tree/main/skill/amplify-math</pre>
+          <button class="gs-btn" type="button" data-copy-id="t-agent">문장 복사</button>
+          <small>에이전트가 폴더를 받아 자기 스킬 폴더에 넣습니다. 설치 뒤 에이전트를 다시 시작하라고 하면 따르세요.</small></li>
+        <li><b>직접 명령으로 설치하려면</b> 아래를 쓰세요. 각 도구 공식 문서 기준이며 제가 직접 실행해 시험하지는 못했습니다.
+          <p style="margin:10px 0 2px"><b>Codex CLI</b> — Codex 안에서 입력하고, 설치 뒤 다시 시작합니다.</p>
+          <pre class="gs-pre" id="t-codex">$skill-installer install https://github.com/getbetterwithu/amplify-betterwithu/tree/main/skill/amplify-math</pre>
+          <button class="gs-btn" type="button" data-copy-id="t-codex">복사</button>
+          <p style="margin:12px 0 2px"><b>Gemini CLI</b> — 터미널에서 입력하고, 설치 뒤 Gemini 안에서 <code>/skills list</code>로 확인합니다.</p>
+          <pre class="gs-pre" id="t-gcli">gemini skills install https://github.com/getbetterwithu/amplify-betterwithu.git --path skill/amplify-math</pre>
+          <button class="gs-btn" type="button" data-copy-id="t-gcli">복사</button>
+          <p style="margin:12px 0 2px"><b>Claude Code</b> — <a href="skill/amplify-math.zip" download>zip</a>을 풀어 <code>amplify-math</code> 폴더를 내 스킬 폴더(<code>~/.claude/skills/</code>)에 넣습니다.</p></li>
+        <li>설치한 스킬은 에이전트의 권한으로 실행됩니다. 이 스킬은 규칙 문서와 지침만 들어 있고 내용은 <a href="https://github.com/getbetterwithu/amplify-betterwithu/tree/main/skill/amplify-math" target="_blank" rel="noopener noreferrer">GitHub ↗</a>에서 볼 수 있습니다.</li>
+      </ol>
+    </section>
+
+    <section class="guide-step" id="paste" aria-labelledby="p-title">
+      <h2 id="p-title"><span class="guide-num" aria-hidden="true">③</span>설치 없이 붙여넣기 (가장 확실한 방법)</h2>
+      <p class="guide-goal">스킬을 만들지 않고 새 대화 첫 메시지에 규칙을 붙여넣어, 그 대화에서만 쓰는 방법입니다. 어떤 AI에서도 됩니다.</p>
+      <ol class="guide-steps">
+        <li>아래 버튼을 눌러 지침문과 규칙을 한 번에 복사합니다.<br>
+          <button class="gs-btn" type="button" data-fetch="skill/amplify-math/instructions.md|skill/amplify-math/references/rules.md">지침+규칙 한 번에 복사</button></li>
+        <li>사용하는 AI의 <b>새 대화</b> 입력창에 붙여넣고 보냅니다.</li>
+        <li>이어서 "이 문장을 Amplify 수식으로 바꿔 줘: …"처럼 요청합니다. 새 대화를 열 때마다 다시 붙여넣어야 합니다.</li>
+      </ol>
+    </section>
+
+    <section class="guide-step" id="files" aria-labelledby="f-title">
+      <h2 id="f-title"><span class="guide-num" aria-hidden="true">⬇</span>파일</h2>
+      <div class="kbtns">
+        <a class="guide-btn" href="skill/amplify-math.zip" download>스킬 zip (Claude·ChatGPT·Gemini)</a>
+        <a class="guide-btn plain" href="skill/amplify-math/references/rules.md" download>규칙 파일 rules.md</a>
+        <a class="guide-btn plain" href="skill/amplify-math/instructions.md" download>지침문 instructions.md</a>
+        <a class="guide-btn plain" href="https://github.com/getbetterwithu/amplify-betterwithu/tree/main/skill/amplify-math" target="_blank" rel="noopener noreferrer">GitHub에서 보기 ↗</a>
+      </div>
+    </section>
+
+    <section class="guide-step" id="status" aria-labelledby="s-title">
+      <h2 id="s-title"><span class="guide-num" aria-hidden="true">?</span>무료로도 되나요? 시험 현황</h2>
+      <table class="hubtbl"><thead><tr><th>방법</th><th>무료</th><th>시험 현황 (2026-10-26)</th></tr></thead><tbody>
+        <tr><td>Claude 스킬</td><td class="ok">무료 플랜 화면에서 메뉴 확인</td><td>화면 확인 완료, zip 업로드 시험 예정</td></tr>
+        <tr><td>ChatGPT 스킬</td><td class="no">확인하지 못함</td><td>화면 확인 완료, zip 업로드 시험 예정</td></tr>
+        <tr><td>Gemini 스킬</td><td class="no">스킬 메뉴의 무료 여부는 확인하지 못함</td><td><b>폴더 업로드 시험 완료</b>, 규칙대로 답함</td></tr>
+        <tr><td>붙여넣기</td><td class="ok">모든 AI에서 가능</td><td>방식상 설치가 필요 없음</td></tr>
+        <tr><td>Codex CLI · Gemini CLI</td><td class="no">자료마다 다름</td><td>공식 문서 기준, 직접 시험하지 못함</td></tr>
+      </tbody></table>
+      <p class="guide-note">서비스 요금제와 메뉴는 바뀔 수 있습니다. AI의 결과는 틀릴 수 있고, 이 규칙은 Amplify 편집기 시험 결과이며 전수 검사가 아닙니다. 학생 화면은 확인하지 않았으니 수업에 쓰기 전에 Amplify 미리보기에서 확인해 주세요.</p>
+    </section>
+  </main>
+  <div class="guide-lightbox" id="guideLightbox" role="dialog" aria-modal="true" aria-label="확대 이미지" hidden>
+    <button class="guide-lightbox-close" type="button" aria-label="확대 이미지 닫기">×</button>
+    <img src="" alt="">
+  </div>
+  <footer class="site-footer"><div><a class="footer-brand" href="index.html">BetterWithU<span>.</span></a><p>Amplify 수업자료 제작과 Computation Layer 학습을 돕는 교사용 교육 보조 도구입니다.</p></div><div class="footer-info"><p>개인정보가 포함된 자료는 입력하지 말고, AI 결과는 수업 적용 전에 확인하세요.</p><div class="footer-links"><a href="mailto:jclover2@snu.ac.kr">jclover2@snu.ac.kr</a><a href="privacy.html">개인정보 및 AI 데이터 처리</a><a href="terms.html">이용 안내·저작권</a></div><p class="footer-copy">© 2026 서울대학교사범대학부설중학교 허철호. All Rights Reserved.</p></div><small class="footer-disclaimer">이 사이트는 독립적으로 제작한 비공식 교육 보조 자료이며, Amplify Education, Inc.와 제휴하거나 공식 승인을 받은 서비스가 아닙니다.</small></footer>
+  <div class="gs-toast" id="gsToast" role="status"></div>
+  <script src="guide.js"></script>
+  <script>
+  (function(){
+    var toast=document.getElementById('gsToast');
+    function say(m){toast.textContent=m;toast.classList.add('on');clearTimeout(say.t);say.t=setTimeout(function(){toast.classList.remove('on')},1500);}
+    function copy(t){
+      function ok(){say('복사했습니다');}
+      function fb(){var a=document.createElement('textarea');a.value=t;a.style.position='fixed';a.style.opacity='0';document.body.appendChild(a);a.select();try{document.execCommand('copy');ok();}catch(e){say('복사하지 못했습니다');}document.body.removeChild(a);}
+      if(navigator.clipboard&&window.isSecureContext){navigator.clipboard.writeText(t).then(ok,fb);}else{fb();}
+    }
+    Array.prototype.forEach.call(document.querySelectorAll('[data-copy-id]'),function(b){
+      b.addEventListener('click',function(){copy(document.getElementById(b.getAttribute('data-copy-id')).textContent);});
+    });
+    Array.prototype.forEach.call(document.querySelectorAll('[data-fetch]'),function(b){
+      b.addEventListener('click',function(){
+        var urls=b.getAttribute('data-fetch').split('|');
+        Promise.all(urls.map(function(u){return fetch(u).then(function(r){if(!r.ok)throw 0;return r.text();});}))
+          .then(function(a){copy(a.join('\n\n=== 아래는 rules.md 내용입니다 ===\n\n'));},function(){say('복사하지 못했습니다. 파일을 내려받아 주세요');});
+      });
+    });
+  })();
+  </script>
+</body></html>

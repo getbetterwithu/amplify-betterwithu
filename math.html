@@ -257,34 +257,19 @@ body .aisec .note{color:#4d5551}
 <div class="aisec" id="aiskill">
 <span class="aitag">알림장 · AI 수식 스킬</span>
 <h2>AI에게 수식을 맡기고 싶다면: Amplify 수식 스킬</h2>
-<p class="note" style="margin-top:0">위 규칙을 AI가 미리 알고 있게 하는 파일입니다. 교과서 수식을 Amplify용으로 옮기거나, 쓴 수식이 Amplify에서 그려질지 검수할 때 씁니다. <b>Claude, GPT, Gemini 어느 쪽에서든</b> 쓸 수 있습니다.</p>
-<div class="kbtns">
-  <a class="kbtn" href="skill/amplify-math.zip" download>⬇ Claude용 스킬(zip)</a>
-  <a class="kbtn" href="skill/amplify-math/references/rules.md" download>⬇ 규칙 파일 rules.md</a>
-  <a class="kbtn" href="skill/amplify-math/instructions.md" download>⬇ 지침문 instructions.md</a>
-  <a class="kbtn" href="https://github.com/getbetterwithu/amplify-betterwithu/tree/main/skill/amplify-math" target="_blank" rel="noopener">GitHub에서 보기 ↗</a>
-</div>
+<p class="note" style="margin-top:0">위 규칙을 AI가 미리 알고 있게 하는 파일입니다. 교과서 수식을 Amplify용으로 옮기거나, 쓴 수식이 Amplify에서 그려질지 검수할 때 씁니다. <b>Claude, ChatGPT, Gemini 중 하나만 성공해도 충분합니다.</b> 쓰는 AI를 고르세요.</p>
 <div class="ai3">
   <div class="aibox"><h3>Claude</h3>
-    <p><b>무료 플랜에서도</b> Skills 메뉴가 열립니다. zip을 그대로 올릴 수 있습니다. 화면과 함께 안내합니다.</p>
-    <p><a class="gobtn" href="skill-claude.html"><span class="gt">Claude 설치 안내 열기</span><span class="ga">→</span></a></p></div>
+    <p>zip을 그대로 올립니다. 무료 플랜 화면에서도 메뉴가 열렸습니다.</p>
+    <p><a class="gobtn" href="skill-claude.html"><span class="gt">Claude 설치 안내</span><span class="ga">→</span></a></p></div>
   <div class="aibox"><h3>ChatGPT</h3>
-    <p>스킬 메뉴에 <b>zip을 그대로</b> 올릴 수 있습니다. 화면과 함께 안내합니다.</p>
-    <p><a class="gobtn" href="skill-chatgpt.html"><span class="gt">ChatGPT 설치 안내 열기</span><span class="ga">→</span></a></p></div>
+    <p>zip을 그대로 올립니다. 화면과 함께 안내합니다.</p>
+    <p><a class="gobtn" href="skill-chatgpt.html"><span class="gt">ChatGPT 설치 안내</span><span class="ga">→</span></a></p></div>
   <div class="aibox"><h3>Gemini</h3>
-    <p>Gems가 <b>2026-11-17</b>부터 <b>스킬</b>로 바뀝니다. 스킬 메뉴 기준으로 화면과 함께 안내합니다.</p>
-    <p><a class="gobtn" href="skill-gemini.html"><span class="gt">Gemini 설치 안내 열기</span><span class="ga">→</span></a></p></div>
+    <p>Gems가 11월 17일부터 스킬로 바뀝니다. 스킬 기준으로 안내합니다.</p>
+    <p><a class="gobtn" href="skill-gemini.html"><span class="gt">Gemini 설치 안내</span><span class="ga">→</span></a></p></div>
 </div>
-<details class="aibox" style="margin:10px 0">
-<summary style="cursor:pointer;font-weight:700">터미널(명령줄) 버전을 쓰신다면: GitHub 주소로 바로 설치</summary>
-<p>Codex CLI와 Gemini CLI는 GitHub 주소로 스킬을 설치할 수 있습니다. 웹·앱 버전에는 해당하지 않습니다. 아래 명령을 누르면 복사됩니다.</p>
-<p><b>Codex CLI</b> — Codex 안에서 입력하고, 설치 뒤 Codex를 다시 시작합니다.</p>
-<p><code data-copy>$skill-installer install https://github.com/getbetterwithu/amplify-betterwithu/tree/main/skill/amplify-math</code></p>
-<p><b>Gemini CLI</b> — 터미널에서 입력하고, 설치 뒤 Gemini 안에서 <code>/skills list</code>로 확인합니다.</p>
-<p><code data-copy>gemini skills install https://github.com/getbetterwithu/amplify-betterwithu.git --path skill/amplify-math</code></p>
-<p class="note">각 도구 공식 문서 기준이며 제품이 바뀌면 명령이 달라질 수 있습니다. 스킬은 AI의 권한으로 실행되므로, 이 저장소의 파일 내용을 먼저 확인하셔도 좋습니다.</p>
-</details>
-<p class="note"><b>설치 없이 한 번만 쓰려면</b> 새 대화 첫머리에 지침문을 붙여넣고 rules.md를 첨부(또는 내용을 붙여넣기)하세요. 메뉴 이름은 각 서비스가 바꿀 수 있습니다.</p>
+<p class="note"><b>처음이라서 어렵거나, 코딩 에이전트를 쓰시거나, 무료 여부가 궁금하시면</b> <a href="skill.html">전체 안내(초보용·경험자용·붙여넣기)</a>를 보세요.</p>
 <p class="note">AI의 결과는 틀릴 수 있습니다. 이 규칙은 2026-10-26 Amplify 편집기 시험 결과이며 전수 검사가 아니고, 학생 화면은 확인하지 않았습니다. 수업에 쓰기 전에 Amplify 미리보기에서 확인해 주세요.</p>
 </div>
 
