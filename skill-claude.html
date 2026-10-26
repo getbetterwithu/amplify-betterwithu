@@ -1,0 +1,182 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="description" content="Claude의 Skills 메뉴에 Amplify 수식 스킬을 올리는 세 가지 방법(Skill 업로드, Skill 만들기, Claude로 만들기)을 화면과 함께 안내합니다.">
+  <title>Claude에 Amplify 수식 스킬 설치하기 | BetterWithU</title>
+  <link rel="stylesheet" href="site.css">
+  <link rel="stylesheet" href="guide.css">
+  <style>
+    .gs-pre{white-space:pre-wrap;word-break:break-word;background:#fffdf6;border:1.5px dashed #b9b3a0;border-radius:10px;padding:12px 14px;font-size:14px;line-height:1.65;margin:8px 0 10px;max-height:260px;overflow:auto}
+    .gs-btn{font:inherit;font-weight:800;font-size:14px;background:#ffe66d;color:#2f241f;border:2px solid #363838;border-radius:999px;padding:7px 16px;cursor:pointer;box-shadow:3px 3px 0 #1eaa9d}
+    .gs-btn:hover{transform:translateY(-1px)}
+    .gs-toast{position:fixed;left:50%;bottom:26px;transform:translateX(-50%);background:#12151b;color:#fff;font-size:14px;font-weight:700;padding:9px 18px;border-radius:999px;opacity:0;pointer-events:none;transition:.18s;z-index:60}
+    .gs-toast.on{opacity:.95}
+    .gs-tag{display:inline-block;font-size:12px;font-weight:800;padding:2px 10px;border-radius:999px;margin-left:8px;vertical-align:2px;background:#d9f3ee;color:#0f5f55}
+    .gs-tag.hold{background:#ffe9c2;color:#8a4b00}
+  </style>
+</head>
+<body class="workbook-home settings-page">
+  <a class="skip" href="#main">본문으로 건너뛰기</a>
+  <header class="topbar">
+    <a class="brand" href="index.html">BetterWithU<span>.</span></a>
+    <nav aria-label="주요 메뉴"><a href="index.html#tools">수업 제작 도구</a><a href="https://cl.betterwithu.kr/">CL 학습자료</a></nav>
+  </header>
+  <main id="main" class="panel guide-panel">
+    <a class="back-link" href="math.html#aiskill"><span aria-hidden="true">←</span> 수식 입력 안내</a>
+    <div class="page-title"><p class="eyebrow">STEP BY STEP · CLAUDE SKILL</p><h1>Claude에 Amplify 수식 스킬 설치하기</h1><p class="guide-lead">Claude의 <b>Skills</b> 메뉴에 Amplify 수식 규칙을 올려 두면, 교과서 수식을 Amplify용으로 바꾸거나 쓴 수식을 검수할 때 Claude가 규칙을 알고 답합니다.</p></div>
+
+    <section class="guide-summary" aria-labelledby="sum-title">
+      <h2 id="sum-title">세 가지 방법 중 하나만 하면 됩니다</h2>
+      <ol>
+        <li><b>Skill 업로드</b> — 내려받은 zip을 그대로 올립니다. 가장 간단합니다. <b>(추천)</b></li>
+        <li><b>Skill 만들기</b> — 이름·설명·내용 칸에 복사해 붙여넣습니다. 업로드가 안 될 때 씁니다.</li>
+        <li><b>Claude로 만들기</b> — Claude와 대화하며 만듭니다. 규칙이 정확히 옮겨지지 않을 수 있어 마지막 순서입니다.</li>
+      </ol>
+    </section>
+
+    <section class="guide-warn" aria-labelledby="warn-title">
+      <h2 id="warn-title">시작하기 전에</h2>
+      <ul>
+        <li>이 안내는 <b>2026-10-26</b> 화면 기준입니다. 메뉴 이름과 화면은 Anthropic이 바꿀 수 있습니다.</li>
+        <li><b>무료 플랜</b> 화면에서도 이 메뉴가 열렸습니다. 그래도 스킬이 동작하지 않으면 설정의 <b>기능(Capabilities)</b>에서 <b>코드 실행 및 파일 생성</b>이 켜져 있는지 확인하세요. 공식 안내가 스킬에 필요하다고 설명하는 설정입니다.</li>
+        <li>업로드하면 <b>보안 검사</b>가 실행됩니다. 이 스킬의 파일은 <a href="https://github.com/getbetterwithu/amplify-betterwithu/tree/main/skill/amplify-math" target="_blank" rel="noopener noreferrer">GitHub ↗</a>에서 내용을 볼 수 있고, 규칙 문서와 지침만 들어 있습니다.</li>
+      </ul>
+    </section>
+
+    <section class="guide-step" id="step0" aria-labelledby="s0-title">
+      <h2 id="s0-title"><span class="guide-num" aria-hidden="true">0</span>Skills 메뉴 열기</h2>
+      <ol class="guide-steps">
+        <li><b>Claude를 열고 왼쪽 메뉴에서 '사용자 지정'을 누릅니다.</b><br>
+          <a class="guide-btn" href="https://claude.ai/" target="_blank" rel="noopener noreferrer">Claude 열기 ↗</a>
+          <small>로그인 화면이 나오면 로그인하세요.</small></li>
+        <li>위쪽 탭 <b>Skills · 커넥터 · 플러그인</b> 중 <b>Skills</b>가 선택되어 있는지 확인합니다.</li>
+        <li>오른쪽 위의 <b>+ 추가</b> 버튼을 누르면 <b>Skill 업로드 · Skill 만들기 · Claude로 만들기</b> 세 가지가 보입니다(그림 1). 아래에서 하나를 고르세요.</li>
+      </ol>
+      <figure class="guide-fig"><button class="guide-image-open" type="button" data-image="img/skill-claude/sk-01-menu.png" aria-label="그림 1 크게 보기"><img src="img/skill-claude/sk-01-menu.png" alt="Claude 사용자 지정 화면. Skills 탭이 선택되어 있고 오른쪽 위 추가 버튼을 누르면 Skill 업로드, Skill 만들기, Claude로 만들기 세 가지 메뉴가 나타난다." width="988" height="375" loading="lazy" decoding="async"></button><figcaption>그림 1. <b>+ 추가</b>를 누르면 세 가지 방법이 나옵니다.</figcaption></figure>
+    </section>
+
+    <section class="guide-step" id="step1" aria-labelledby="s1-title">
+      <h2 id="s1-title"><span class="guide-num" aria-hidden="true">1</span>Skill 업로드 <span class="gs-tag">추천</span><span class="gs-tag hold">업로드 시험 예정</span></h2>
+      <p class="guide-goal">zip을 <b>풀지 않고 그대로</b> 올립니다. 업로드 화면이 ".zip 또는 .skill 파일에는 SKILL.md 파일이 포함되어야 한다"고 안내하며, 이 zip은 그 조건을 맞춰 두었습니다.</p>
+      <ol class="guide-steps">
+        <li><b>스킬 zip을 내려받습니다. 압축은 풀지 않습니다.</b><br>
+          <a class="guide-btn" href="skill/amplify-math.zip" download>스킬 zip 내려받기</a></li>
+        <li><b>+ 추가 → Skill 업로드</b>를 누릅니다(그림 1).</li>
+        <li><b>'Skill 파일' 영역에 zip을 끌어다 놓거나 '찾아보기'로 고릅니다</b>(그림 2).</li>
+        <li><b>아래의 '업로드' 버튼을 누릅니다.</b> 업로드할 때 보안 검사가 실행됩니다. 파일을 고르기 전에는 이 버튼이 흐리게 비활성입니다.</li>
+        <li><b>Skills 목록에 amplify-math가 보이고 켜져 있으면 끝입니다.</b> <a href="#test">아래 시험</a>으로 확인하세요.</li>
+      </ol>
+      <figure class="guide-fig"><button class="guide-image-open" type="button" data-image="img/skill-claude/sk-02-upload.png" aria-label="그림 2 크게 보기"><img src="img/skill-claude/sk-02-upload.png" alt="Skill 업로드 화면. Skill 파일을 끌어다 놓거나 찾아보기를 쓰라는 영역, .md 파일에는 YAML 형식의 이름과 설명이 있어야 하고 .zip 또는 .skill 파일에는 SKILL.md가 포함되어야 한다는 안내, 보안 스캔은 업로드할 때 실행된다는 표시가 있다." width="1012" height="490" loading="lazy" decoding="async"></button><figcaption>그림 2. 'Skill 업로드' 화면. zip을 끌어다 놓고 <b>업로드</b>를 누릅니다.</figcaption></figure>
+      <p class="guide-note">업로드가 거절되거나 목록에 보이지 않거나, 올린 뒤 규칙을 모르는 것처럼 답하면 <b>2번 방법</b>으로 하세요.</p>
+    </section>
+
+    <section class="guide-step" id="step2" aria-labelledby="s2-title">
+      <h2 id="s2-title"><span class="guide-num" aria-hidden="true">2</span>Skill 만들기</h2>
+      <p class="guide-goal">이름, 설명, 내용 세 곳에 아래 글을 복사해 붙여넣습니다(그림 3).</p>
+      <ol class="guide-steps">
+        <li><b>+ 추가 → Skill 만들기</b>를 누르면 'Skill 만들기' 창이 열립니다.</li>
+        <li><b>Skill 이름 칸</b>에 아래 이름을 입력합니다.
+          <pre class="gs-pre" id="t-name">amplify-math</pre>
+          <button class="gs-btn" type="button" data-copy-id="t-name">이름 복사</button></li>
+        <li><b>설명 칸</b>에 붙여넣습니다.
+          <pre class="gs-pre" id="t-desc">Amplify Classroom(Desmos)의 메모·수식 답변·CL에 들어갈 수학 수식을 작성·검수·변환한다. 교과서 수식을 Amplify용 백틱 LaTeX로 옮기거나, 쓴 수식이 Amplify에서 그려질지 확인해 달라는 요청에 사용한다.</pre>
+          <button class="gs-btn" type="button" data-copy-id="t-desc">설명 복사</button></li>
+        <li><b>아래 큰 칸(줄 번호가 있는 편집 영역)</b>에 지침문과 규칙 전체를 붙여넣습니다.<br>
+          <button class="gs-btn" type="button" data-fetch="skill/amplify-math/instructions.md|skill/amplify-math/references/rules.md">지침+규칙 한 번에 복사</button>
+          <small>내용이 길어서 칸이 받지 못하면(오류가 나거나 잘리면) <a href="#paste">설치 없이 쓰기</a>를 쓰세요. 글자 수 제한은 아직 확인하지 못했습니다.</small></li>
+        <li>오른쪽 아래의 <b>만들기</b> 버튼을 눌러 저장합니다.</li>
+      </ol>
+      <figure class="guide-fig"><button class="guide-image-open" type="button" data-image="img/skill-claude/sk-03-create.png" aria-label="그림 3 크게 보기"><img src="img/skill-claude/sk-03-create.png" alt="Skill 만들기 창. Skill 이름 칸, 설명 칸, 줄 번호가 있는 내용 편집 영역과 파일 추가 버튼이 있고, 아래에 초안, 취소, 만들기 버튼이 있다." width="1191" height="704" loading="lazy" decoding="async"></button><figcaption>그림 3. 'Skill 만들기' 창: <b>이름 · 설명 · 내용</b>. 오른쪽 아래 <b>만들기</b>로 저장</figcaption></figure>
+    </section>
+
+    <section class="guide-step" id="step3" aria-labelledby="s3-title">
+      <h2 id="s3-title"><span class="guide-num" aria-hidden="true">3</span>Claude로 만들기</h2>
+      <p class="guide-goal">Claude의 skill-creator가 묻는 내용에 아래 답을 보내는 방법입니다. 규칙을 요약해 다시 쓰므로 <b>정확도는 앞의 두 방법보다 낮을 수 있습니다.</b></p>
+      <ol class="guide-steps">
+        <li><b>+ 추가 → Claude로 만들기</b>를 누르면 새 대화 입력창에 영어 문장이 자동으로 채워집니다(그림 4). 그대로 보냅니다.
+          <small>"Let's create a skill together using your skill-creator skill. First ask me what the skill should do."라는 뜻으로, 영어로 채워져도 한국어로 답하셔도 됩니다.</small></li>
+        <li><b>규칙 파일을 내려받아 대화에 첨부합니다.</b><br>
+          <a class="guide-btn plain" href="skill/amplify-math/references/rules.md" download>rules.md 내려받기</a>
+          <small>입력창 왼쪽의 <b>+</b>로 파일을 올립니다.</small></li>
+        <li><b>Claude가 스킬이 무엇을 해야 하는지 물으면 아래 답을 복사해 보냅니다.</b>
+          <pre class="gs-pre" id="t-by">목표: 중학교 수학 교사가 Amplify Classroom(Desmos)의 메모·수식 답변·CL에 넣을 수학 수식을 작성·검수·변환한다.
+사용할 때: "Amplify 수식", "교과서 수식을 Amplify로 바꿔줘", "이 수식이 Amplify에서 그려지나요" 같은 요청.
+규칙: 첨부한 rules.md를 규칙의 근거로 삼는다. 수식은 백틱으로 감싸고 ~~~ 코드 블록에 담아 준다. rules.md의 대체표에 걸리는 명령은 고쳐서 주고, 목록에 없는 명령은 "확인되지 않았다"고 말한다. 메모·수식 답변 칸에는 붙여넣기로 넣어야 한다고 안내한다.</pre>
+          <button class="gs-btn" type="button" data-copy-id="t-by">답변 복사</button></li>
+        <li>만들어진 스킬에 대체표(<code>\therefore</code>→<code>∴</code> 등)가 빠졌으면 "rules.md의 대체표를 그대로 넣어 줘"라고 요청합니다.</li>
+      </ol>
+      <figure class="guide-fig"><button class="guide-image-open" type="button" data-image="img/skill-claude/sk-04-by-claude.png" aria-label="그림 4 크게 보기"><img src="img/skill-claude/sk-04-by-claude.png" alt="Claude로 만들기를 누르면 입력창에 skill-creator 스킬을 사용해 스킬을 함께 만들자는 영어 문장이 자동으로 채워진다." width="674" height="60" loading="lazy" decoding="async"></button><figcaption>그림 4. 입력창에 문장이 자동으로 채워집니다.</figcaption></figure>
+    </section>
+
+    <section class="guide-step" id="test" aria-labelledby="t-title">
+      <h2 id="t-title"><span class="guide-num" aria-hidden="true">✓</span>잘 설치됐는지 확인하고 시험하기</h2>
+      <ol class="guide-steps">
+        <li><b>먼저 등록됐는지 확인합니다.</b> <b>사용자 지정 → Skills</b>의 <b>내 항목</b>에 <b>amplify-math</b>가 보이고 켜져 있어야 합니다.</li>
+        <li><b>새 채팅</b>을 열고 아래를 보냅니다.
+          <pre class="gs-pre" id="t-test1">amplify-math 스킬을 사용해서, 삼각형 ABC와 삼각형 DEF가 닮음이고 따라서 각 A와 각 D가 같다는 문장을 Amplify 메모용 수식으로 바꿔 줘.</pre>
+          <button class="gs-btn" type="button" data-copy-id="t-test1">복사</button></li>
+        <li><b>이렇게 나오면 성공입니다.</b> 닮음은 <code>∽</code>, 따라서는 <code>∴</code>를 쓰고, 점 이름은 <code>\mathrm{}</code>으로 감싸고, 기호 앞뒤에 <code>\ </code>가 들어 있고, 수식이 백틱과 코드 블록으로 담겨 있습니다.</li>
+        <li><b>한 번 더 시험합니다.</b>
+          <pre class="gs-pre" id="t-test2">amplify-math 스킬로 답해 줘. \therefore 와 \equiv 를 Amplify에서 써도 되나요?</pre>
+          <button class="gs-btn" type="button" data-copy-id="t-test2">복사</button><br>
+          <small>"그려지지 않고 칸이 비워진다, 대신 ∴ 와 ≡ 를 쓴다"고 답하면 규칙을 알고 있는 것입니다.</small></li>
+        <li>결과를 <b>복사해서 붙여넣기</b>로 Amplify 메모에 넣습니다. 키보드로 직접 치면 수식으로 바뀌지 않습니다.</li>
+      </ol>
+    </section>
+
+    <section class="guide-step" id="paste" aria-labelledby="p-title">
+      <h2 id="p-title"><span class="guide-num" aria-hidden="true">＋</span>설치 없이 쓰기 (가장 확실한 방법)</h2>
+      <p class="guide-goal">스킬을 만들지 않고, 새 대화 첫 메시지에 규칙을 붙여넣어 그 대화에서만 쓰는 방법입니다. Skills 메뉴가 안 보여도 됩니다.</p>
+      <ol class="guide-steps">
+        <li>아래 버튼을 눌러 지침문과 규칙을 한 번에 복사합니다.<br>
+          <button class="gs-btn" type="button" data-fetch="skill/amplify-math/instructions.md|skill/amplify-math/references/rules.md">지침+규칙 한 번에 복사</button></li>
+        <li>Claude <b>새 채팅</b>의 입력창에 붙여넣고 보냅니다.</li>
+        <li>이어서 "이 문장을 Amplify 수식으로 바꿔 줘: …"처럼 요청합니다. 새 대화를 열 때마다 다시 붙여넣어야 합니다.</li>
+      </ol>
+    </section>
+
+    <section class="guide-trouble" aria-labelledby="tr-title">
+      <h2 id="tr-title">잘 안 될 때</h2>
+      <dl>
+        <dt>Skills 메뉴나 추가 버튼이 없습니다</dt>
+        <dd>학교·회사 계정이면 관리자 설정 때문일 수 있습니다. 그때는 <a href="#paste">설치 없이 쓰기</a>가 가장 확실합니다.</dd>
+        <dt>업로드가 거절됩니다</dt>
+        <dd>zip의 압축을 풀지 않은 상태인지 확인하세요. 보안 검사에서 걸렸다면 2번(Skill 만들기)을 쓰세요.</dd>
+        <dt>올렸는데 규칙을 모르는 것처럼 답합니다</dt>
+        <dd>스킬이 켜져 있는지 확인하고, 요청 첫머리에 "amplify-math 스킬을 사용해서"라고 이름을 말해 보세요. 그래도 안 되면 설정의 <b>기능(Capabilities)</b>에서 <b>코드 실행 및 파일 생성</b>이 켜져 있는지 확인하세요.</dd>
+        <dt>화면이 그림과 다릅니다</dt>
+        <dd>메뉴 이름에서 <b>Skills</b>와 <b>추가</b>를 찾으세요. 공식 설명은 <a href="https://support.claude.com/en/articles/12512180-using-skills-in-claude" target="_blank" rel="noopener noreferrer">Claude 스킬 공식 안내 ↗</a>에서 볼 수 있습니다.</dd>
+      </dl>
+    </section>
+  </main>
+  <div class="guide-lightbox" id="guideLightbox" role="dialog" aria-modal="true" aria-label="확대 이미지" hidden>
+    <button class="guide-lightbox-close" type="button" aria-label="확대 이미지 닫기">×</button>
+    <img src="" alt="">
+  </div>
+  <footer class="site-footer"><div><a class="footer-brand" href="index.html">BetterWithU<span>.</span></a><p>Amplify 수업자료 제작과 Computation Layer 학습을 돕는 교사용 교육 보조 도구입니다.</p></div><div class="footer-info"><p>개인정보가 포함된 자료는 입력하지 말고, AI 결과는 수업 적용 전에 확인하세요.</p><div class="footer-links"><a href="mailto:jclover2@snu.ac.kr">jclover2@snu.ac.kr</a><a href="privacy.html">개인정보 및 AI 데이터 처리</a><a href="terms.html">이용 안내·저작권</a></div><p class="footer-copy">© 2026 서울대학교사범대학부설중학교 허철호. All Rights Reserved.</p></div><small class="footer-disclaimer">이 사이트는 독립적으로 제작한 비공식 교육 보조 자료이며, Amplify Education, Inc.와 제휴하거나 공식 승인을 받은 서비스가 아닙니다.</small></footer>
+  <div class="gs-toast" id="gsToast" role="status"></div>
+  <script src="guide.js"></script>
+  <script>
+  (function(){
+    var toast=document.getElementById('gsToast');
+    function say(m){toast.textContent=m;toast.classList.add('on');clearTimeout(say.t);say.t=setTimeout(function(){toast.classList.remove('on')},1500);}
+    function copy(t){
+      function ok(){say('복사했습니다');}
+      function fb(){var a=document.createElement('textarea');a.value=t;a.style.position='fixed';a.style.opacity='0';document.body.appendChild(a);a.select();try{document.execCommand('copy');ok();}catch(e){say('복사하지 못했습니다');}document.body.removeChild(a);}
+      if(navigator.clipboard&&window.isSecureContext){navigator.clipboard.writeText(t).then(ok,fb);}else{fb();}
+    }
+    Array.prototype.forEach.call(document.querySelectorAll('[data-copy-id]'),function(b){
+      b.addEventListener('click',function(){copy(document.getElementById(b.getAttribute('data-copy-id')).textContent);});
+    });
+    Array.prototype.forEach.call(document.querySelectorAll('[data-fetch]'),function(b){
+      b.addEventListener('click',function(){
+        var urls=b.getAttribute('data-fetch').split('|');
+        Promise.all(urls.map(function(u){return fetch(u).then(function(r){if(!r.ok)throw 0;return r.text();});}))
+          .then(function(a){copy(a.join('\n\n=== 아래는 rules.md 내용입니다 ===\n\n'));},function(){say('복사하지 못했습니다. 파일을 내려받아 주세요');});
+      });
+    });
+  })();
+  </script>
+</body></html>
