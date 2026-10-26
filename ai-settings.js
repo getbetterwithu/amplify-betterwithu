@@ -3,7 +3,7 @@
 
   var STORE = 'bwu_ai_settings_v1';
   var LEGACY = 'dtg_conv_v3';
-  var defaults = { mode: 'mine', provider: 'gemini', key: '', password: '', model: 'gemini-3.7-flash' };
+  var defaults = { mode: 'mine', provider: 'gemini', key: '', password: '', model: 'gemini-3.5-flash' };
 
   function read() {
     var value = Object.assign({}, defaults);

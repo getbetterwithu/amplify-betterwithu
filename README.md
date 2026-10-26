@@ -66,7 +66,7 @@ Settings → Environment Variables 에서 아래 값을 넣습니다.
 | `GEMINI_API_KEY` | 공유용 Gemini 키 — **주력 키 말고 새로 발급하세요** |
 | `GEMINI_API_KEYS` | (선택·권장) 공유용 키 여러 개를 쉼표 또는 줄바꿈으로 입력 |
 | `SHARE_PASSWORD` | 연수마다 새로 정해 전달할 공유 암호 — README나 코드에는 실제 값을 쓰지 않습니다 |
-| `GEMINI_MODEL` | (선택) 기본값 `gemini-3.7-flash` |
+| `GEMINI_MODEL` | (선택) 기본값 `gemini-3.5-flash` |
 
 넣은 뒤 Deployments → 최신 배포 → **Redeploy** 해야 반영됩니다.
 

@@ -29,7 +29,7 @@
       <div id="minePanel" hidden>
         <div class="field"><label for="apiKey">본인의 Gemini API 키</label><input id="apiKey" type="password" autocomplete="off" placeholder="API 키를 입력하세요"><small>개인 키는 이 브라우저의 로컬 저장소에만 보관되며 Gemini API 호출에만 사용됩니다. 공용 기기에서는 사용하지 마세요.</small></div>
         <div class="field"><label for="model">Gemini 모델</label>
-          <div style="display:flex;gap:8px;flex-wrap:wrap;align-items:stretch"><select id="model" style="flex:1;min-width:220px"><option value="gemini-3.7-flash">gemini-3.7-flash</option></select><button class="secondary-action" id="fetchModels" type="button">모델 목록 받기</button></div>
+          <div style="display:flex;gap:8px;flex-wrap:wrap;align-items:stretch"><select id="model" style="flex:1;min-width:220px"><option value="gemini-3.5-flash">gemini-3.5-flash</option></select><button class="secondary-action" id="fetchModels" type="button">모델 목록 받기</button></div>
           <small id="modelNote">API 키를 넣으면 <b>사진을 읽는 모델만</b> 골라 목록으로 보여 드립니다. 직접 입력할 필요 없이 고르면 됩니다. 최신 모델이 위에 옵니다.</small></div>
         <p><a class="inline-button" href="gemini-key.html">Google AI Studio에서 키 만들기</a><br><small>누르면 발급 방법을 단계별로 안내하는 페이지가 열립니다.</small></p>
       </div>
@@ -46,7 +46,7 @@
     var $=function(id){return document.getElementById(id)}, cfg=BWUAI.read();
     function select(mode){cfg.mode=mode;$('shareTab').classList.toggle('on',mode==='share');$('mineTab').classList.toggle('on',mode==='mine');$('sharePanel').hidden=mode!=='share';$('minePanel').hidden=mode!=='mine'}
     var NOTVISION=/embed|tts|audio|speech|imagen|veo|music|voice|image|live|robot|computer|learnlm|gemma|aqa|ocr/i;
-    function setModel(v){var sel=$('model');v=v||'gemini-3.7-flash';var has=false;for(var i=0;i<sel.options.length;i++)if(sel.options[i].value===v)has=true;if(!has){var o=document.createElement('option');o.value=v;o.textContent=v;sel.insertBefore(o,sel.firstChild)}sel.value=v}
+    function setModel(v){var sel=$('model');v=v||'gemini-3.5-flash';var has=false;for(var i=0;i<sel.options.length;i++)if(sel.options[i].value===v)has=true;if(!has){var o=document.createElement('option');o.value=v;o.textContent=v;sel.insertBefore(o,sel.firstChild)}sel.value=v}
     function modelNote(t,err){var n=$('modelNote');n.innerHTML=t;n.style.color=err?'#a33':''}
     function newestFirst(ids){
       function ver(x){var m=String(x).match(/(\d+)[.\-](\d+)/);if(m)return parseFloat(m[1]+'.'+m[2]);var n=String(x).match(/(\d+)/);return n?parseFloat(n[1]):0}
@@ -74,9 +74,9 @@
       }finally{btn.disabled=false;btn.textContent=old}
     }
     function message(text,error){$('status').hidden=false;$('status').className='status'+(error?' error':'');$('status').textContent=text}
-    $('password').value=cfg.password||'';$('apiKey').value=cfg.key||'';setModel(cfg.model||'gemini-3.7-flash');select(cfg.mode||'mine');$('fetchModels').onclick=function(){loadModels(false)};$('apiKey').addEventListener('change',function(){if(this.value.trim())loadModels(true)});if(cfg.key)loadModels(true);
+    $('password').value=cfg.password||'';$('apiKey').value=cfg.key||'';setModel(cfg.model||'gemini-3.5-flash');select(cfg.mode||'mine');$('fetchModels').onclick=function(){loadModels(false)};$('apiKey').addEventListener('change',function(){if(this.value.trim())loadModels(true)});if(cfg.key)loadModels(true);
     $('shareTab').onclick=function(){select('share')};$('mineTab').onclick=function(){select('mine')};
-    $('save').onclick=function(){cfg.password=$('password').value.trim();cfg.key=$('apiKey').value.trim();cfg.model=$('model').value.trim()||'gemini-3.7-flash';if(cfg.mode==='share'&&!cfg.password){message('공유 암호를 입력해 주세요.',true);return}if(cfg.mode==='mine'&&!cfg.key){message('Gemini API 키를 입력해 주세요.',true);return}BWUAI.save(cfg);message('저장했습니다. AI 수식 변환에서 이 설정을 사용합니다.')};
+    $('save').onclick=function(){cfg.password=$('password').value.trim();cfg.key=$('apiKey').value.trim();cfg.model=$('model').value.trim()||'gemini-3.5-flash';if(cfg.mode==='share'&&!cfg.password){message('공유 암호를 입력해 주세요.',true);return}if(cfg.mode==='mine'&&!cfg.key){message('Gemini API 키를 입력해 주세요.',true);return}BWUAI.save(cfg);message('저장했습니다. AI 수식 변환에서 이 설정을 사용합니다.')};
     $('clear').onclick=function(){BWUAI.clear();cfg=BWUAI.read();$('password').value='';$('apiKey').value='';setModel(cfg.model);select('mine');message('이 브라우저에 저장된 AI 설정을 지웠습니다.')};
   })();
   </script>
