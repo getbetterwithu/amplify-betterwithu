@@ -10,11 +10,22 @@
     <p><small>스킬은 개정 중이며 AI의 분석은 틀릴 수 있습니다. 수업에 적용하기 전에 원본 CL 코드와 <a href="https://cl.betterwithu.kr/">CL 학습자료</a>로 확인해 주세요.</small></p>
   </section>
   <section class="box" aria-labelledby="downloadTitle"><h2 id="downloadTitle">내려받기</h2>
-    <p><strong>준비 중입니다.</strong> 배포 파일과 버전은 확정되면 이 자리에 안내합니다.</p>
-    <p><small>현재 버전: 미정(개정 중)</small></p>
+    <p>스킬은 공개 저장소에서 받습니다. 아래 설치 명령은 저장소 주소만 알면 됩니다.</p>
+    <p><a href="https://github.com/getbetterwithu/amplify-cl-interpreter" target="_blank" rel="noopener noreferrer">GitHub에서 보기 ↗</a> (공개 저장소 amplify-cl-interpreter)</p>
+    <p><small>현재 버전: 0.3.2. 이 스킬의 문법 지식 중 일부는 아직 Amplify에서 실행해 확인하지 않았습니다. 답의 문장 끝 출처 표시로 확신 정도를 구분합니다.</small></p>
   </section>
-  <section class="box" aria-labelledby="installTitle"><h2 id="installTitle">설치 안내</h2><p>사용하는 AI에 따라 설치 방법이 다릅니다. 자세한 단계는 파일과 함께 안내할 예정입니다.</p>
-    <ul><li><strong>Claude:</strong> 스킬 폴더를 설치합니다. <em>(안내 준비 중)</em></li><li><strong>GPT:</strong> 지침문을 넣고 지식 파일을 업로드합니다. <em>(안내 준비 중)</em></li><li><strong>Gemini:</strong> 지침문을 넣고 지식 파일을 업로드합니다. <em>(안내 준비 중)</em></li></ul>
+  <section class="box" aria-labelledby="installTitle"><h2 id="installTitle">설치 안내</h2><p>터미널에서 쓰는 코딩 에이전트라면 아래 명령을 한 줄씩 차례로 입력하세요. 설치 뒤 도구를 다시 시작합니다. 제품이 바뀌면 명령이 달라질 수 있습니다.</p>
+    <p><strong>Claude Code</strong></p>
+    <pre>claude plugin marketplace add getbetterwithu/amplify-cl-interpreter
+claude plugin install amplify-cl-interpreter@amplify-cl-interpreter</pre>
+    <p><strong>Antigravity</strong> — 설치 결과에 <code>skills : 1 processed</code>가 보이면 됩니다.</p>
+    <pre>agy plugin install https://github.com/getbetterwithu/amplify-cl-interpreter
+agy plugin list</pre>
+    <p><strong>Codex CLI</strong> — <code>codex plugin list</code>에서 <code>installed, enabled</code>로 보이면 됩니다.</p>
+    <pre>codex plugin marketplace add getbetterwithu/amplify-cl-interpreter
+codex plugin add amplify-cl-interpreter@amplify-cl-interpreter
+codex plugin list</pre>
+    <p><strong>ChatGPT·Gemini·Claude 웹/앱:</strong> 명령어를 쓸 수 없습니다. 웹·앱에 올리는 배포 파일(zip)은 아직 준비하지 못했습니다. 위 명령을 쓸 수 있는 도구에서 설치해 주세요.</p>
   </section>
 </main>
 <footer class="site-footer"><div><a class="footer-brand" href="index.html">BetterWithU<span>.</span></a><p>Amplify 수업자료 제작과 Computation Layer 학습을 돕는 교사용 교육 보조 도구입니다.</p></div><div class="footer-info"><p>개인정보가 포함된 자료는 입력하지 말고, AI 결과는 수업 적용 전에 확인하세요.</p><div class="footer-links"><a href="mailto:jclover2@snu.ac.kr">jclover2@snu.ac.kr</a><a href="privacy.html">개인정보 및 AI 데이터 처리</a><a href="terms.html">이용 안내·저작권</a></div><p class="footer-copy">© 2026 서울대학교사범대학부설중학교 허철호. All Rights Reserved.</p></div><small class="footer-disclaimer">이 사이트는 독립적으로 제작한 비공식 교육 보조 자료이며, Amplify Education, Inc.와 제휴하거나 공식 승인을 받은 서비스가 아닙니다.</small></footer>
