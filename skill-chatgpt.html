@@ -1,0 +1,180 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="description" content="ChatGPT의 스킬 메뉴에 Amplify 수식 스킬을 올리는 세 가지 방법(컴퓨터에서 업로드, 편집기로 생성, 채팅으로 만들기)을 화면과 함께 안내합니다.">
+  <title>ChatGPT에 Amplify 수식 스킬 설치하기 | BetterWithU</title>
+  <link rel="stylesheet" href="site.css">
+  <link rel="stylesheet" href="guide.css">
+  <style>
+    .gs-pre{white-space:pre-wrap;word-break:break-word;background:#fffdf6;border:1.5px dashed #b9b3a0;border-radius:10px;padding:12px 14px;font-size:14px;line-height:1.65;margin:8px 0 10px;max-height:260px;overflow:auto}
+    .gs-btn{font:inherit;font-weight:800;font-size:14px;background:#ffe66d;color:#2f241f;border:2px solid #363838;border-radius:999px;padding:7px 16px;cursor:pointer;box-shadow:3px 3px 0 #1eaa9d}
+    .gs-btn:hover{transform:translateY(-1px)}
+    .gs-toast{position:fixed;left:50%;bottom:26px;transform:translateX(-50%);background:#12151b;color:#fff;font-size:14px;font-weight:700;padding:9px 18px;border-radius:999px;opacity:0;pointer-events:none;transition:.18s;z-index:60}
+    .gs-toast.on{opacity:.95}
+    .gs-tag{display:inline-block;font-size:12px;font-weight:800;padding:2px 10px;border-radius:999px;margin-left:8px;vertical-align:2px;background:#d9f3ee;color:#0f5f55}
+    .gs-tag.hold{background:#ffe9c2;color:#8a4b00}
+  </style>
+</head>
+<body class="workbook-home settings-page">
+  <a class="skip" href="#main">본문으로 건너뛰기</a>
+  <header class="topbar">
+    <a class="brand" href="index.html">BetterWithU<span>.</span></a>
+    <nav aria-label="주요 메뉴"><a href="index.html#tools">수업 제작 도구</a><a href="https://cl.betterwithu.kr/">CL 학습자료</a></nav>
+  </header>
+  <main id="main" class="panel guide-panel">
+    <a class="back-link" href="math.html#aiskill"><span aria-hidden="true">←</span> 수식 입력 안내</a>
+    <div class="page-title"><p class="eyebrow">STEP BY STEP · CHATGPT SKILL</p><h1>ChatGPT에 Amplify 수식 스킬 설치하기</h1><p class="guide-lead">ChatGPT의 <b>스킬</b> 메뉴에 Amplify 수식 규칙을 올려 두면, 교과서 수식을 Amplify용으로 바꾸거나 쓴 수식을 검수할 때 ChatGPT가 규칙을 알고 답합니다.</p></div>
+
+    <section class="guide-summary" aria-labelledby="sum-title">
+      <h2 id="sum-title">세 가지 방법 중 하나만 하면 됩니다</h2>
+      <ol>
+        <li><b>컴퓨터에서 업로드</b> — 내려받은 zip을 그대로 올립니다. 가장 간단합니다. <b>(추천)</b></li>
+        <li><b>편집기로 생성</b> — 이름·설명·지침 칸에 복사해 붙여넣습니다. 업로드가 안 될 때 씁니다.</li>
+        <li><b>채팅으로 만들기</b> — ChatGPT와 대화하며 만듭니다. 규칙이 정확히 옮겨지지 않을 수 있어 마지막 순서입니다.</li>
+      </ol>
+    </section>
+
+    <section class="guide-warn" aria-labelledby="warn-title">
+      <h2 id="warn-title">시작하기 전에</h2>
+      <ul>
+        <li>이 안내는 <b>2026-10-26</b> 화면 기준입니다. 메뉴 이름과 화면은 OpenAI가 바꿀 수 있습니다.</li>
+        <li>무료 계정에서 스킬 메뉴를 쓸 수 있는지는 <b>확인하지 못했습니다.</b> 메뉴가 보이지 않으면 아래 <a href="#paste">설치 없이 쓰기</a>를 쓰세요.</li>
+        <li>업로드 창은 "타사 스킬은 위험성이 더 높으며 데이터에 액세스하려 할 수 있으니 신뢰할 수 있는 소스의 스킬만 업로드하고 사용 전에 검토하라"고 안내합니다. 이 스킬의 파일은 <a href="https://github.com/getbetterwithu/amplify-betterwithu/tree/main/skill/amplify-math" target="_blank" rel="noopener noreferrer">GitHub ↗</a>에서 내용을 볼 수 있고, 규칙 문서와 지침만 들어 있습니다.</li>
+      </ul>
+    </section>
+
+    <section class="guide-step" id="step0" aria-labelledby="s0-title">
+      <h2 id="s0-title"><span class="guide-num" aria-hidden="true">0</span>스킬 메뉴 열기</h2>
+      <ol class="guide-steps">
+        <li><b>ChatGPT 스킬 화면을 엽니다.</b><br>
+          <a class="guide-btn" href="https://chatgpt.com/skills" target="_blank" rel="noopener noreferrer">ChatGPT 스킬 열기 ↗</a>
+          <small>로그인 화면이 나오면 로그인하세요. 이 주소로 열리지 않으면 ChatGPT 왼쪽 메뉴에서 <b>플러그인</b>이나 <b>스킬</b>을 찾으세요.</small></li>
+        <li>위쪽 탭이 <b>플러그인 · 스킬</b>이고 <b>스킬</b>이 선택되어 있는지 확인합니다.</li>
+        <li>오른쪽 위의 <b>추가</b> 버튼을 누르면 <b>채팅으로 만들기 · 편집기로 생성 · 컴퓨터에서 업로드</b> 세 가지가 보입니다(그림 1). 아래에서 하나를 고르세요.</li>
+      </ol>
+      <figure class="guide-fig"><button class="guide-image-open" type="button" data-image="img/skill-chatgpt/sc-01-menu.png" aria-label="그림 1 크게 보기"><img src="img/skill-chatgpt/sc-01-menu.png" alt="ChatGPT 스킬 화면. 오른쪽 위 추가 버튼을 누르면 채팅으로 만들기, 편집기로 생성, 컴퓨터에서 업로드 세 가지 메뉴가 나타난다." width="1562" height="414" loading="lazy" decoding="async"></button><figcaption>그림 1. <b>추가</b>를 누르면 세 가지 방법이 나옵니다.</figcaption></figure>
+    </section>
+
+    <section class="guide-step" id="step1" aria-labelledby="s1-title">
+      <h2 id="s1-title"><span class="guide-num" aria-hidden="true">1</span>컴퓨터에서 업로드 <span class="gs-tag">추천</span><span class="gs-tag hold">업로드 시험 예정</span></h2>
+      <p class="guide-goal">Gemini와 달리 <b>zip을 풀지 않고 그대로</b> 올립니다. 업로드 창이 .zip, .skill, SKILL.md를 받는다고 안내합니다.</p>
+      <ol class="guide-steps">
+        <li><b>스킬 zip을 내려받습니다. 압축은 풀지 않습니다.</b><br>
+          <a class="guide-btn" href="skill/amplify-math.zip" download>스킬 zip 내려받기</a></li>
+        <li><b>추가 → 컴퓨터에서 업로드</b>를 누릅니다(그림 1).</li>
+        <li><b>'스킬 업로드' 창에 zip 파일을 끌어다 놓거나, 창을 눌러 파일을 고릅니다</b>(그림 2). 파일당 최대 크기는 25MB이고, 이 zip은 20KB 남짓입니다.</li>
+        <li><b>'설치됨' 목록에 amplify-math가 보이면 끝입니다.</b> <a href="#test">아래 시험</a>으로 확인하세요.</li>
+      </ol>
+      <figure class="guide-fig"><button class="guide-image-open" type="button" data-image="img/skill-chatgpt/sc-02-upload.png" aria-label="그림 2 크게 보기"><img src="img/skill-chatgpt/sc-02-upload.png" alt="스킬 업로드 창. .zip 또는 .skill 파일이나 SKILL.md를 끌어놓거나 클릭해서 선택하라는 영역과, 최대 크기는 파일당 25MB라는 안내, 타사 스킬은 위험성이 더 높으니 신뢰할 수 있는 소스만 올리라는 경고가 있다." width="613" height="346" loading="lazy" decoding="async"></button><figcaption>그림 2. '스킬 업로드' 창. zip을 끌어다 놓거나 눌러서 고릅니다.</figcaption></figure>
+      <p class="guide-note">업로드가 거절되거나 목록에 보이지 않거나, 올린 뒤 규칙을 모르는 것처럼 답하면 <b>2번 방법</b>으로 하세요.</p>
+    </section>
+
+    <section class="guide-step" id="step2" aria-labelledby="s2-title">
+      <h2 id="s2-title"><span class="guide-num" aria-hidden="true">2</span>편집기로 생성</h2>
+      <p class="guide-goal">이름, 설명, 지침 세 곳에 아래 글을 복사해 붙여넣습니다(그림 3).</p>
+      <ol class="guide-steps">
+        <li><b>추가 → 편집기로 생성</b>을 누릅니다. 편집기 화면이 열립니다.</li>
+        <li><b>이름 칸</b>에 아래 이름을 입력합니다. 소문자와 숫자, 단어 사이 하이픈 하나만, 최대 64자라는 안내가 화면에 있습니다.
+          <pre class="gs-pre" id="t-name">amplify-math</pre>
+          <button class="gs-btn" type="button" data-copy-id="t-name">이름 복사</button></li>
+        <li><b>설명 칸</b>에 붙여넣습니다. 500자까지 쓸 수 있고 이 설명은 134자입니다.
+          <pre class="gs-pre" id="t-desc">Amplify Classroom(Desmos)의 메모·수식 답변·CL에 들어갈 수학 수식을 작성·검수·변환한다. 교과서 수식을 Amplify용 백틱 LaTeX로 옮기거나, 쓴 수식이 Amplify에서 그려질지 확인해 달라는 요청에 사용한다.</pre>
+          <button class="gs-btn" type="button" data-copy-id="t-desc">설명 복사</button></li>
+        <li><b>아래 큰 칸("스킬 지침을 작성하세요")</b>에 지침문과 규칙 전체를 붙여넣습니다.<br>
+          <button class="gs-btn" type="button" data-fetch="skill/amplify-math/instructions.md|skill/amplify-math/references/rules.md">지침+규칙 한 번에 복사</button>
+          <small>내용이 길어서 칸이 받지 못하면(오류가 나거나 잘리면) <a href="#paste">설치 없이 쓰기</a>를 쓰세요. 글자 수 제한은 아직 확인하지 못했습니다.</small></li>
+        <li>오른쪽 위의 <b>생성</b> 버튼을 눌러 저장합니다.</li>
+      </ol>
+      <figure class="guide-fig"><button class="guide-image-open" type="button" data-image="img/skill-chatgpt/sc-03-editor.png" aria-label="그림 3 크게 보기"><img src="img/skill-chatgpt/sc-03-editor.png" alt="스킬 편집기 화면. 왼쪽에 파일 목록과 업로드 버튼, 오른쪽에 이름과 설명 입력 칸, 그 아래 스킬 지침 입력 칸이 있고, 오른쪽 위에 스킬 다운로드와 생성 버튼이 있다." width="1400" height="663" loading="lazy" decoding="async"></button><figcaption>그림 3. 편집기: <b>이름 · 설명 · 지침</b> 세 곳. 오른쪽 위 <b>생성</b>으로 저장</figcaption></figure>
+    </section>
+
+    <section class="guide-step" id="step3" aria-labelledby="s3-title">
+      <h2 id="s3-title"><span class="guide-num" aria-hidden="true">3</span>채팅으로 만들기</h2>
+      <p class="guide-goal">ChatGPT의 skill-creator가 묻는 내용에 아래 답을 보내는 방법입니다. 규칙을 요약해 다시 쓰므로 <b>정확도는 앞의 두 방법보다 낮을 수 있습니다.</b></p>
+      <ol class="guide-steps">
+        <li><b>추가 → 채팅으로 만들기</b>를 누르면 새 대화에 "skill-creator를 사용해서 스킬을 만드는 걸 도와줘. 대화하듯 진행하고, 먼저 스킬이 어떤 일을 해야 하는지 물어봐."가 입력됩니다(그림 4). 그대로 보냅니다.</li>
+        <li><b>규칙 파일을 내려받아 대화에 첨부합니다.</b><br>
+          <a class="guide-btn plain" href="skill/amplify-math/references/rules.md" download>rules.md 내려받기</a>
+          <small>입력창 왼쪽의 <b>+</b>로 파일을 올립니다.</small></li>
+        <li><b>ChatGPT가 목적을 물으면 아래 답을 복사해 보냅니다.</b>
+          <pre class="gs-pre" id="t-by">목표: 중학교 수학 교사가 Amplify Classroom(Desmos)의 메모·수식 답변·CL에 넣을 수학 수식을 작성·검수·변환한다.
+사용할 때: "Amplify 수식", "교과서 수식을 Amplify로 바꿔줘", "이 수식이 Amplify에서 그려지나요" 같은 요청.
+규칙: 첨부한 rules.md를 규칙의 근거로 삼는다. 수식은 백틱으로 감싸고 ~~~ 코드 블록에 담아 준다. rules.md의 대체표에 걸리는 명령은 고쳐서 주고, 목록에 없는 명령은 "확인되지 않았다"고 말한다. 메모·수식 답변 칸에는 붙여넣기로 넣어야 한다고 안내한다.</pre>
+          <button class="gs-btn" type="button" data-copy-id="t-by">답변 복사</button></li>
+        <li>만들어진 스킬에 대체표(<code>\therefore</code>→<code>∴</code> 등)가 빠졌으면 "rules.md의 대체표를 그대로 넣어 줘"라고 요청합니다.</li>
+      </ol>
+      <figure class="guide-fig"><button class="guide-image-open" type="button" data-image="img/skill-chatgpt/sc-04-by-chat.png" aria-label="그림 4 크게 보기"><img src="img/skill-chatgpt/sc-04-by-chat.png" alt="채팅으로 만들기를 누르면 입력창에 skill-creator를 사용해서 스킬을 만드는 걸 도와달라는 문장이 자동으로 채워진다." width="1010" height="585" loading="lazy" decoding="async"></button><figcaption>그림 4. 입력창에 문장이 자동으로 채워집니다.</figcaption></figure>
+    </section>
+
+    <section class="guide-step" id="test" aria-labelledby="t-title">
+      <h2 id="t-title"><span class="guide-num" aria-hidden="true">✓</span>잘 설치됐는지 확인하고 시험하기</h2>
+      <ol class="guide-steps">
+        <li><b>먼저 등록됐는지 확인합니다.</b> 스킬 화면의 <b>설치됨</b> 목록에 <b>amplify-math</b>가 보여야 합니다.</li>
+        <li><b>새 채팅</b>을 열고 아래를 보냅니다.
+          <pre class="gs-pre" id="t-test1">amplify-math 스킬을 사용해서, 삼각형 ABC와 삼각형 DEF가 닮음이고 따라서 각 A와 각 D가 같다는 문장을 Amplify 메모용 수식으로 바꿔 줘.</pre>
+          <button class="gs-btn" type="button" data-copy-id="t-test1">복사</button></li>
+        <li><b>이렇게 나오면 성공입니다.</b> 닮음은 <code>∽</code>, 따라서는 <code>∴</code>를 쓰고, 점 이름은 <code>\mathrm{}</code>으로 감싸고, 기호 앞뒤에 <code>\ </code>가 들어 있고, 수식이 백틱과 코드 블록으로 담겨 있습니다.</li>
+        <li><b>한 번 더 시험합니다.</b>
+          <pre class="gs-pre" id="t-test2">amplify-math 스킬로 답해 줘. \therefore 와 \equiv 를 Amplify에서 써도 되나요?</pre>
+          <button class="gs-btn" type="button" data-copy-id="t-test2">복사</button><br>
+          <small>"그려지지 않고 칸이 비워진다, 대신 ∴ 와 ≡ 를 쓴다"고 답하면 규칙을 알고 있는 것입니다.</small></li>
+        <li>결과를 <b>복사해서 붙여넣기</b>로 Amplify 메모에 넣습니다. 키보드로 직접 치면 수식으로 바뀌지 않습니다.</li>
+      </ol>
+    </section>
+
+    <section class="guide-step" id="paste" aria-labelledby="p-title">
+      <h2 id="p-title"><span class="guide-num" aria-hidden="true">＋</span>설치 없이 쓰기 (가장 확실한 방법)</h2>
+      <p class="guide-goal">스킬을 만들지 않고, 새 대화 첫 메시지에 규칙을 붙여넣어 그 대화에서만 쓰는 방법입니다. 스킬 메뉴가 안 보여도 됩니다.</p>
+      <ol class="guide-steps">
+        <li>아래 버튼을 눌러 지침문과 규칙을 한 번에 복사합니다.<br>
+          <button class="gs-btn" type="button" data-fetch="skill/amplify-math/instructions.md|skill/amplify-math/references/rules.md">지침+규칙 한 번에 복사</button></li>
+        <li>ChatGPT <b>새 채팅</b>의 입력창에 붙여넣고 보냅니다.</li>
+        <li>이어서 "이 문장을 Amplify 수식으로 바꿔 줘: …"처럼 요청합니다. 새 대화를 열 때마다 다시 붙여넣어야 합니다.</li>
+      </ol>
+    </section>
+
+    <section class="guide-trouble" aria-labelledby="tr-title">
+      <h2 id="tr-title">잘 안 될 때</h2>
+      <dl>
+        <dt>스킬 메뉴가 없거나 추가 버튼이 없습니다</dt>
+        <dd>요금제나 계정 종류에 따라 메뉴가 없을 수 있습니다. 학교·회사 계정이면 관리자 설정 때문일 수 있습니다. 그때는 <a href="#paste">설치 없이 쓰기</a>가 가장 확실합니다.</dd>
+        <dt>업로드가 거절됩니다</dt>
+        <dd>zip의 압축을 풀지 않은 상태인지, 파일 크기가 25MB 이하인지 확인하세요. 그래도 안 되면 2번(편집기)을 쓰세요.</dd>
+        <dt>올렸는데 규칙을 모르는 것처럼 답합니다</dt>
+        <dd>요청 첫머리에 "amplify-math 스킬을 사용해서"라고 이름을 말해 보세요. 그래도 안 되면 편집기(2번)나 붙여넣기를 쓰세요.</dd>
+        <dt>화면이 그림과 다릅니다</dt>
+        <dd>메뉴 이름에서 <b>스킬</b>과 <b>추가</b>를 찾으세요.</dd>
+      </dl>
+    </section>
+  </main>
+  <div class="guide-lightbox" id="guideLightbox" role="dialog" aria-modal="true" aria-label="확대 이미지" hidden>
+    <button class="guide-lightbox-close" type="button" aria-label="확대 이미지 닫기">×</button>
+    <img src="" alt="">
+  </div>
+  <footer class="site-footer"><div><a class="footer-brand" href="index.html">BetterWithU<span>.</span></a><p>Amplify 수업자료 제작과 Computation Layer 학습을 돕는 교사용 교육 보조 도구입니다.</p></div><div class="footer-info"><p>개인정보가 포함된 자료는 입력하지 말고, AI 결과는 수업 적용 전에 확인하세요.</p><div class="footer-links"><a href="mailto:jclover2@snu.ac.kr">jclover2@snu.ac.kr</a><a href="privacy.html">개인정보 및 AI 데이터 처리</a><a href="terms.html">이용 안내·저작권</a></div><p class="footer-copy">© 2026 서울대학교사범대학부설중학교 허철호. All Rights Reserved.</p></div><small class="footer-disclaimer">이 사이트는 독립적으로 제작한 비공식 교육 보조 자료이며, Amplify Education, Inc.와 제휴하거나 공식 승인을 받은 서비스가 아닙니다.</small></footer>
+  <div class="gs-toast" id="gsToast" role="status"></div>
+  <script src="guide.js"></script>
+  <script>
+  (function(){
+    var toast=document.getElementById('gsToast');
+    function say(m){toast.textContent=m;toast.classList.add('on');clearTimeout(say.t);say.t=setTimeout(function(){toast.classList.remove('on')},1500);}
+    function copy(t){
+      function ok(){say('복사했습니다');}
+      function fb(){var a=document.createElement('textarea');a.value=t;a.style.position='fixed';a.style.opacity='0';document.body.appendChild(a);a.select();try{document.execCommand('copy');ok();}catch(e){say('복사하지 못했습니다');}document.body.removeChild(a);}
+      if(navigator.clipboard&&window.isSecureContext){navigator.clipboard.writeText(t).then(ok,fb);}else{fb();}
+    }
+    Array.prototype.forEach.call(document.querySelectorAll('[data-copy-id]'),function(b){
+      b.addEventListener('click',function(){copy(document.getElementById(b.getAttribute('data-copy-id')).textContent);});
+    });
+    Array.prototype.forEach.call(document.querySelectorAll('[data-fetch]'),function(b){
+      b.addEventListener('click',function(){
+        var urls=b.getAttribute('data-fetch').split('|');
+        Promise.all(urls.map(function(u){return fetch(u).then(function(r){if(!r.ok)throw 0;return r.text();});}))
+          .then(function(a){copy(a.join('\n\n=== 아래는 rules.md 내용입니다 ===\n\n'));},function(){say('복사하지 못했습니다. 파일을 내려받아 주세요');});
+      });
+    });
+  })();
+  </script>
+</body></html>
