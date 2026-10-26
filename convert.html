@@ -148,7 +148,8 @@ footer{margin-top:26px;padding-top:18px;border-top:1px solid var(--line);font-si
 .aiconn[data-state="need"]{border:3px solid #12806d;padding:22px 24px;box-shadow:6px 6px 0 #12806d;background:#fff}
 .aiconn[data-state="need"] .ok{display:none}
 .aiconn[data-state="ok"] .need{display:none}
-.aiconn[data-state="ok"]{border:2px solid #d8e8e0;padding:10px 16px;display:flex;align-items:center;justify-content:space-between;gap:12px}
+.aiconn[data-state="ok"]{border:3px solid #12806d;background:#e3f5f0;padding:14px 18px;box-shadow:5px 5px 0 #12806d}
+.aiconn[data-state="ok"] .ok{display:flex;align-items:center;justify-content:space-between;gap:14px;flex-wrap:wrap}
 .aic-step{margin:0 0 4px;font-size:13px;font-weight:800;color:#12806d;letter-spacing:.02em}
 .aic-title{margin:0 0 8px;font-size:24px;line-height:1.3;border:0;padding:0}
 .aic-desc{margin:0 0 8px;font-size:15.5px;line-height:1.7}
@@ -156,8 +157,9 @@ footer{margin-top:26px;padding-top:18px;border-top:1px solid var(--line);font-si
 .aic-btn{display:block;text-align:center;padding:18px 24px;border-radius:14px;background:#12806d;color:#fff!important;font-size:22px;font-weight:900;text-decoration:none;border:0;box-shadow:0 5px 0 #0b5c4f;transition:.12s}
 .aic-btn:hover{background:#0f6e5e;transform:translateY(-1px)}
 .aic-after{margin:12px 0 0;font-size:14px;color:#4d5551}
-.aic-okline{font-size:15px;color:#12806d}
-.aic-small{font-size:14px;font-weight:700;text-decoration:underline;white-space:nowrap}
+.aic-okline{font-size:19px;font-weight:900;color:#0b5c4f;line-height:1.4}
+.aic-small{display:inline-flex;align-items:center;padding:11px 22px;border-radius:12px;background:#12806d;color:#fff!important;font-size:16px;font-weight:900;text-decoration:none;white-space:nowrap;box-shadow:0 4px 0 #0b5c4f;transition:.12s}
+.aic-small:hover{background:#0f6e5e;transform:translateY(-1px)}
 @keyframes aicpulse{0%,100%{box-shadow:6px 6px 0 #12806d}50%{box-shadow:6px 6px 0 #12806d,0 0 0 8px rgba(30,170,157,.35)}}
 .aiconn.pulse{animation:aicpulse .9s ease 3}
 @media(max-width:640px){.aic-title{font-size:20px}.aic-btn{font-size:19px;padding:16px 14px}}
@@ -186,7 +188,7 @@ footer{margin-top:26px;padding-top:18px;border-top:1px solid var(--line);font-si
   </div>
   <div class="ok">
     <strong class="aic-okline">✓ <span id="sharedAiStatus">AI 설정 확인 중</span></strong>
-    <a class="aic-small" href="settings.html">설정 바꾸기</a>
+    <a class="aic-small" href="settings.html">⚙ 설정 바꾸기</a>
   </div>
 </section>
 
@@ -726,10 +728,14 @@ if(!ready()){msg('err','먼저 위의 <b>AI 사용 설정 열기</b> 버튼을 �
       msg('go','서버가 잠깐 붐빕니다. '+sec+'초 뒤 다시 시도합니다… ('+n+'/'+total+')');
     });
     text=text.replace(/^\s*```[a-z]*\n?/i,'').replace(/```\s*$/,'').trim();
-    var fx=fixText(text);text=fx.text;
+    var rawText=text;var fx=fixText(text);text=fx.text;
     $('code').value=text; draw();
+    var rv=$('rawView');
+    if(!rv){rv=document.createElement('details');rv.id='rawView';rv.style.cssText='margin:8px 0;font-size:10pt';$('code').parentNode.insertBefore(rv,$('code').nextSibling);}
+    rv.innerHTML='<summary style="cursor:pointer;color:#4d5551">AI가 처음 준 원문 보기 (결과가 이상할 때 확인용)</summary>';
+    var rpre=document.createElement('pre');rpre.style.cssText='white-space:pre-wrap;background:#fff;border:1px solid #ccc;border-radius:8px;padding:8px;max-height:220px;overflow:auto;margin:6px 0 0';rpre.textContent=rawText;rv.appendChild(rpre);
     $('result').style.display='block';$('rh').style.display='block';
-    msg('ok','다 바꿨습니다. 오른쪽에서 모양을 확인하시고 복사해 주세요.'+(fx.n?' <span class="muted">(Amplify에서 안 그려질 표기 '+fx.n+'곳을 자동으로 고쳤습니다)</span>':''));
+    msg('ok','다 바꿨습니다. 오른쪽에서 모양을 확인하시고 복사해 주세요.'+(fx.n?' <span class="muted">(Amplify에서 안 그려질 표기 '+fx.n+'곳을 자동으로 고쳤습니다'+(fx.removed.length?'. 안 그려져서 지운 표기: '+fx.removed.join(' '):'')+')</span>':''));
     $('rh').scrollIntoView({behavior:'smooth',block:'start'});
   }catch(e){
     var m=String(e.message||'변환에 실패했습니다.');
@@ -749,27 +755,55 @@ function wait(ms){return new Promise(function(r){setTimeout(r,ms);});}
 
 /* AI 가 규칙을 어겨도 Amplify 에서 빈칸이 되지 않게, 확인된 대체표(rules.md 4번)로 코드가 고친다.
    백틱 안의 수식만 건드리고, 바꾼 곳의 수를 센다. */
-var PARALLEL=/\\parallel(?![a-zA-Z])|\\mathbin\{\s*(?:\/\/|\\parallel)\s*\}|\\\||\\Vert(?![a-zA-Z])|∥|‖/g;
+var PARALLEL=/\\(?:parallel|shortparallel|smallparallel|sslash)(?![a-zA-Z])|\\Vert(?:\s*\\Vert)?(?![a-zA-Z])|\\vert\s*\\vert(?![a-zA-Z])|\\\|(?:\s*\\\|)?|\\text\{\s*\/\/\s*\}|\\math(?:bin|rel|op|ord)\{\s*(?:\/\/|\\parallel|\\\|)\s*\}|\\\/\\\/|\\\/\/|\\unicode\{\s*x?2225\s*\}|\\!\/\\!\/|\/\\!\/|\\slash(?![a-zA-Z])|∥|‖/g;
 var FIXES=[
   [PARALLEL,'⫽'],
+  [/\\math(?:bin|rel|op|ord)\{([^{}]*)\}/g,'$1'],
+  [/(^|\\ |\s)\/\/(?=\\ |\s|$)/g,'$1⫽'],
+  [/\\vert(?![a-zA-Z])/g,'|'],
+  [/\\[;:]/g,'\\ '],[/\\!/g,''],
   [/\\therefore(?![a-zA-Z])/g,'∴'],[/\\because(?![a-zA-Z])/g,'∵'],[/\\equiv(?![a-zA-Z])/g,'≡'],
   [/\\(?:Rightarrow|Longrightarrow|implies)(?![a-zA-Z])/g,'⇒'],[/\\(?:Leftrightarrow|Longleftrightarrow|iff)(?![a-zA-Z])/g,'⇔'],
   [/\\propto(?![a-zA-Z])/g,'∝'],[/\\(?:backsim|sim)(?![a-zA-Z])/g,'∽'],
   [/\^\s*\{?\s*\\circ\s*\}?/g,'\\degree '],[/\\cbrt(?![a-zA-Z])/g,'\\sqrt[3]'],
   [/\\(?:dfrac|cfrac)(?![a-zA-Z])/g,'\\frac'],[/\\q?quad(?![a-zA-Z])/g,'\\ ']
 ];
-function fixFormula(f){
+/* 미리보기 엔진으로 직접 그려 보아 빈칸인지 확인한다 (빈칸 = Amplify 에서도 수식이 통째로 사라짐) */
+function mqRenders(f){
+  if(typeof MQ==='undefined')return true;
+  var sp=document.createElement('span');document.body.appendChild(sp);
+  var ok=false;try{MQ.StaticMath(sp).latex(f);ok=sp.textContent.trim().length>0;}catch(e){}
+  document.body.removeChild(sp);return ok;
+}
+/* 알려진 표기로 못 고친 빈칸 수식: 어느 명령이 범인인지 하나씩 빼 보며 찾아 지운다 */
+function dropCulprit(f,removed){
+  if(mqRenders(f))return f;
+  var toks=(f.match(/\\[A-Za-z]+|\\[^A-Za-z\s]/g)||[]).filter(function(t,i,a){return a.indexOf(t)===i;});
+  for(var i=0;i<toks.length;i++){
+    var g=f.split(toks[i]).join('');
+    if(g!==f&&mqRenders(g)){removed.push(toks[i]);return g;}
+  }
+  var cur=f,tmp=[];
+  for(var j=0;j<toks.length;j++){
+    var h=cur.split(toks[j]).join('');
+    if(h!==cur){cur=h;tmp.push(toks[j]);if(mqRenders(cur)){Array.prototype.push.apply(removed,tmp);return cur;}}
+  }
+  return f;
+}
+function fixFormula(f,removed){
   var n=0;
-  FIXES.forEach(function(r){f=f.replace(r[0],function(){n++;return r[1];});});
+  FIXES.forEach(function(r){f=f.replace(r[0],function(m,a){n++;return r[1].indexOf('$1')>=0?r[1].replace('$1',a===undefined?'':a):r[1];});});
   var before=f;
   f=f.replace(/(?:\\ )*([∽≡⫽∴∵⇒⇔])(?:\\ )*/g,'\\ $1\\ ').replace(/^(?:\\ )+|(?:\\ )+$/g,'').replace(/(\\ ) +/g,'$1').replace(/\s+$/,'');
   if(f!==before)n++;
+  var cleaned=dropCulprit(f,removed);
+  if(cleaned!==f){n++;f=cleaned;}
   return {f:f,n:n};
 }
 function fixText(text){
-  var total=0;
-  var out=text.replace(/`[^`\n]*`/g,function(m){var r=fixFormula(m.slice(1,-1));total+=r.n;return '`'+r.f+'`';});
-  return {text:out,n:total};
+  var total=0,removed=[];
+  var out=text.replace(/`[^`\n]*`/g,function(m){var r=fixFormula(m.slice(1,-1),removed);total+=r.n;return '`'+r.f+'`';});
+  return {text:out,n:total,removed:removed};
 }
 
 async function convertOnce(){
