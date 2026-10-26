@@ -59,7 +59,7 @@
     </section>
 
     <section class="guide-step" id="step1" aria-labelledby="s1-title">
-      <h2 id="s1-title"><span class="guide-num" aria-hidden="true">1</span>업로드하기 <span class="gs-tag">추천</span><span class="gs-tag hold">하위 폴더 시험 중</span></h2>
+      <h2 id="s1-title"><span class="guide-num" aria-hidden="true">1</span>업로드하기 <span class="gs-tag">추천</span><span class="gs-tag">2026-10-26 시험 완료</span></h2>
       <p class="guide-goal">스킬 폴더(<b>amplify-math</b>)를 통째로 올리는 방법입니다.</p>
       <ol class="guide-steps">
         <li><b>스킬 파일을 내려받습니다.</b><br>
@@ -72,7 +72,7 @@
         <li><b>스킬 목록에 amplify-math가 보이면 끝입니다.</b> <a href="#test">아래 시험</a>으로 확인하세요.</li>
       </ol>
       <figure class="guide-fig"><button class="guide-image-open" type="button" data-image="img/skill-gemini/sg-05-upload.png" aria-label="그림 2 크게 보기"><img src="img/skill-gemini/sg-05-upload.png" alt="기능 업로드 창. SKILL.md에서 기능 이름에 케밥 케이스를 사용하고 최상위 폴더에 SKILL.md 파일을 포함하라는 안내와, 이미지 파일 또는 폴더를 끌어다 놓는 영역이 있다." width="564" height="627" loading="lazy" decoding="async"></button><figcaption>그림 2. '기능 업로드' 창. <b>폴더</b>를 고르거나 끌어다 놓습니다.</figcaption></figure>
-      <p class="guide-note">업로드가 거절되거나 목록에 보이지 않거나, 올린 뒤 규칙을 모르는 것처럼 답하면 <b>2번 방법</b>으로 하세요. references 하위 폴더까지 올라가는지는 아직 시험 중입니다.</p>
+      <p class="guide-note">2026-10-26 시험에서 <b>폴더 업로드가 정상 등록</b>되었고, 새 채팅에서 규칙대로 답했습니다. 업로드가 거절되거나 목록에 보이지 않거나, 올린 뒤 규칙을 모르는 것처럼 답하면 <b>2번 방법</b>으로 하세요.</p>
     </section>
 
     <section class="guide-step" id="step2" aria-labelledby="s2-title">
@@ -96,7 +96,7 @@
 
     <section class="guide-step" id="step3" aria-labelledby="s3-title">
       <h2 id="s3-title"><span class="guide-num" aria-hidden="true">3</span>Gemini로 만들기</h2>
-      <p class="guide-goal">Gemini가 묻는 세 가지에 아래 답을 보내는 방법입니다. Gemini가 규칙을 요약해 다시 쓰므로 <b>정확도는 앞의 두 방법보다 낮을 수 있습니다.</b></p>
+      <p class="guide-goal">Gemini가 묻는 세 가지에 아래 답을 보내는 방법입니다. Gemini가 규칙을 요약해 다시 쓰므로 <b>정확도는 앞의 두 방법보다 낮을 수 있고, 시험에서도 일부 오작동이 있었습니다.</b></p>
       <ol class="guide-steps">
         <li><b>만들기 → Gemini로 만들기</b>를 누르면 새 대화에 "Create a skill"이 입력되고, Gemini가 <b>Task / Goal, Trigger, Output &amp; Constraints</b>를 물어봅니다(그림 4).</li>
         <li><b>규칙 파일을 내려받아 대화에 첨부합니다.</b><br>
@@ -113,8 +113,10 @@
     </section>
 
     <section class="guide-step" id="test" aria-labelledby="t-title">
-      <h2 id="t-title"><span class="guide-num" aria-hidden="true">✓</span>잘 설치됐는지 시험하기</h2>
+      <h2 id="t-title"><span class="guide-num" aria-hidden="true">✓</span>잘 설치됐는지 확인하고 시험하기</h2>
       <ol class="guide-steps">
+        <li><b>먼저 등록됐는지 확인합니다.</b> Gemini 왼쪽 메뉴의 <b>더보기 → Gems</b>를 열면 <b>Gem 관리자</b>의 <b>내 Gems</b> 목록에 <b>amplify-math</b>가 보여야 합니다(그림 5). 설명 칸에는 스킬 설명이 그대로 나옵니다.
+          <small>2026-10-26 화면에서는 새로 만든 스킬이 이 목록에 보였습니다. 11월 17일 이후에는 위치와 이름이 바뀔 수 있으니 "amplify-math"를 찾으세요.</small></li>
         <li><b>새 채팅</b>을 열고 아래를 보냅니다.
           <pre class="gs-pre" id="t-test1">삼각형 ABC와 삼각형 DEF가 닮음이고, 따라서 각 A와 각 D가 같다는 문장을 Amplify 메모용 수식으로 바꿔 줘.</pre>
           <button class="gs-btn" type="button" data-copy-id="t-test1">복사</button></li>
@@ -125,6 +127,7 @@
           <small>"그려지지 않고 칸이 비워진다, 대신 ∴ 와 ≡ 를 쓴다"고 답하면 규칙을 알고 있는 것입니다.</small></li>
         <li>결과를 <b>복사해서 붙여넣기</b>로 Amplify 메모에 넣습니다. 키보드로 직접 치면 수식으로 바뀌지 않습니다.</li>
       </ol>
+      <figure class="guide-fig"><button class="guide-image-open" type="button" data-image="img/skill-gemini/sg-06-registered.png" aria-label="그림 5 크게 보기"><img src="img/skill-gemini/sg-06-registered.png" alt="Gem 관리자 화면. 내 Gems 목록에 amplify-math가 있고 Amplify Classroom 수식 작성·검수·변환 설명이 보이며 빨간 상자로 표시되어 있다." width="864" height="437" loading="lazy" decoding="async"></button><figcaption>그림 5. 등록되면 <b>내 Gems</b> 목록에 <b>amplify-math</b>가 보입니다(빨간 상자).</figcaption></figure>
     </section>
 
     <section class="guide-step" id="paste" aria-labelledby="p-title">
