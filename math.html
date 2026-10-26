@@ -142,6 +142,29 @@ footer .fbox{margin:18px auto 0;max-width:520px;padding:12px 20px;
 .gcard .ga{color:#0f4c81;font-weight:800;font-size:12pt;flex:none}
 .gcard.home2{background:#f6f8fb}
 @media print{.golinks{display:none}}
+/* 눌러서 복사하는 입력 칸 */
+code.cp{cursor:pointer;transition:.12s;position:relative}
+code.cp::after{content:"복사";margin-left:8px;font-family:inherit;font-size:8.2pt;font-weight:700;color:#9aa3b0}
+code.cp:hover,code.cp:focus-visible{background:#fff5fa;border-color:var(--accent);outline:none}
+code.cp:hover::after,code.cp:focus-visible::after{color:var(--accent)}
+code.cp.done{background:var(--ok);border-color:var(--ok);color:#fff}
+code.cp.done::after{content:"복사됨";color:#fff}
+@media print{code.cp::after{display:none}}
+.toast{position:fixed;left:50%;bottom:26px;transform:translateX(-50%);background:#12151b;color:#fff;
+  font-size:10pt;font-weight:700;padding:9px 18px;border-radius:999px;opacity:0;pointer-events:none;transition:.18s;z-index:50}
+.toast.on{opacity:.94}
+@media print{.toast{display:none}}
+
+/* AI 스킬 안내 */
+.ai3{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;margin:14px 0}
+@media(max-width:760px){.ai3{grid-template-columns:1fr}}
+.aibox{border:1.6px solid var(--line);border-radius:12px;padding:15px 17px;background:#fff}
+.aibox h3{margin:0 0 6px;font-size:12.5pt;letter-spacing:-.02em}
+.aibox p{margin:6px 0;font-size:10pt;color:var(--muted);line-height:1.6}
+.aibox ol{margin:6px 0 0;padding-left:19px;font-size:10pt;line-height:1.6}
+.aibtn{font-family:inherit;font-size:10pt;font-weight:700;background:#eef1f6;color:#39435c;border:1.5px solid #e3e7ee;border-radius:9px;padding:8px 14px;cursor:pointer}
+.aibtn:hover{border-color:var(--brand);background:#f6f9fd}
+@media print{.aisec{display:none}}
 </style><link rel="stylesheet" href="tool-theme.css"></head><body class="tool-page">
 
 <div class="hero">
@@ -160,6 +183,9 @@ footer .fbox{margin:18px auto 0;max-width:520px;padding:12px 20px;
     다만 <b>교과서와 모양이 많이 다른 기호</b>는 명령어 대신
     <b>기호를 그대로 복사해 넣는 편이 좋습니다.</b>
     닮음·합동·평행이 여기에 해당합니다.</li>
+<li><b>수식은 직접 치지 말고 복사해서 붙여넣어 주세요.</b>
+    키보드로 명령어를 한 글자씩 치면 수식으로 바뀌지 않고 글자 그대로 남습니다.
+    아래 표에서 <b>입력 칸을 누르면 바로 복사</b>되니 메모나 수식 답변에 붙여넣으시면 됩니다.</li>
 </ol>
 </div>
 
@@ -206,13 +232,39 @@ footer .fbox{margin:18px auto 0;max-width:520px;padding:12px 20px;
 <h2 class="c q" style="margin-top:34px">글자 색과 크기는 어떻게 바꾸나요?</h2>
 <div class="tw"><table><thead><tr><th>어디에</th><th>방법</th></tr></thead><tbody>
 <tr><td class=c0>수식 안</td>
-    <td><code>`\textcolor{red}{\overline{\mathrm{AG}}}`</code> 처럼 쓰시면 됩니다 →
+    <td><code data-copy>`\textcolor{red}{\overline{\mathrm{AG}}}`</code> 처럼 쓰시면 됩니다 →
     <span class="tex">\textcolor{red}{\overline{\mathrm{AG}}}</span>
     &nbsp; <code>#2f6bd8</code> 같은 색 번호도 됩니다</td></tr>
 <tr class="hl"><td class=c0>일반 글자</td>
     <td>명령어가 통하지 않습니다. <b>이미 꾸며진 글자를 복사해</b> 쓰셔야 합니다.
     <a class="gobtn" href="text.html"><span class="gi">🎨</span><span class="gt">글자 꾸미기 페이지 열기</span><span class="ga">→</span></a></td></tr>
 </tbody></table></div>
+
+<div class="aisec">
+<h2 class="c q" style="margin-top:34px">AI에게 수식을 맡기고 싶다면: Amplify 수식 스킬</h2>
+<p class="note" style="margin-top:0">위 규칙을 AI가 미리 알고 있게 하는 파일입니다. 교과서 수식을 Amplify용으로 옮기거나, 쓴 수식이 Amplify에서 그려질지 검수할 때 씁니다. <b>Claude, GPT, Gemini 어느 쪽에서든</b> 쓸 수 있습니다.</p>
+<div class="kbtns">
+  <a class="kbtn" href="skill/amplify-math.zip" download>⬇ Claude용 스킬(zip)</a>
+  <a class="kbtn" href="skill/amplify-math/references/rules.md" download>⬇ 규칙 파일 rules.md</a>
+  <a class="kbtn" href="skill/amplify-math/instructions.md" download>⬇ 지침문 instructions.md</a>
+  <a class="kbtn" href="https://github.com/getbetterwithu/amplify-betterwithu/tree/main/skill/amplify-math" target="_blank" rel="noopener">GitHub에서 보기 ↗</a>
+</div>
+<div class="ai3">
+  <div class="aibox"><h3>Claude</h3>
+    <p>스킬로 설치합니다.</p>
+    <ol><li>위의 <b>Claude용 스킬(zip)</b>을 내려받습니다.</li><li>Claude 설정의 스킬(Skills) 메뉴에서 zip을 올립니다.</li><li>"이 교과서 수식을 Amplify용으로 바꿔줘"처럼 요청합니다.</li></ol></div>
+  <div class="aibox"><h3>GPT</h3>
+    <p>내 GPT를 만들어 씁니다.</p>
+    <ol><li>GPT 만들기에서 지침 칸에 <b>지침문</b>을 붙여넣습니다.</li><li>지식(Knowledge)에 <b>rules.md</b>를 올립니다.</li><li>그 GPT에서 수식을 요청합니다.</li></ol>
+    <p><button class="aibtn" data-fetch="skill/amplify-math/instructions.md">지침문 복사</button></p></div>
+  <div class="aibox"><h3>Gemini</h3>
+    <p>내 Gem을 만들어 씁니다.</p>
+    <ol><li>Gem 만들기에서 지침 칸에 <b>지침문</b>을 붙여넣습니다.</li><li>지식 파일에 <b>rules.md</b>를 추가합니다.</li><li>그 Gem에서 수식을 요청합니다.</li></ol>
+    <p><button class="aibtn" data-fetch="skill/amplify-math/instructions.md">지침문 복사</button></p></div>
+</div>
+<p class="note"><b>설치 없이 한 번만 쓰려면</b> 새 대화 첫머리에 지침문을 붙여넣고 rules.md를 첨부(또는 내용을 붙여넣기)하세요. 메뉴 이름은 각 서비스가 바꿀 수 있습니다.</p>
+<p class="note">AI의 결과는 틀릴 수 있습니다. 이 규칙은 2026-10-26 Amplify 편집기 시험 결과이며 전수 검사가 아니고, 학생 화면은 확인하지 않았습니다. 수업에 쓰기 전에 Amplify 미리보기에서 확인해 주세요.</p>
+</div>
 
 <div class="golinks">
   <div class="gt">다른 도구도 있습니다</div>
@@ -256,6 +308,20 @@ document.querySelectorAll('.tex').forEach(function(el){
   }
   Array.prototype.forEach.call(document.querySelectorAll('.sym'),function(b){
     b.addEventListener('click',function(){copy(b.textContent,b)});
+  });
+  var toast=document.createElement('div');toast.className='toast';document.body.appendChild(toast);
+  function say(m){toast.textContent=m;toast.classList.add('on');clearTimeout(say.t);say.t=setTimeout(function(){toast.classList.remove('on')},1300);}
+  Array.prototype.forEach.call(document.querySelectorAll('td.c1 > code, code[data-copy]'),function(c){
+    c.classList.add('cp');c.setAttribute('role','button');c.setAttribute('tabindex','0');c.setAttribute('title','누르면 복사됩니다');
+    function go(){copy(c.textContent,c);say('복사했습니다. 메모나 수식 답변에 붙여넣으세요');}
+    c.addEventListener('click',go);
+    c.addEventListener('keydown',function(e){if(e.key==='Enter'||e.key===' '){e.preventDefault();go();}});
+  });
+  Array.prototype.forEach.call(document.querySelectorAll('[data-fetch]'),function(b){
+    b.addEventListener('click',function(){
+      fetch(b.getAttribute('data-fetch')).then(function(r){if(!r.ok)throw 0;return r.text();})
+        .then(function(t){copy(t,null);say('지침문을 복사했습니다');},function(){say('복사하지 못했습니다. 파일을 내려받아 주세요');});
+    });
   });
   var all=document.getElementById('allsym');
   if(all)all.addEventListener('click',function(){
