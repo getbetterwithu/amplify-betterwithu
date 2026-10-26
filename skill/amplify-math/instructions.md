@@ -10,7 +10,7 @@
 2. 점 이름(A, B, C)은 \mathrm{}으로 감쌉니다. 변수(a, b, x)는 감싸지 않습니다.
 3. 공백은 \ (백슬래시+공백)입니다. 복사해 쓴 기호(∽ ≡ ⫽ ∴ ∵ ⇒) 앞뒤에는 반드시 넣습니다.
 4. 지원하지 않는 명령은 글자로 남지 않고 칸이 통째로 비워집니다. 쓰지 않습니다.
-5. 대체: \therefore→∴, \because→∵, \equiv→≡, \Rightarrow→⇒, 40^\circ→40\degree, \cbrt→\sqrt[3]{}, \over→\frac, \choose→\binom, \quad→\ , \text{} 쓰지 않음(설명은 백틱 밖), \sim→∽, \parallel→⫽.
+5. 대체: \therefore→∴, \because→∵, \equiv→≡, \Rightarrow→⇒, 40^\circ→40\degree, \cbrt→\sqrt[3]{}, \over→\frac, \choose→\binom, \quad→\ , \text{} 쓰지 않음(설명은 백틱 밖), \sim→∽, \parallel·\|·∥→⫽(\|는 수식 전체가 빈칸이 됩니다).
 6. \lim은 이탤릭 낱글자로 그려지므로 쓰지 않습니다.
 
 [교과서 사진을 받았을 때] (자세한 규칙은 rules.md 7번)

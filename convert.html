@@ -324,7 +324,7 @@ footer{margin-top:26px;padding-top:18px;border-top:1px solid var(--line);font-si
 <script>
 (function(){
 'use strict';
-var PROMPT = "당신은 중학교 수학 교과서 지면을 Amplify Classroom(Desmos)에 넣을 수 있는 형태로 옮기는 일을 합니다.\n이미지에 보이는 수학 내용을 아래 규칙에 따라 그대로 옮겨 주세요.\n\n[가장 중요한 원칙]\n1. 수식은 앞뒤를 백틱(`)으로 감쌉니다.\n2. 기본은 LaTeX 문법입니다. 다만 교과서와 모양이 다른 기호는 명령어 대신 특수문자를 수식 안에 직접 넣습니다.\n3. 이미지에 있는 내용만 옮깁니다. 없는 것을 지어내지 않고, 있는 것을 빠뜨리지 않습니다.\n4. 한글 설명은 백틱 밖에 그대로 둡니다. 수식만 백틱으로 감쌉니다.\n\n[명령어로 쓰는 것]\n선분 \\overline{\\mathrm{AB}} · 아랫줄 \\underline{} · 직선 \\overleftrightarrow{\\mathrm{PQ}} · 호 \\overarc{\\mathrm{AB}}\n삼각형 \\triangle · 각 \\angle · 도 \\degree · 수직 \\perp · 평행사변형 \\parallelogram · 원 \\bigcirc\n분수 \\frac{}{} · 제곱근 \\sqrt{} · 세제곱근 \\sqrt[3]{} · 지수 ^2 ^{10} · 아래첨자 _1 _{12}\n\\neq \\leq \\geq · \\pm \\mp · \\times \\div \\cdot · \\infty · \\to\n굵게 \\mathbf{} · 색 \\textcolor{red}{} 또는 \\textcolor{#2f6bd8}{}\n비례식은 콜론을 그대로 씁니다: `2:3` 또는 `c\\ :\\ a\\ =\\ a\\ :\\ b`\n\n[반드시 특수문자를 직접 넣는 것 — 명령어를 쓰면 안 됩니다]\n닮음 ∽   (\\sim, \\backsim 금지 — 물결표라 교과서와 다릅니다)\n합동 ≡   (\\equiv 금지 — 렌더되지 않습니다)\n평행 ⫽   (\\parallel 금지 — 곧은 두 줄이라 교과서와 다릅니다)\n따라서 ∴  왜냐하면 ∵  함의 ⇒  동치 ⇔  근삿값 ≒  비례 ∝\n\n[렌더되지 않으므로 쓰지 말 것]\n\\therefore \\because \\Rightarrow \\Leftrightarrow \\equiv \\ldots \\cdots \\propto \\bot \\backsim \\text{} \\underbrace{} \\quad \\cbrt\n\\lim 은 이탤릭 낱글자(l i m)로 그려져 교과서 모양이 아니므로 쓰지 않습니다.\n\\dfrac \\cfrac 는 \\frac 과 크기가 같으므로 \\frac 만 씁니다.\n\n[꼭짓점 글자]\nA, B, C 같은 점 이름은 반드시 \\mathrm{} 으로 감쌉니다. 쓰지 않으면 이탤릭이라 교과서 표기와 다릅니다.\n예: \\triangle\\mathrm{ABC}, \\angle\\mathrm{ACB}, \\overline{\\mathrm{BD}}\n단, a b c x y 같은 변·변수 문자는 \\mathrm 을 쓰지 않습니다(교과서도 이탤릭입니다).\n\n[공백 \\ (백슬래시+공백)]\n특수문자(∽ ≡ ⫽ ∴ ∵ ⇒) 앞뒤 → 반드시 넣습니다. 없으면 글자가 달라붙습니다.\n등호 = 와 비례식 콜론 : 앞뒤 → 넣습니다.\n+ − × ÷ → 넣지 않습니다. 자동으로 벌어집니다.\n\n[백틱 밖에 두는 것]\n말줄임표(…… ①), (AA 닮음) 같은 한글 괄호 설명, 번호표는 수식이 아니므로 백틱 밖에 둡니다.\n\\text{} 가 렌더되지 않으므로 수식 안에 한글을 넣지 마세요.\n\n[출력 형식]\n- 교과서의 줄바꿈과 들여쓰기를 그대로 살립니다.\n- 설명, 머리말, 코드펜스(```) 없이 변환 결과만 출력합니다.\n- 이미지에 수학 내용이 없으면 \"이미지에서 수학 내용을 찾지 못했습니다.\"라고만 답합니다.";
+var PROMPT = "당신은 중학교 수학 교과서 지면을 Amplify Classroom(Desmos)에 넣을 수 있는 형태로 옮기는 일을 합니다.\n이미지에 보이는 수학 내용을 아래 규칙에 따라 그대로 옮겨 주세요.\n\n[가장 중요한 원칙]\n1. 수식은 앞뒤를 백틱(`)으로 감쌉니다.\n2. 기본은 LaTeX 문법입니다. 다만 교과서와 모양이 다른 기호는 명령어 대신 특수문자를 수식 안에 직접 넣습니다.\n3. 이미지에 있는 내용만 옮깁니다. 없는 것을 지어내지 않고, 있는 것을 빠뜨리지 않습니다.\n4. 한글 설명은 백틱 밖에 그대로 둡니다. 수식만 백틱으로 감쌉니다.\n\n[명령어로 쓰는 것]\n선분 \\overline{\\mathrm{AB}} · 아랫줄 \\underline{} · 직선 \\overleftrightarrow{\\mathrm{PQ}} · 호 \\overarc{\\mathrm{AB}}\n삼각형 \\triangle · 각 \\angle · 도 \\degree · 수직 \\perp · 평행사변형 \\parallelogram · 원 \\bigcirc\n분수 \\frac{}{} · 제곱근 \\sqrt{} · 세제곱근 \\sqrt[3]{} · 지수 ^2 ^{10} · 아래첨자 _1 _{12}\n\\neq \\leq \\geq · \\pm \\mp · \\times \\div \\cdot · \\infty · \\to\n굵게 \\mathbf{} · 색 \\textcolor{red}{} 또는 \\textcolor{#2f6bd8}{}\n비례식은 콜론을 그대로 씁니다: `2:3` 또는 `c\\ :\\ a\\ =\\ a\\ :\\ b`\n\n[반드시 특수문자를 직접 넣는 것 — 명령어를 쓰면 안 됩니다]\n닮음 ∽   (\\sim, \\backsim 금지 — 물결표라 교과서와 다릅니다)\n합동 ≡   (\\equiv 금지 — 렌더되지 않습니다)\n평행 ⫽   (\\parallel, \\|, ∥ 금지 — 교과서와 다르거나 Amplify에서 수식이 통째로 빈칸이 됩니다)\n따라서 ∴  왜냐하면 ∵  함의 ⇒  동치 ⇔  근삿값 ≒  비례 ∝\n\n[렌더되지 않으므로 쓰지 말 것]\n\\therefore \\because \\Rightarrow \\Leftrightarrow \\equiv \\ldots \\cdots \\propto \\bot \\backsim \\text{} \\underbrace{} \\quad \\cbrt\n\\lim 은 이탤릭 낱글자(l i m)로 그려져 교과서 모양이 아니므로 쓰지 않습니다.\n\\dfrac \\cfrac 는 \\frac 과 크기가 같으므로 \\frac 만 씁니다.\n\n[꼭짓점 글자]\nA, B, C 같은 점 이름은 반드시 \\mathrm{} 으로 감쌉니다. 쓰지 않으면 이탤릭이라 교과서 표기와 다릅니다.\n예: \\triangle\\mathrm{ABC}, \\angle\\mathrm{ACB}, \\overline{\\mathrm{BD}}\n단, a b c x y 같은 변·변수 문자는 \\mathrm 을 쓰지 않습니다(교과서도 이탤릭입니다).\n\n[공백 \\ (백슬래시+공백)]\n특수문자(∽ ≡ ⫽ ∴ ∵ ⇒) 앞뒤 → 반드시 넣습니다. 없으면 글자가 달라붙습니다.\n등호 = 와 비례식 콜론 : 앞뒤 → 넣습니다.\n+ − × ÷ → 넣지 않습니다. 자동으로 벌어집니다.\n\n[백틱 밖에 두는 것]\n말줄임표(…… ①), (AA 닮음) 같은 한글 괄호 설명, 번호표는 수식이 아니므로 백틱 밖에 둡니다.\n\\text{} 가 렌더되지 않으므로 수식 안에 한글을 넣지 마세요.\n\n[출력 형식]\n- 교과서의 줄바꿈과 들여쓰기를 그대로 살립니다.\n- 설명, 머리말, 코드펜스(```) 없이 변환 결과만 출력합니다.\n- 이미지에 수학 내용이 없으면 \"이미지에서 수학 내용을 찾지 못했습니다.\"라고만 답합니다.";
 var GUIDE=window.GUIDE_URL||'gemini-key.html';
 var K='dtg_conv_v3';
 var cfg={mode:'mine',prov:'gemini',key:'',pass:'',model:'',endpoint:''};
@@ -726,9 +726,10 @@ if(!ready()){msg('err','먼저 위의 <b>AI 사용 설정 열기</b> 버튼을 �
       msg('go','서버가 잠깐 붐빕니다. '+sec+'초 뒤 다시 시도합니다… ('+n+'/'+total+')');
     });
     text=text.replace(/^\s*```[a-z]*\n?/i,'').replace(/```\s*$/,'').trim();
+    var fx=fixText(text);text=fx.text;
     $('code').value=text; draw();
     $('result').style.display='block';$('rh').style.display='block';
-    msg('ok','다 바꿨습니다. 오른쪽에서 모양을 확인하시고 복사해 주세요.');
+    msg('ok','다 바꿨습니다. 오른쪽에서 모양을 확인하시고 복사해 주세요.'+(fx.n?' <span class="muted">(Amplify에서 안 그려질 표기 '+fx.n+'곳을 자동으로 고쳤습니다)</span>':''));
     $('rh').scrollIntoView({behavior:'smooth',block:'start'});
   }catch(e){
     var m=String(e.message||'변환에 실패했습니다.');
@@ -745,6 +746,31 @@ function isBusy(m){
   return /high demand|overload|temporar|try again|rate.?limit|quota|resource.?exhaust|unavailable|429|503|529|timeout|deadline|busy/i.test(String(m||''));
 }
 function wait(ms){return new Promise(function(r){setTimeout(r,ms);});}
+
+/* AI 가 규칙을 어겨도 Amplify 에서 빈칸이 되지 않게, 확인된 대체표(rules.md 4번)로 코드가 고친다.
+   백틱 안의 수식만 건드리고, 바꾼 곳의 수를 센다. */
+var PARALLEL=/\\parallel(?![a-zA-Z])|\\mathbin\{\s*(?:\/\/|\\parallel)\s*\}|\\\||\\Vert(?![a-zA-Z])|∥|‖/g;
+var FIXES=[
+  [PARALLEL,'⫽'],
+  [/\\therefore(?![a-zA-Z])/g,'∴'],[/\\because(?![a-zA-Z])/g,'∵'],[/\\equiv(?![a-zA-Z])/g,'≡'],
+  [/\\(?:Rightarrow|Longrightarrow|implies)(?![a-zA-Z])/g,'⇒'],[/\\(?:Leftrightarrow|Longleftrightarrow|iff)(?![a-zA-Z])/g,'⇔'],
+  [/\\propto(?![a-zA-Z])/g,'∝'],[/\\(?:backsim|sim)(?![a-zA-Z])/g,'∽'],
+  [/\^\s*\{?\s*\\circ\s*\}?/g,'\\degree '],[/\\cbrt(?![a-zA-Z])/g,'\\sqrt[3]'],
+  [/\\(?:dfrac|cfrac)(?![a-zA-Z])/g,'\\frac'],[/\\q?quad(?![a-zA-Z])/g,'\\ ']
+];
+function fixFormula(f){
+  var n=0;
+  FIXES.forEach(function(r){f=f.replace(r[0],function(){n++;return r[1];});});
+  var before=f;
+  f=f.replace(/(?:\\ )*([∽≡⫽∴∵⇒⇔])(?:\\ )*/g,'\\ $1\\ ').replace(/^(?:\\ )+|(?:\\ )+$/g,'').replace(/(\\ ) +/g,'$1').replace(/\s+$/,'');
+  if(f!==before)n++;
+  return {f:f,n:n};
+}
+function fixText(text){
+  var total=0;
+  var out=text.replace(/`[^`\n]*`/g,function(m){var r=fixFormula(m.slice(1,-1));total+=r.n;return '`'+r.f+'`';});
+  return {text:out,n:total};
+}
 
 async function convertOnce(){
   if(cfg.mode==='share'){
@@ -773,7 +799,7 @@ async function convert(onRetry){
 
 /* ── 미리보기 — Amplify와 같은 MathQuill로 그린다 ── */
 function draw(){
-  var box=$('render'); box.textContent='';
+  var bad=0, box=$('render'); box.textContent='';
   $('code').value.split('\n').forEach(function(line){
     var row=document.createElement('div');
     if(!line.trim()){row.style.height='1em';box.appendChild(row);return;}
@@ -782,14 +808,18 @@ function draw(){
       if(!piece)return;
       if(piece.charAt(0)==='`'&&piece.charAt(piece.length-1)==='`'&&piece.length>1){
         var sp=document.createElement('span'); sp.className='mq'; row.appendChild(sp);
-        try{ MQ.StaticMath(sp).latex(piece.slice(1,-1)); }
-        catch(e){ sp.textContent=piece; sp.style.color='#b02020'; }
+        try{ MQ.StaticMath(sp).latex(piece.slice(1,-1)); if(!sp.textContent.trim()){ bad++; sp.textContent=piece; sp.style.color='#b02020'; sp.title='Amplify 에서 이 수식은 빈칸으로 보입니다'; } }
+        catch(e){ bad++; sp.textContent=piece; sp.style.color='#b02020'; }
       } else {
         row.appendChild(document.createTextNode(piece));
       }
     });
     box.appendChild(row);
   });
+  var w=document.getElementById('emptyWarn');
+  if(!w){w=document.createElement('div');w.id='emptyWarn';w.style.cssText='display:none;margin:0 0 10px;padding:10px 14px;border:2px solid #b02020;border-radius:10px;background:#fdecee;color:#b02020;font-weight:700;font-size:10.5pt';box.parentNode.insertBefore(w,box);}
+  if(bad){w.style.display='block';w.innerHTML='⚠ 수식 '+bad+'개가 Amplify에서 <b>빈칸</b>으로 보입니다. 빨간 글씨로 표시된 줄을 고쳐 주세요. (왼쪽 코드 칸에서 직접 고칠 수 있습니다)';}
+  else w.style.display='none';
 }
 var t=null;
 $('code').addEventListener('input',function(){clearTimeout(t);t=setTimeout(draw,250);});
