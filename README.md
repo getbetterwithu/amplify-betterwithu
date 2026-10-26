@@ -12,7 +12,7 @@
 | `index.html` | 홈 — 도구 카드 목록 |
 | `settings.html` | 수식 변환 AI 설정 |
 | `gemini-key.html` | Gemini API 키 발급 안내(스크린샷은 `img/gemini-key/`) |
-| `interpret.html` | CL 해석 스킬 소개·설치 안내(다운로드는 준비 중) |
+| `interpret.html` | Computation Layer 분석 스킬 소개·설치 안내(다운로드는 준비 중) |
 | `text.html` | 글자 꾸미기 (크기·색·굵게) |
 | `math.html` | 수식 입력 (명령어 25개 + 복사용 기호 23개, 입력 칸을 누르면 복사, AI 수식 스킬 안내) |
 | `skill/amplify-math/` | Claude·GPT·Gemini용 Amplify 수식 스킬 (`SKILL.md`, `references/rules.md`, `instructions.md`). 규칙을 고치면 `skill/amplify-math.zip`도 다시 만듭니다. Codex CLI·Gemini CLI는 GitHub 주소로 직접 설치 가능(명령은 `skill.html`에 있음) |
@@ -24,7 +24,7 @@
 
 CL 학습자료는 별도 저장소에서 관리하며 `https://cl.betterwithu.kr/`로 연결합니다.
 
-## CL 해석 스킬
+## Computation Layer 분석 스킬
 
 - 웹 질의응답 해석기는 종료했고, `interpret.html`은 스킬 소개·설치 안내 페이지입니다.
 - 스킬 패키지는 별도 세션에서 제작 중이며 다운로드 파일과 버전은 아직 확정되지 않았습니다.
