@@ -18,7 +18,7 @@
 | `skill/amplify-math/` | Claude·GPT·Gemini용 Amplify 수식 스킬 (`SKILL.md`, `references/rules.md`, `instructions.md`). 규칙을 고치면 `skill/amplify-math.zip`도 다시 만듭니다. Codex CLI·Gemini CLI는 GitHub 주소로 직접 설치 가능(명령은 `skill.html`에 있음) |
 | `skill.html` | 스킬 설치 허브 (처음이라면·코딩 에이전트·붙여넣기, 무료 여부와 시험 현황) |
 | `skill-claude.html` `skill-chatgpt.html` `skill-gemini.html` | 각 AI별 설치 안내 (화면 그림 포함, `img/skill-*/`) |
-| `convert.html` | 수식 변환 (교과서 사진 → Amplify 수식) |
+| `convert.html` | AI 수식 변환 · 웹에서 먼저 해보기 (체험용, 같은 규칙의 수식 스킬 설치를 권장) |
 | `privacy.html` | 개인정보 및 AI 데이터 처리 안내 |
 | `terms.html` | 이용 안내·저작권·비제휴 고지 |
 
