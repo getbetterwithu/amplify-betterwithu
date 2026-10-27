@@ -1,10 +1,15 @@
-<!doctype html><html lang="ko"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="description" content="Computation Layer 코드 분석은 웹 도구 대신 Computation Layer 분석 스킬로 제공합니다. 소개와 설치 안내 페이지입니다."><title>Computation Layer 분석 스킬 | BetterWithU</title><link rel="stylesheet" href="site.css"></head>
+<!doctype html><html lang="ko"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="description" content="Computation Layer 코드를 줄별로 풀이해 주는 스킬을 내 AI에 설치하는 방법을 안내합니다."><title>Computation Layer 분석 스킬 | BetterWithU</title><link rel="stylesheet" href="site.css"><style>
+.gs-pre{white-space:pre-wrap;word-break:break-word;background:#fffdf6;border:1.5px dashed #b9b3a0;border-radius:10px;padding:12px 14px;font-size:14px;line-height:1.65;margin:8px 0 10px;overflow:auto}
+.gs-btn{font:inherit;font-weight:800;font-size:14px;background:#ffe66d;color:#2f241f;border:2px solid #363838;border-radius:999px;padding:7px 16px;cursor:pointer;box-shadow:3px 3px 0 #1eaa9d;margin-bottom:10px}
+.gs-btn:hover{transform:translateY(-1px)}
+.gs-toast{position:fixed;left:50%;bottom:26px;transform:translateX(-50%);background:#12151b;color:#fff;font-size:14px;font-weight:700;padding:9px 18px;border-radius:999px;opacity:0;pointer-events:none;transition:.18s;z-index:60}
+.gs-toast.on{opacity:.95}
+</style></head>
 <body class="chalkboard-page"><a class="skip" href="#main">본문으로 건너뛰기</a>
 <header class="topbar"><a class="brand" href="index.html">BetterWithU<span>.</span></a><nav aria-label="주요 메뉴"><a class="active" href="index.html#tools">수업 제작 도구</a><a href="https://cl.betterwithu.kr/">CL 학습자료</a></nav></header>
 <main id="main" class="panel">
   <a class="back-link" href="index.html#tools"><span aria-hidden="true">←</span> 수업 제작 도구</a>
-  <div class="page-title"><p class="eyebrow">COMPUTATION LAYER ANALYSIS SKILL</p><h1>Computation Layer 분석 스킬</h1><p>Computation Layer 코드 분석은 이 사이트의 웹 도구에서 <strong>내 AI에 설치하는 스킬</strong>로 바뀌었습니다. 코드를 붙여넣거나 캡처를 올리면 내가 쓰는 AI가 줄별로 분석합니다.</p></div>
-  <div class="notice"><strong>웹 분석기는 종료되었습니다.</strong>이 페이지에서는 더 이상 코드를 입력하거나 이미지를 올리지 않으며, 입력 내용이 이 사이트를 거쳐 Gemini로 전송되지 않습니다.</div>
+  <div class="page-title"><p class="eyebrow">COMPUTATION LAYER ANALYSIS SKILL</p><h1>Computation Layer 분석 스킬</h1><p><strong>내 AI에 설치해 쓰는 스킬</strong>입니다. 코드를 붙여넣거나 캡처를 올리면 내가 쓰는 AI가 줄별로 분석합니다.</p></div>
   <section class="box" aria-labelledby="skillTitle"><h2 id="skillTitle">스킬이 하는 일</h2>
     <ul><li>CL 코드를 붙여넣거나 코드가 보이는 캡처 이미지를 올리면 분석합니다.</li><li>sink·source 같은 CL 문법 질문에도 답합니다.</li><li>지식 파일에 근거한 설명, 코드에서 추론한 설명, 확인하지 못한 부분을 구분해 알려 줍니다.</li></ul>
     <p><small>스킬은 개정 중이며 AI의 분석은 틀릴 수 있습니다. 수업에 적용하기 전에 원본 CL 코드와 <a href="https://cl.betterwithu.kr/">CL 학습자료</a>로 확인해 주세요.</small></p>
@@ -14,19 +19,44 @@
     <p><a href="https://github.com/getbetterwithu/amplify-cl-interpreter" target="_blank" rel="noopener noreferrer">GitHub에서 보기 ↗</a> (공개 저장소 amplify-cl-interpreter)</p>
     <p><small>현재 버전: 0.3.2. 이 스킬의 문법 지식 중 일부는 아직 Amplify에서 실행해 확인하지 않았습니다. 답의 문장 끝 출처 표시로 확신 정도를 구분합니다.</small></p>
   </section>
-  <section class="box" aria-labelledby="installTitle"><h2 id="installTitle">설치 안내</h2><p>터미널에서 쓰는 코딩 에이전트라면 아래 명령을 한 줄씩 차례로 입력하세요. 설치 뒤 도구를 다시 시작합니다. 제품이 바뀌면 명령이 달라질 수 있습니다.</p>
+  <section class="box" aria-labelledby="installTitle"><h2 id="installTitle">설치 안내 — VS Code나 터미널에서 AI를 쓰신다면</h2>
+    <p>Claude Code, Codex, Antigravity처럼 VS Code나 터미널에서 쓰는 AI라면, 저장소 주소를 알려 주고 "설치해 줘"라고 하는 것으로 대부분 끝납니다.</p>
+    <p><strong>1. 먼저 아래 문장을 복사해 내 AI에 붙여넣습니다.</strong></p>
+    <pre class="gs-pre" id="t-agent">이 GitHub 저장소의 스킬(skills/cl-interpreter 폴더)을 내 스킬 폴더에 설치해 줘: https://github.com/getbetterwithu/amplify-cl-interpreter</pre>
+    <button class="gs-btn" type="button" data-copy-id="t-agent">문장 복사</button>
+    <p><small>AI가 폴더를 받아 자기 스킬 폴더에 넣습니다. 설치 뒤 다시 시작하라고 하면 따르세요.</small></p>
+    <p><strong>2. 설치됐는지 확인합니다.</strong> AI를 다시 시작하고 <strong>"cl-interpreter 스킬이 설치돼 있어?"</strong>라고 물어 보세요. 설치돼 있다고 하면 끝입니다. 아니라고 하거나 헷갈리게 답하면 아래 직접 명령으로 설치하세요.</p>
+    <p><strong>3. 안 되면 직접 명령으로 설치합니다.</strong> 터미널에 아래를 한 줄씩 차례로 입력하세요. 설치 뒤 도구를 다시 시작합니다. 제품이 바뀌면 명령이 달라질 수 있습니다.</p>
     <p><strong>Claude Code</strong></p>
-    <pre>claude plugin marketplace add getbetterwithu/amplify-cl-interpreter
+    <pre class="gs-pre" id="t-claude">claude plugin marketplace add getbetterwithu/amplify-cl-interpreter
 claude plugin install amplify-cl-interpreter@amplify-cl-interpreter</pre>
+    <button class="gs-btn" type="button" data-copy-id="t-claude">복사</button>
     <p><strong>Antigravity</strong> — 설치 결과에 <code>skills : 1 processed</code>가 보이면 됩니다.</p>
-    <pre>agy plugin install https://github.com/getbetterwithu/amplify-cl-interpreter
+    <pre class="gs-pre" id="t-agy">agy plugin install https://github.com/getbetterwithu/amplify-cl-interpreter
 agy plugin list</pre>
+    <button class="gs-btn" type="button" data-copy-id="t-agy">복사</button>
     <p><strong>Codex CLI</strong> — <code>codex plugin list</code>에서 <code>installed, enabled</code>로 보이면 됩니다.</p>
-    <pre>codex plugin marketplace add getbetterwithu/amplify-cl-interpreter
+    <pre class="gs-pre" id="t-codex">codex plugin marketplace add getbetterwithu/amplify-cl-interpreter
 codex plugin add amplify-cl-interpreter@amplify-cl-interpreter
 codex plugin list</pre>
+    <button class="gs-btn" type="button" data-copy-id="t-codex">복사</button>
     <p><strong>ChatGPT·Gemini·Claude 웹/앱:</strong> 명령어를 쓸 수 없습니다. 웹·앱에 올리는 배포 파일(zip)은 아직 준비하지 못했습니다. 위 명령을 쓸 수 있는 도구에서 설치해 주세요.</p>
   </section>
 </main>
 <footer class="site-footer"><div><a class="footer-brand" href="index.html">BetterWithU<span>.</span></a><p>Amplify 수업자료 제작과 Computation Layer 학습을 돕는 교사용 교육 보조 도구입니다.</p></div><div class="footer-info"><p>개인정보가 포함된 자료는 입력하지 말고, AI 결과는 수업 적용 전에 확인하세요.</p><div class="footer-links"><a href="mailto:jclover2@snu.ac.kr">jclover2@snu.ac.kr</a><a href="privacy.html">개인정보 및 AI 데이터 처리</a><a href="terms.html">이용 안내·저작권</a></div><p class="footer-copy">© 2026 서울대학교사범대학부설중학교 허철호. All Rights Reserved.</p></div><small class="footer-disclaimer">이 사이트는 독립적으로 제작한 비공식 교육 보조 자료이며, Amplify Education, Inc.와 제휴하거나 공식 승인을 받은 서비스가 아닙니다.</small></footer>
-</body></html></body></html>
+<div class="gs-toast" id="gsToast" role="status"></div>
+<script>
+(function(){
+  var toast=document.getElementById('gsToast');
+  function say(m){toast.textContent=m;toast.classList.add('on');clearTimeout(say.t);say.t=setTimeout(function(){toast.classList.remove('on')},1500);}
+  function copy(t){
+    function ok(){say('복사했습니다');}
+    function fb(){var a=document.createElement('textarea');a.value=t;a.style.position='fixed';a.style.opacity='0';document.body.appendChild(a);a.select();try{document.execCommand('copy');ok();}catch(e){say('복사하지 못했습니다');}document.body.removeChild(a);}
+    if(navigator.clipboard&&window.isSecureContext){navigator.clipboard.writeText(t).then(ok,fb);}else{fb();}
+  }
+  Array.prototype.forEach.call(document.querySelectorAll('[data-copy-id]'),function(b){
+    b.addEventListener('click',function(){copy(document.getElementById(b.getAttribute('data-copy-id')).textContent);});
+  });
+})();
+</script>
+</body></html>

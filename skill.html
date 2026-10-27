@@ -46,7 +46,7 @@
       <ol>
         <li><b>먼저 체험해 보고 싶다</b> → <a href="convert.html">AI 수식 변환 · 웹에서 먼저 해보기</a>에서 교과서 사진을 바꿔 보고, 마음에 들면 아래 방법으로 내 AI에 설치하세요.</li>
         <li><b>AI를 대화창으로만 써 봤다</b> → 아래 <b>① 처음이라면</b>. 코딩 지식 없이 화면만 따라 하면 됩니다.</li>
-        <li><b>Claude Code, Codex, Antigravity 같은 코딩 에이전트를 쓴다</b> → <b>② 경험자</b>. 에이전트에게 설치를 시키면 됩니다.</li>
+        <li><b>VS Code나 터미널에서 Claude Code, Codex, Antigravity 같은 AI를 쓴다</b> → <b>② 문장 하나로 설치</b>. 주소를 알려 주고 설치를 시키면 됩니다.</li>
         <li><b>설치가 막히거나 한 번만 쓰고 싶다</b> → <b>③ 설치 없이 붙여넣기</b>. 가장 확실합니다.</li>
       </ol>
     </section>
@@ -72,14 +72,15 @@
     </section>
 
     <section class="guide-step" id="expert" aria-labelledby="e-title">
-      <h2 id="e-title"><span class="guide-num" aria-hidden="true">②</span>바이브코딩을 해 보셨다면 — 코딩 에이전트로 설치</h2>
-      <p class="guide-goal">Claude Code, Codex, Antigravity처럼 터미널에서 파일을 만들고 명령을 실행하는 에이전트가 이미 있다면, <b>GitHub 주소를 주고 설치를 시키는 것</b>이 가장 쉽습니다.</p>
+      <h2 id="e-title"><span class="guide-num" aria-hidden="true">②</span>VS Code나 터미널에서 AI를 쓰신다면 — 문장 하나로 설치</h2>
+      <p class="guide-goal">Claude Code, Codex, Antigravity처럼 VS Code나 터미널에서 쓰는 AI라면, <b>저장소 주소를 알려 주고 "설치해 줘"라고 하는 것</b>으로 대부분 끝납니다.</p>
       <ol class="guide-steps">
-        <li><b>아래 문장을 복사해 에이전트에 붙여넣습니다.</b>
+        <li><b>먼저 아래 문장을 복사해 내 AI에 붙여넣습니다.</b>
           <pre class="gs-pre" id="t-agent">이 GitHub 저장소의 스킬(skills/amplify-math 폴더)을 내 스킬 폴더에 설치해 줘: https://github.com/getbetterwithu/amplify-math</pre>
           <button class="gs-btn" type="button" data-copy-id="t-agent">문장 복사</button>
-          <small>에이전트가 폴더를 받아 자기 스킬 폴더에 넣습니다. 설치 뒤 에이전트를 다시 시작하라고 하면 따르세요.</small></li>
-        <li><b>직접 명령으로 설치하려면</b> 터미널에 아래를 한 줄씩 차례로 입력하세요. 설치 뒤 도구를 다시 시작합니다. 제품이 바뀌면 명령이 달라질 수 있습니다.
+          <small>AI가 폴더를 받아 자기 스킬 폴더에 넣습니다. 설치 뒤 다시 시작하라고 하면 따르세요.</small></li>
+        <li><b>설치됐는지 확인합니다.</b> AI를 다시 시작하고 <b>"amplify-math 스킬이 설치돼 있어?"</b>라고 물어 보세요. 설치돼 있다고 하면 끝입니다. 아니라고 하거나 헷갈리게 답하면 아래 직접 명령으로 설치하세요.</li>
+        <li><b>안 되면 직접 명령으로 설치합니다.</b> 터미널에 아래를 한 줄씩 차례로 입력하세요. 설치 뒤 도구를 다시 시작합니다. 제품이 바뀌면 명령이 달라질 수 있습니다.
           <p style="margin:10px 0 2px"><b>Claude Code</b></p>
           <pre class="gs-pre" id="t-claude">claude plugin marketplace add getbetterwithu/amplify-math
 claude plugin install amplify-math@amplify-math</pre>
