@@ -1,7 +1,6 @@
 # Amplify 수업자료 도구 모음
 
-작업을 시작하는 Codex와 Claude는 먼저 [`작업-시작-전-필독.md`](작업-시작-전-필독.md)와
-[`인수인계/현재-작업-상태.md`](인수인계/현재-작업-상태.md)를 읽어야 합니다.
+작업을 시작하는 Codex와 Claude는 먼저 [`작업-시작-전-필독.md`](작업-시작-전-필독.md)를 읽어야 합니다.
 
 중학교 수학 Amplify Classroom 수업자료를 만들 때 쓰는 도구들입니다.
 
@@ -34,6 +33,15 @@ CL 학습자료는 별도 저장소에서 관리하며 `https://cl.betterwithu.k
 - 사이트의 `skill/cl-interpreter/`는 저장소 `skills/cl-interpreter/`의 복사본이고(설치 안내 `guides/install-*.md`는 제외, `guides/instructions-short.md`는 포함), `skill/cl-interpreter.zip`은 그중 `guides/`를 뺀 14개 파일을 `cl-interpreter/` 폴더째 압축한 것입니다.
 - **저장소의 스킬이 바뀌면** 복사본을 다시 받아 같은 규칙으로 zip을 새로 만들고(반드시 파이썬 `zipfile`), PK 헤더·Windows `Expand-Archive`·원본과의 해시 비교로 검증한 뒤, 페이지의 버전 표시(v0.3.2)를 고칩니다.
 - zip은 ChatGPT 웹(유료 계정)에서 올려 등록되고, 시험 문장에 출처 표시가 붙은 풀이가 나오는 것까지 확인했습니다(2026-11-01). 풀이가 Amplify의 실제 동작과 맞는지는 확인하지 못했고, Claude·Gemini는 올려 확인한 적이 없습니다. 페이지에도 그렇게 적혀 있으니, 확인되면 문구를 고칩니다. 서비스 메뉴는 자주 바뀌므로 페이지는 "확인했을 때는 …"처럼 시점이 드러나는 표현으로 씁니다.
+
+## 확인 상태와 알려진 제한
+
+서비스 메뉴와 정책이 자주 바뀌므로 안내 페이지는 "확인했을 때는 …"처럼 시점이 드러나는 표현으로 씁니다.
+
+- **ChatGPT:** GPT 만들기는 종료되었거나 종료 예정으로 안내됩니다(2026-10-31 화면 기준). 유료 계정의 웹에서는 zip 스킬 업로드가 되지만, 앱에는 업로드 메뉴가 없을 수 있습니다. 무료 계정은 스킬 메뉴가 열리지 않을 수 있습니다. 채팅이나 Work에 GitHub 주소를 주고 설치를 시켜도 스킬 목록에 등록되지 않습니다.
+- **CL 해석 스킬 zip:** ChatGPT 웹(Plus)에서만 확인했습니다. 줄 번호가 보이는 캡처 입력, Claude·Gemini 업로드, 풀이가 Amplify 실제 동작과 맞는지는 확인하지 못했습니다.
+- **대체 방법 미확인:** Claude "프로젝트로 쓰기", Gemini "Gem으로 쓰기". Gems는 2026-11-17부터 스킬로 바뀌므로 그 뒤에 다시 점검합니다.
+- **CL 저장소(`amplify-cl-interpreter`) 정리 대기:** 설치 안내 파일(`guides/install-gpt.md`, `install-gemini.md`)의 지식 파일 목록에 `reference/unverified.md`가 빠져 있고, `SKILL.md` 제목이 `v0.3.1`로 남아 있습니다(`VERSION.md`·`plugin.json`은 0.3.2). 사이트 안내는 `unverified.md`를 포함한 reference 3개로 적었습니다.
 
 ## 페이지를 추가하려면
 
