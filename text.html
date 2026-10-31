@@ -95,6 +95,22 @@ a.xlink:hover { box-shadow:0 7px 22px rgba(18,60,107,.45); transform:translateY(
 .gcard .ga{color:#0f4c81;font-weight:800;font-size:12pt;flex:none}
 .gcard.home2{background:#f6f8fb}
 @media print{.golinks{display:none}}
+  /* ⑦ 수식 안 글자색 */
+  #math-color { scroll-margin-top:92px;}
+  .cmp { display:grid; grid-template-columns:1fr 1fr; gap:12px; margin-bottom:14px;}
+  .cmp > div { background:#fff; border:2px solid #e0e4e8; border-radius:12px; padding:14px 18px; font-size:14px;}
+  .cmp .cmp-a { border-color:#b8e0c8;}
+  .cmp .cmp-b { border-color:#bcd2f0;}
+  .cmp .t { display:block; font-size:15px; margin-bottom:4px;}
+  .cmp p { margin:4px 0 0;}
+  .tc { width:100%; border-collapse:collapse; background:#fff; border:2px solid #bcd2f0; font-size:14px; margin-bottom:6px;}
+  .tc th { background:#eaf2fc; text-align:left; padding:8px 14px; font-size:12.5px; color:#1d4f91;}
+  .tc td { padding:9px 14px; border-top:1px solid #e3ecf8; vertical-align:middle;}
+  .tc code { user-select:all; -webkit-user-select:all; background:#f4f7fb; padding:2px 6px; border-radius:5px; font-size:13.5px; overflow-wrap:anywhere; cursor:pointer;}
+  .tc .res { font-weight:700; font-size:16px;}
+  .cmp code, .tc code, .tipbox code { font-family:Consolas,"JetBrains Mono","Courier New",monospace;}
+  .tc .lt { text-shadow:0 0 1px #6b6b00, 0 0 1px #6b6b00;}
+  @media(max-width:760px){ .cmp{grid-template-columns:1fr;} .tc th,.tc td{padding:8px 10px;} }
 </style>
 <link rel="stylesheet" href="tool-theme.css"><link rel="stylesheet" href="topnav.css">
 </head>
@@ -108,7 +124,7 @@ a.xlink:hover { box-shadow:0 7px 22px rgba(18,60,107,.45); transform:translateY(
   <a class="home" href="index.html">← 배움공방 홈</a>
 </header>
 
-<a class="xlink" href="math.html"><span class="xi">√<span class="xibar"></span></span><span class="xt"><b>수식·수학 기호</b>는 여기서 —— 선분 · 닮음 · 분수 · 각도<em>명령어 25개 + 복사용 기호 모음</em></span><span class="xa">바로가기 →</span></a>
+<a class="xlink" href="math.html"><span class="xi">√<span class="xibar"></span></span><span class="xt"><b>수식·수학 기호</b>는 여기서 —— 선분 · 닮음 · 분수 · 각도<em>명령어 30개 + 복사용 기호 모음</em></span><span class="xa">바로가기 →</span></a>
 
 <div class="intro">
   <b>사용법 — 딱 3단계</b>
@@ -116,8 +132,9 @@ a.xlink:hover { box-shadow:0 7px 22px rgba(18,60,107,.45); transform:translateY(
   <div class="step"><span class="num">2</span><span class="txt">Amplify의 <b>메모</b> 칸을 클릭하고 붙여넣기 (Cmd+V / Ctrl+V)</span></div>
   <div class="step"><span class="num">3</span><span class="txt">큰 글씨·색깔이 <b>그대로</b> 들어갑니다 ✨</span></div>
   <div class="key">
-    ⚠️ <b>핵심:</b> Amplify에 <code>#</code>이나 <code>&lt;span&gt;</code> 같은 <b>기호를 직접 타이핑하면 안 됩니다</b> (글자 그대로 나옴).
+    ⚠️ <b>핵심 (일반 글자):</b> Amplify 메모에 <code>#</code>이나 <code>&lt;span&gt;</code> 같은 <b>기호를 직접 타이핑하면 안 됩니다</b> (글자 그대로 나옴).
     반드시 <b>여기서 이미 꾸며진 글자를 복사</b>해 가야 서식이 따라갑니다.
+    <b>수식 안의 글자색</b>만은 명령어로 바꿀 수 있어요 → <a href="#math-color">⑦</a>
   </div>
 </div>
 
@@ -203,6 +220,34 @@ a.xlink:hover { box-shadow:0 7px 22px rgba(18,60,107,.45); transform:translateY(
   <div class="pal"><div class="ph" style="background:gray;">회색</div><div class="pb"><h2 class="p-h2" style="margin:0;"><span style="color:gray;">회색 글씨 예시</span></h2></div></div>
 </div>
 
+<!-- ⑦ 수식 안의 글자색 -->
+<h2 class="sec" id="math-color">⑦ 수식 안의 글자색은 명령어로 바꿀 수 있어요</h2>
+<p class="sec-desc">같은 글자색이라도 <b>어디에 넣느냐</b>에 따라 방법이 달라요.</p>
+<div class="cmp">
+  <div class="cmp-a"><b class="t">📝 일반 글자 (메모 등)</b><p>명령어가 <b>통하지 않아요.</b> 위 ①~⑥처럼 <b>이미 꾸며진 글자를 복사</b>해서 붙이세요.</p></div>
+  <div class="cmp-b"><b class="t">🧮 수식 안의 글자</b><p>백틱(<code>`</code>)으로 여는 <b>수식 칸에 붙여넣을 때만</b> 명령어가 통해요. <code>\textcolor{색}{내용}</code>처럼 쓰면 그 색으로 보입니다.</p></div>
+</div>
+<table class="tc">
+  <thead><tr><th>수식 칸에 붙여넣을 명령어 (눌러서 전체 선택 → 복사)</th><th>이렇게 보입니다</th></tr></thead>
+  <tbody>
+    <tr><td><code>\textcolor{red}{빨간색 텍스트}</code></td><td class="res" style="color:red;">빨간색 텍스트</td></tr>
+    <tr><td><code>\textcolor{blue}{파란색 텍스트}</code></td><td class="res" style="color:blue;">파란색 텍스트</td></tr>
+    <tr><td><code>\textcolor{yellow}{노란색 텍스트}</code></td><td class="res lt" style="color:yellow;">노란색 텍스트</td></tr>
+    <tr><td><code>\textcolor{green}{초록색 텍스트}</code></td><td class="res" style="color:green;">초록색 텍스트</td></tr>
+    <tr><td><code>\textcolor{pink}{핑크색 텍스트}</code></td><td class="res lt" style="color:pink;">핑크색 텍스트</td></tr>
+    <tr><td><code>\textcolor{lime}{라임색 텍스트}</code></td><td class="res lt" style="color:lime;">라임색 텍스트</td></tr>
+    <tr><td><code>\textcolor{#2f6bd8}{색 번호로도 돼요}</code></td><td class="res" style="color:#2f6bd8;">색 번호로도 돼요</td></tr>
+  </tbody>
+</table>
+<div class="tipbox">
+  <b>💡 이렇게 쓰세요</b><br>
+  · 위 명령어를 복사해서 Amplify의 <b>수식 칸</b>(키보드 백틱 <code>`</code> 키로 엽니다)에 붙여넣으세요.<br>
+  · 수식 안에서는 <b>글자 모양(폰트)이 달라지고</b>, 띄어쓰기가 저절로 되지 않아요. 띄우려면 <code>\ </code>(백슬래시 + 빈칸)를 넣으세요.<br>
+  · <code>\</code>는 슬래시(/)가 아니라 <b>백슬래시</b>예요. 한글 키보드에서는 Enter 위의 <b>₩</b> 키입니다.<br>
+  · 영어 색 이름은 위 말고도 더 있지만 모두 확인하지는 못했어요. 확실하게 쓰려면 <code>#2f6bd8</code> 같은 <b>색 번호</b>를 쓰세요.<br>
+  · 백틱과 띄어쓰기 같은 수식 입력의 기본은 <a href="math.html">수식 입력 페이지</a>에 있어요.
+</div>
+
 <div class="tipbox">
   <b>💡 정리</b><br>
   · 크기는 <b>큰 글씨 1종</b>이면 충분 (다른 크기는 줄간격이 깨져 실전에 안 좋아요)<br>
@@ -216,7 +261,7 @@ a.xlink:hover { box-shadow:0 7px 22px rgba(18,60,107,.45); transform:translateY(
 <div class="golinks">
   <div class="gt">다른 도구도 있습니다</div>
   <div class="gg">
-    <a class="gcard" href="math.html"><span class="gi">📐</span><span class="gx"><b>수식 입력</b><em>선분·삼각형·닮음·분수 · 복사용 기호 23개</em></span><span class="ga" aria-hidden="true"></span></a>
+    <a class="gcard" href="math.html"><span class="gi">📐</span><span class="gx"><b>수식 입력</b><em>선분·삼각형·닮음·분수 · 복사용 기호 24개</em></span><span class="ga" aria-hidden="true"></span></a>
     <a class="gcard" href="ai-skill.html"><span class="gi">🧩</span><span class="gx"><b>AI 스킬</b><em>내 AI에 설치해 쓰는 수식·CL 스킬</em></span><span class="ga" aria-hidden="true"></span></a>
     <a class="gcard" href="https://cl.betterwithu.kr/"><span class="gi">📚</span><span class="gx"><b>CL 학습자료</b><em>구성요소별 예제와 설명</em></span><span class="ga" aria-hidden="true"></span></a>
     <a class="gcard home2" href="./"><span class="gi">🏠</span><span class="gx"><b>도구 모음</b><em>전체 목록 보기</em></span><span class="ga" aria-hidden="true"></span></a>

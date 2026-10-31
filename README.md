@@ -16,7 +16,7 @@
 | `interpret-claude.html` `interpret-chatgpt.html` `interpret-gemini.html` | CL 해석 스킬의 AI별 설치 안내 (화면 그림은 수식 스킬 안내의 것을 재사용) |
 | `skill/cl-interpreter/`, `skill/cl-interpreter.zip` | CL 해석 스킬 사이트 복사본과 배포 zip. 원본은 `getbetterwithu/amplify-cl-interpreter`(v0.3.2). 아래 갱신 절차 참고 |
 | `text.html` | 글자 꾸미기 (크기·색·굵게) |
-| `math.html` | 수식 입력 (명령어 25개 + 복사용 기호 23개, 입력 칸을 누르면 복사, 상단에 "웹에서 해보기(`convert.html`) / 스킬 설치(`skill.html`)" 두 카드) |
+| `math.html` | 수식 입력 (명령어 30개 + 복사용 기호 24개, 입력 칸을 누르면 복사, 상단에 "웹에서 해보기(`convert.html`) / 스킬 설치(`skill.html`)" 두 카드) |
 | `skill/amplify-math/` | Claude·GPT·Gemini용 Amplify 수식 스킬 (`SKILL.md`, `references/rules.md`, `instructions.md`). 규칙을 고치면 `skill/amplify-math.zip`도 다시 만듭니다(반드시 파이썬 `zipfile`로 만들 것. GNU tar의 `tar -a`는 .zip 이름의 tar 파일을 만들어 업로드가 실패합니다). Claude Code·Antigravity·Codex CLI는 공개 저장소 `getbetterwithu/amplify-math` 주소로 직접 설치 가능(명령은 `skill.html`에 있음). 스킬 규칙의 원본을 고칠 때는 이 폴더와 `amplify-math` 저장소를 함께 맞춥니다 |
 | `skill.html` | 스킬 설치 허브 (처음이라면·코딩 에이전트·붙여넣기, 무료 여부와 시험 현황) |
 | `skill-claude.html` `skill-chatgpt.html` `skill-gemini.html` | 각 AI별 설치 안내 (화면 그림 포함, `img/skill-*/`) |
