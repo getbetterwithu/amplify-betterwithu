@@ -158,6 +158,8 @@ code.cp.done::after{content:"복사됨";color:#fff}
 /* AI 스킬 안내 */
 .ai3{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;margin:14px 0}
 @media(max-width:760px){.ai3{grid-template-columns:1fr}}
+.ai2{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px;margin:14px 0}
+@media(max-width:760px){.ai2{grid-template-columns:1fr}}
 .aibox{border:1.6px solid var(--line);border-radius:12px;padding:15px 17px;background:#fff}
 .aibox h3{margin:0 0 6px;font-size:12.5pt;letter-spacing:-.02em}
 .aibox p{margin:6px 0;font-size:10pt;color:var(--muted);line-height:1.6}
@@ -181,13 +183,29 @@ body.tool-page .aisec a.gobtn:hover{background:#0f6e5e}
 @media(max-width:760px){body .aisec{padding:34px 16px 18px 34px;transform:none;box-shadow:5px 5px 0 #1eaa9d}
   body .aisec:after{left:20px} body .aisec:before{left:28px}}
 @media print{.aisec{display:none}}
-</style><link rel="stylesheet" href="tool-theme.css"></head><body class="tool-page">
+</style><link rel="stylesheet" href="tool-theme.css"><link rel="stylesheet" href="topnav.css"></head><body class="tool-page">
+<header class="topbar"><a class="brand" href="index.html">Amplify 배움공방</a><nav aria-label="주요 메뉴"><a class="active" href="index.html#tools">제작 도구</a><a href="ai-skill.html">AI 스킬</a><a href="https://cl.betterwithu.kr/">CL 학습자료</a></nav></header>
 
 <div class="hero">
 <span class="eyebrow">중학교 수학 · Amplify Classroom</span>
 <h1>Amplify에 수학 기호 넣기</h1>
 <p class="sub">메모와 수식 답변에 수식 또는 수학 기호를 넣는 방법</p>
   <a class="home" href="./">← 도구 모음으로</a>
+</div>
+
+<div class="aisec" id="aiskill" style="margin-top:40px">
+<span class="aitag">알림장 · 수식, 더 쉽게</span>
+<h2>수식을 쉽게 만드는 두 가지 방법</h2>
+<p class="note" style="margin-top:0">아래 표대로 직접 입력해도 되고, AI에게 맡길 수도 있습니다. 교과서 수식을 Amplify용으로 옮기거나, 쓴 수식이 Amplify에서 그려질지 검수할 때 쓰세요.</p>
+<div class="ai2">
+  <div class="aibox"><h3>수식을 웹에서 해보기</h3>
+    <p>교과서 사진을 올리면 Amplify에 붙여넣을 수식으로 바꿔 줍니다. 설치 없이 바로 체험할 수 있고, API 키 또는 연수에서 받은 공유 암호가 필요합니다.</p>
+    <p><a class="gobtn" href="convert.html"><span class="gt">웹에서 해보기</span><span class="ga">→</span></a></p></div>
+  <div class="aibox"><h3>스킬을 내 AI에 설치하기</h3>
+    <p>Amplify 수식 규칙을 내가 쓰는 AI(Claude · ChatGPT · Gemini 중 하나)에 설치합니다. API 키 없이 내 계정으로 계속 쓸 수 있습니다.</p>
+    <p><a class="gobtn" href="skill.html"><span class="gt">스킬 설치 안내</span><span class="ga">→</span></a></p></div>
+</div>
+<p class="note">AI의 결과는 틀릴 수 있습니다. 이 규칙은 2026-10-26 Amplify 편집기 시험 결과이며 전수 검사가 아니고, 학생 화면은 확인하지 않았습니다. 수업에 쓰기 전에 Amplify 미리보기에서 확인해 주세요.</p>
 </div>
 
 <div class="rule">
@@ -256,32 +274,12 @@ body.tool-page .aisec a.gobtn:hover{background:#0f6e5e}
     <a class="gobtn" href="text.html"><span class="gi">🎨</span><span class="gt">글자 꾸미기 페이지 열기</span><span class="ga">→</span></a></td></tr>
 </tbody></table></div>
 
-<div class="aisec" id="aiskill">
-<span class="aitag">알림장 · AI 수식 스킬</span>
-<h2>AI에게 수식을 맡기고 싶다면: Amplify 수식 스킬</h2>
-<p class="note" style="margin-top:0">위 규칙을 AI가 미리 알고 있게 하는 파일입니다. 교과서 수식을 Amplify용으로 옮기거나, 쓴 수식이 Amplify에서 그려질지 검수할 때 씁니다. <b>Claude, ChatGPT, Gemini 중 하나만 성공해도 충분합니다.</b> 쓰는 AI를 고르세요.</p>
-<p class="note"><b>먼저 웹에서 해보고 싶다면</b> <a href="convert.html">AI 수식 변환</a>으로 교과서 사진을 바꿔 보세요(API 키 필요). 계속 쓰실 거라면 아래에서 내 AI에 스킬을 설치하는 것을 추천합니다.</p>
-<div class="ai3">
-  <div class="aibox"><h3>Claude</h3>
-    <p>zip을 그대로 올립니다. 무료 플랜 화면에서도 메뉴가 열렸습니다.</p>
-    <p><a class="gobtn" href="skill-claude.html"><span class="gt">Claude 설치 안내</span><span class="ga">→</span></a></p></div>
-  <div class="aibox"><h3>ChatGPT</h3>
-    <p>zip을 그대로 올립니다. 화면과 함께 안내합니다.</p>
-    <p><a class="gobtn" href="skill-chatgpt.html"><span class="gt">ChatGPT 설치 안내</span><span class="ga">→</span></a></p></div>
-  <div class="aibox"><h3>Gemini</h3>
-    <p>Gems가 11월 17일부터 스킬로 바뀝니다. 스킬 기준으로 안내합니다.</p>
-    <p><a class="gobtn" href="skill-gemini.html"><span class="gt">Gemini 설치 안내</span><span class="ga">→</span></a></p></div>
-</div>
-<p class="note"><b>처음이라서 어렵거나, 코딩 에이전트를 쓰시거나, 무료 여부가 궁금하시면</b> <a href="skill.html">전체 안내(처음이라면·VS Code/터미널·붙여넣기)</a>를 보세요.</p>
-<p class="note">AI의 결과는 틀릴 수 있습니다. 이 규칙은 2026-10-26 Amplify 편집기 시험 결과이며 전수 검사가 아니고, 학생 화면은 확인하지 않았습니다. 수업에 쓰기 전에 Amplify 미리보기에서 확인해 주세요.</p>
-</div>
-
 <div class="golinks">
   <div class="gt">다른 도구도 있습니다</div>
   <div class="gg">
-    <a class="gcard" href="convert.html"><span class="gi">🔄</span><span class="gx"><b>AI 수식 변환 · 웹에서 먼저 해보기</b><em>교과서 사진을 Amplify 수식으로</em></span><span class="ga" aria-hidden="true"></span></a>
     <a class="gcard" href="text.html"><span class="gi">🎨</span><span class="gx"><b>글자 꾸미기</b><em>크기·색·굵게 — 복사해서 붙이세요</em></span><span class="ga" aria-hidden="true"></span></a>
-    <a class="gcard" href="interpret.html"><span class="gi">🧩</span><span class="gx"><b>Computation Layer 분석 스킬</b><em>내 AI에 설치해 코드 분석</em></span><span class="ga" aria-hidden="true"></span></a>
+    <a class="gcard" href="ai-skill.html"><span class="gi">🧩</span><span class="gx"><b>AI 스킬</b><em>내 AI에 설치해 쓰는 수식·CL 스킬</em></span><span class="ga" aria-hidden="true"></span></a>
+    <a class="gcard" href="https://cl.betterwithu.kr/"><span class="gi">📚</span><span class="gx"><b>CL 학습자료</b><em>구성요소별 예제와 설명</em></span><span class="ga" aria-hidden="true"></span></a>
     <a class="gcard home2" href="./"><span class="gi">🏠</span><span class="gx"><b>도구 모음</b><em>전체 목록 보기</em></span><span class="ga" aria-hidden="true"></span></a>
   </div>
 </div>

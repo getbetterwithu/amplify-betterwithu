@@ -1,69 +1,193 @@
-<!doctype html><html lang="ko"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="description" content="Computation Layer 코드를 줄별로 풀이해 주는 스킬을 내 AI에 설치하는 방법을 안내합니다."><title>Computation Layer 분석 스킬 | BetterWithU</title><link rel="stylesheet" href="site.css"><link rel="stylesheet" href="guide.css"><style>
-.gs-pre{white-space:pre-wrap;word-break:break-word;background:#fffdf6;border:1.5px dashed #b9b3a0;border-radius:10px;padding:12px 14px;font-size:14px;line-height:1.65;margin:8px 0 10px;overflow:auto}
-.gs-btn{font:inherit;font-weight:800;font-size:14px;background:#ffe66d;color:#2f241f;border:2px solid #363838;border-radius:999px;padding:7px 16px;cursor:pointer;box-shadow:3px 3px 0 #1eaa9d;margin-bottom:10px}
-.gs-btn:hover{transform:translateY(-1px)}
-.gs-toast{position:fixed;left:50%;bottom:26px;transform:translateX(-50%);background:#12151b;color:#fff;font-size:14px;font-weight:700;padding:9px 18px;border-radius:999px;opacity:0;pointer-events:none;transition:.18s;z-index:60}
-.gs-toast.on{opacity:.95}
-.gs-tag{display:inline-block;font-size:12px;font-weight:800;padding:2px 10px;border-radius:999px;margin-left:8px;vertical-align:2px;background:#d9f3ee;color:#0f5f55}
-.guide-btn:not(.plain){background:#12806d;color:#fff;box-shadow:4px 4px 0 var(--ink)}
-.guide-btn:not(.plain):hover{background:#0f6e5e}
-</style></head>
-<body class="chalkboard-page"><a class="skip" href="#main">본문으로 건너뛰기</a>
-<header class="topbar"><a class="brand" href="index.html">BetterWithU<span>.</span></a><nav aria-label="주요 메뉴"><a class="active" href="index.html#tools">수업 제작 도구</a><a href="https://cl.betterwithu.kr/">CL 학습자료</a></nav></header>
-<main id="main" class="panel">
-  <a class="back-link" href="index.html#tools"><span aria-hidden="true">←</span> 수업 제작 도구</a>
-  <div class="page-title"><p class="eyebrow">COMPUTATION LAYER ANALYSIS SKILL</p><h1>Computation Layer 분석 스킬</h1><p><strong>내 AI에 설치해 쓰는 스킬</strong>입니다. 코드를 붙여넣거나 캡처를 올리면 내가 쓰는 AI가 줄별로 분석합니다.</p></div>
-  <section class="box" aria-labelledby="skillTitle"><h2 id="skillTitle">스킬이 하는 일</h2>
-    <ul><li>CL 코드를 붙여넣거나 코드가 보이는 캡처 이미지를 올리면 분석합니다.</li><li>sink·source 같은 CL 문법 질문에도 답합니다.</li><li>지식 파일에 근거한 설명, 코드에서 추론한 설명, 확인하지 못한 부분을 구분해 알려 줍니다.</li></ul>
-    <p><small>스킬은 개정 중이며 AI의 분석은 틀릴 수 있습니다. 수업에 적용하기 전에 원본 CL 코드와 <a href="https://cl.betterwithu.kr/">CL 학습자료</a>로 확인해 주세요.</small></p>
-  </section>
-  <section class="box" aria-labelledby="downloadTitle"><h2 id="downloadTitle">내려받기 <span class="gs-tag">v0.3.2</span></h2>
-    <p>스킬은 공개 저장소(amplify-cl-interpreter)에서 받습니다. 아래 설치 방법은 저장소 주소만 알면 됩니다.</p>
-    <a class="guide-btn" href="https://github.com/getbetterwithu/amplify-cl-interpreter" target="_blank" rel="noopener noreferrer">GitHub에서 보기 ↗</a>
-    <p><small>이 스킬의 문법 지식 중 일부는 아직 Amplify에서 실행해 확인하지 않았습니다. 답의 문장 끝 출처 표시로 확신 정도를 구분합니다.</small></p>
-  </section>
-  <div class="guide-warn" role="note"><h2>ChatGPT·Gemini·Claude 웹/앱을 쓰신다면</h2>
-    <p style="margin:0">웹·앱에서는 명령어를 쓸 수 없고, 웹·앱에 올리는 배포 파일(zip)은 아직 준비하지 못했습니다. 아래 설치 방법은 VS Code나 터미널에서 쓰는 AI용입니다.</p>
-  </div>
-  <section class="box" aria-labelledby="installTitle"><h2 id="installTitle">설치 안내 — VS Code나 터미널에서 AI를 쓰신다면</h2>
-    <p>Claude Code, Codex, Antigravity처럼 VS Code나 터미널에서 쓰는 AI라면, 저장소 주소를 알려 주고 "설치해 줘"라고 하는 것으로 대부분 끝납니다.</p>
-    <ol class="guide-steps">
-      <li><b>먼저 아래 문장을 복사해 내 AI에 붙여넣습니다.</b>
-        <pre class="gs-pre" id="t-agent">이 GitHub 저장소의 스킬(skills/cl-interpreter 폴더)을 내 스킬 폴더에 설치해 줘: https://github.com/getbetterwithu/amplify-cl-interpreter</pre>
-        <button class="gs-btn" type="button" data-copy-id="t-agent">문장 복사</button>
-        <small>AI가 폴더를 받아 자기 스킬 폴더에 넣습니다. 설치 뒤 다시 시작하라고 하면 따르세요.</small></li>
-      <li><b>설치됐는지 확인합니다.</b> AI를 다시 시작하고 <b>"cl-interpreter 스킬이 설치돼 있어?"</b>라고 물어 보세요. 설치돼 있다고 하면 끝입니다. 아니라고 하거나 헷갈리게 답하면 아래 직접 명령으로 설치하세요.</li>
-      <li><b>안 되면 직접 명령으로 설치합니다.</b> 터미널에 아래를 한 줄씩 차례로 입력하세요. 설치 뒤 도구를 다시 시작합니다. 제품이 바뀌면 명령이 달라질 수 있습니다.
-        <p style="margin:10px 0 2px"><b>Claude Code</b></p>
-        <pre class="gs-pre" id="t-claude">claude plugin marketplace add getbetterwithu/amplify-cl-interpreter
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="description" content="Computation Layer(CL) 코드를 줄별로 풀이해 주는 CL 해석 스킬을 Claude, ChatGPT, Gemini와 VS Code·터미널 AI에 설치하는 방법을 안내합니다.">
+  <title>CL 해석 스킬 설치 안내 | Amplify 배움공방</title>
+  <link rel="stylesheet" href="site.css">
+  <link rel="stylesheet" href="guide.css">
+  <style>
+    .gs-pre{white-space:pre-wrap;word-break:break-word;background:#fffdf6;border:1.5px dashed #b9b3a0;border-radius:10px;padding:12px 14px;font-size:14px;line-height:1.65;margin:8px 0 10px;max-height:260px;overflow:auto}
+    .gs-btn{font:inherit;font-weight:800;font-size:14px;background:#ffe66d;color:#2f241f;border:2px solid #363838;border-radius:999px;padding:7px 16px;cursor:pointer;box-shadow:3px 3px 0 #1eaa9d}
+    .gs-btn:hover{transform:translateY(-1px)}
+    .gs-toast{position:fixed;left:50%;bottom:26px;transform:translateX(-50%);background:#12151b;color:#fff;font-size:14px;font-weight:700;padding:9px 18px;border-radius:999px;opacity:0;pointer-events:none;transition:.18s;z-index:60}
+    .gs-toast.on{opacity:.95}
+    .gs-tag{display:inline-block;font-size:12px;font-weight:800;padding:2px 10px;border-radius:999px;margin-left:8px;vertical-align:2px;background:#d9f3ee;color:#0f5f55}
+    .gs-tag.hold{background:#e8e6dc;color:#4d5551}
+    .guide-btn:not(.plain){background:#12806d;color:#fff;box-shadow:4px 4px 0 var(--ink)}
+    .guide-btn:not(.plain):hover{background:#0f6e5e}
+    .page-title .eyebrow{background:#12806d;color:#fff}
+
+    .hub3{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px;margin:14px 0}
+    @media(max-width:760px){.hub3{grid-template-columns:1fr}}
+    .hubcard{border:2px solid #363838;border-radius:12px;padding:16px 18px;background:#fff;display:flex;flex-direction:column;gap:6px}
+    .hubcard h3{margin:0;font-size:19px}
+    .hubcard p{margin:0;font-size:14.5px;line-height:1.6;color:#4d5551}
+    .hubcard .guide-btn{margin-top:auto;align-self:flex-start}
+    .hubtbl{width:100%;border-collapse:collapse;font-size:14.5px;margin:10px 0}
+    .hubtbl th,.hubtbl td{border:1px solid #d8d5ca;padding:8px 10px;text-align:left;vertical-align:top}
+    .hubtbl th{background:#fff8e1}
+    .hubtbl .ok{color:#0f5f55;font-weight:800}.hubtbl .no{color:#555b57;font-weight:800}
+  </style>
+</head>
+<body class="workbook-home settings-page">
+  <a class="skip" href="#main">본문으로 건너뛰기</a>
+  <header class="topbar">
+    <a class="brand" href="index.html">Amplify 배움공방</a>
+    <nav aria-label="주요 메뉴"><a href="index.html#tools">제작 도구</a><a class="active" href="ai-skill.html">AI 스킬</a><a href="https://cl.betterwithu.kr/">CL 학습자료</a></nav>
+  </header>
+  <main id="main" class="panel guide-panel">
+    <a class="back-link" href="ai-skill.html"><span aria-hidden="true">←</span> AI 스킬</a>
+    <div class="page-title"><p class="eyebrow">AI SKILL · COMPUTATION LAYER</p><h1>CL 해석 스킬 설치 안내 <span class="gs-tag">v0.3.2</span></h1><p class="guide-lead">내가 쓰는 AI가 Amplify Computation Layer(CL) 문법을 알고 코드를 줄별로 풀이하게 하는 스킬입니다. CL 코드를 붙여넣거나 캡처를 올리면 분석하고, sink·source 같은 CL 문법 질문에도 답합니다. <b>Claude, ChatGPT, Gemini 중 하나만 성공해도 충분합니다.</b></p></div>
+
+    <section class="guide-summary" aria-labelledby="pick-title">
+      <h2 id="pick-title">어느 방법이 나에게 맞나요?</h2>
+      <ol>
+        <li><b>AI를 대화창으로만 써 봤다</b> → 아래 <b>① 처음이라면</b>. 코딩 지식 없이 화면만 따라 하면 됩니다.</li>
+        <li><b>VS Code나 터미널에서 Claude Code, Codex, Antigravity 같은 AI를 쓴다</b> → <b>② 문장 하나로 설치</b>. 주소를 알려 주고 설치를 시키면 됩니다.</li>
+        <li><b>스킬 메뉴가 없거나 업로드가 안 된다</b> → <b>③ 지침을 붙여넣고 파일 올리기</b> (Claude·Gemini).</li>
+      </ol>
+    </section>
+
+    <section class="guide-warn" aria-labelledby="warn-title">
+      <h2 id="warn-title">알아 두세요</h2>
+      <ul>
+        <li>스킬은 개정 중이며 AI의 분석은 틀릴 수 있습니다. 수업에 적용하기 전에 원본 CL 코드와 <a href="https://cl.betterwithu.kr/">CL 학습자료</a>로 확인해 주세요.</li>
+        <li>이 스킬의 문법 지식 중 일부는 아직 Amplify에서 실행해 확인하지 않았습니다. 답의 문장 끝에 붙는 출처 표시(<i>공식 문서</i>, <i>판정</i>, <i>추가검증필요</i>, <i>예상</i>, <i>코드 추론</i>)로 확신 정도를 구분합니다.</li>
+        <li><b>ChatGPT 웹은 올려서 등록되는 것을 확인했고, Claude·Gemini와 ③ 방법은 아직 직접 확인하지 못했습니다.</b> 메뉴는 수시로 바뀔 수 있으니 되지 않으면 각 안내의 '잘 안 될 때'를 보세요.</li>
+      </ul>
+    </section>
+
+    <section class="guide-step" id="beginner" aria-labelledby="b-title">
+      <h2 id="b-title"><span class="guide-num" aria-hidden="true">①</span>처음이라면 — 웹·앱에서 설치</h2>
+      <p class="guide-goal">이미 계정이 있는 AI 하나를 고르세요. 화면 그림과 복사 버튼이 들어 있는 안내로 이어집니다.</p>
+      <div class="hub3">
+        <div class="hubcard"><h3>Claude</h3>
+          <p>zip을 <b>풀지 않고 그대로</b> 올립니다.</p>
+          <p>무료 플랜 화면에서도 Skills 메뉴가 열렸습니다.</p>
+          <a class="guide-btn" href="interpret-claude.html">Claude 안내 열기</a></div>
+        <div class="hubcard"><h3>ChatGPT</h3>
+          <p>zip을 <b>풀지 않고 그대로</b> 올립니다.</p>
+          <p><b>유료 계정(Plus)의 웹에서 확인했습니다.</b> 무료 계정은 메뉴가 열리지 않을 수 있어 Claude나 Gemini를 권하고, 앱에는 업로드 메뉴가 없을 수 있으니 웹 브라우저에서 해 보세요. 터미널의 Codex는 아래 ②입니다.</p>
+          <a class="guide-btn" href="interpret-chatgpt.html">ChatGPT 안내 열기</a></div>
+        <div class="hubcard"><h3>Gemini</h3>
+          <p>zip을 풀어 <b>폴더째</b> 올립니다.</p>
+          <p>스킬 메뉴에 폴더를 올립니다.</p>
+          <a class="guide-btn" href="interpret-gemini.html">Gemini 안내 열기</a></div>
+      </div>
+      <p class="guide-note">세 가지 모두 <b>zip 업로드</b>를 먼저 안내합니다. Claude와 Gemini는 업로드가 안 될 때의 방법을 이어서 안내하고, ChatGPT는 업로드와 Codex 설치(②)만 안내합니다.</p>
+    </section>
+
+    <section class="guide-step" id="expert" aria-labelledby="e-title">
+      <h2 id="e-title"><span class="guide-num" aria-hidden="true">②</span>VS Code나 터미널에서 AI를 쓰신다면 — 문장 하나로 설치</h2>
+      <p class="guide-goal">Claude Code, Codex, Antigravity처럼 VS Code나 터미널에서 쓰는 AI라면, <b>저장소 주소를 알려 주고 "설치해 줘"라고 하는 것</b>으로 대부분 끝납니다.</p>
+      <ol class="guide-steps">
+        <li><b>먼저 아래 문장을 복사해 내 AI에 붙여넣습니다.</b>
+          <pre class="gs-pre" id="t-agent">이 GitHub 저장소의 스킬(skills/cl-interpreter 폴더)을 내 스킬 폴더에 설치해 줘: https://github.com/getbetterwithu/amplify-cl-interpreter</pre>
+          <button class="gs-btn" type="button" data-copy-id="t-agent">문장 복사</button>
+          <small>AI가 폴더를 받아 자기 스킬 폴더에 넣습니다. 설치 뒤 다시 시작하라고 하면 따르세요.</small></li>
+        <li><b>설치됐는지 확인합니다.</b> AI를 다시 시작하고 <b>"cl-interpreter 스킬이 설치돼 있어?"</b>라고 물어 보세요. 설치돼 있다고 하면 끝입니다. 아니라고 하거나 헷갈리게 답하면 아래 직접 명령으로 설치하세요.</li>
+        <li><b>안 되면 직접 명령으로 설치합니다.</b> 터미널에 아래를 한 줄씩 차례로 입력하세요. 설치 뒤 도구를 다시 시작합니다. 제품이 바뀌면 명령이 달라질 수 있습니다.
+          <p style="margin:10px 0 2px"><b>Claude Code</b></p>
+          <pre class="gs-pre" id="t-claude">claude plugin marketplace add getbetterwithu/amplify-cl-interpreter
 claude plugin install amplify-cl-interpreter@amplify-cl-interpreter</pre>
-        <button class="gs-btn" type="button" data-copy-id="t-claude">복사</button>
-        <p style="margin:12px 0 2px"><b>Antigravity</b> — 설치 결과에 <code>skills : 1 processed</code>가 보이면 됩니다.</p>
-        <pre class="gs-pre" id="t-agy">agy plugin install https://github.com/getbetterwithu/amplify-cl-interpreter
+          <button class="gs-btn" type="button" data-copy-id="t-claude">복사</button>
+          <p style="margin:12px 0 2px"><b>Antigravity</b> — 설치 결과에 <code>skills : 1 processed</code>가 보이면 됩니다.</p>
+          <pre class="gs-pre" id="t-agy">agy plugin install https://github.com/getbetterwithu/amplify-cl-interpreter
 agy plugin list</pre>
-        <button class="gs-btn" type="button" data-copy-id="t-agy">복사</button>
-        <p style="margin:12px 0 2px"><b>Codex CLI</b> — <code>codex plugin list</code>에서 <code>installed, enabled</code>로 보이면 됩니다.</p>
-        <pre class="gs-pre" id="t-codex">codex plugin marketplace add getbetterwithu/amplify-cl-interpreter
+          <button class="gs-btn" type="button" data-copy-id="t-agy">복사</button>
+          <p style="margin:12px 0 2px"><b>Codex CLI</b> — <code>codex plugin list</code>에서 <code>installed, enabled</code>로 보이면 됩니다.</p>
+          <pre class="gs-pre" id="t-codex">codex plugin marketplace add getbetterwithu/amplify-cl-interpreter
 codex plugin add amplify-cl-interpreter@amplify-cl-interpreter
 codex plugin list</pre>
-        <button class="gs-btn" type="button" data-copy-id="t-codex">복사</button></li>
-    </ol>
-  </section>
-</main>
-<footer class="site-footer"><div><a class="footer-brand" href="index.html">BetterWithU<span>.</span></a><p>Amplify 수업자료 제작과 Computation Layer 학습을 돕는 교사용 교육 보조 도구입니다.</p></div><div class="footer-info"><p>개인정보가 포함된 자료는 입력하지 말고, AI 결과는 수업 적용 전에 확인하세요.</p><div class="footer-links"><a href="mailto:jclover2@snu.ac.kr">jclover2@snu.ac.kr</a><a href="privacy.html">개인정보 및 AI 데이터 처리</a><a href="terms.html">이용 안내·저작권</a></div><p class="footer-copy">© 2026 서울대학교사범대학부설중학교 허철호. All Rights Reserved.</p></div><small class="footer-disclaimer">이 사이트는 독립적으로 제작한 비공식 교육 보조 자료이며, Amplify Education, Inc.와 제휴하거나 공식 승인을 받은 서비스가 아닙니다.</small></footer>
-<div class="gs-toast" id="gsToast" role="status"></div>
-<script>
-(function(){
-  var toast=document.getElementById('gsToast');
-  function say(m){toast.textContent=m;toast.classList.add('on');clearTimeout(say.t);say.t=setTimeout(function(){toast.classList.remove('on')},1500);}
-  function copy(t){
-    function ok(){say('복사했습니다');}
-    function fb(){var a=document.createElement('textarea');a.value=t;a.style.position='fixed';a.style.opacity='0';document.body.appendChild(a);a.select();try{document.execCommand('copy');ok();}catch(e){say('복사하지 못했습니다');}document.body.removeChild(a);}
-    if(navigator.clipboard&&window.isSecureContext){navigator.clipboard.writeText(t).then(ok,fb);}else{fb();}
-  }
-  Array.prototype.forEach.call(document.querySelectorAll('[data-copy-id]'),function(b){
-    b.addEventListener('click',function(){copy(document.getElementById(b.getAttribute('data-copy-id')).textContent);});
-  });
-})();
-</script>
+          <button class="gs-btn" type="button" data-copy-id="t-codex">복사</button></li>
+        <li>설치한 스킬은 에이전트의 권한으로 실행됩니다. 이 스킬은 지침과 지식 문서(.md)만 들어 있고 내용은 <a href="https://github.com/getbetterwithu/amplify-cl-interpreter" target="_blank" rel="noopener noreferrer">GitHub ↗</a>에서 볼 수 있습니다.</li>
+      </ol>
+    </section>
+
+    <section class="guide-step" id="manual" aria-labelledby="m-title">
+      <h2 id="m-title"><span class="guide-num" aria-hidden="true">③</span>스킬 메뉴가 없거나 안 될 때 — 지침을 붙여넣고 파일 올리기</h2>
+      <p class="guide-goal">이 스킬은 지식 파일이 커서(압축 전 약 480KB) 수식 스킬처럼 전부 붙여넣을 수 없습니다. 대신 <b>짧은 지침문은 붙여넣고, 지식 파일은 올립니다.</b> 저장소 안내를 정리한 방법으로 <b>직접 확인하지는 못했습니다.</b></p>
+      <ol class="guide-steps">
+        <li>아래 버튼으로 지침문(약 9KB)을 복사합니다.<br>
+          <button class="gs-btn" type="button" data-fetch="skill/cl-interpreter/guides/instructions-short.md">지침문 복사</button></li>
+        <li>내 AI의 <b>맞춤 도구</b>를 만들고 지침 칸에 붙여넣습니다. Claude는 <b>프로젝트</b>, Gemini는 <b>Gem</b>입니다. ChatGPT는 GPT를 더 이상 만들 수 없어 이 방법을 쓸 수 없습니다. 자세한 순서는 위 ①의 AI별 안내에 있습니다.</li>
+        <li>스킬 zip을 <b>풀어서</b> 안의 파일을 <b>지식(Knowledge)</b>으로 올립니다. <code>INDEX.md</code>, <code>knowledge/</code> 안 8개, <code>reference/</code> 안 3개입니다.</li>
+        <li>지식 파일이 커서 답이 "자료에 없습니다"로 나오는데 파일에는 있는 경우가 있습니다. 질문에 <b>컴포넌트 이름과 sink 이름을 함께</b> 적어 보세요.</li>
+      </ol>
+    </section>
+
+    <section class="guide-step" id="use" aria-labelledby="u-title">
+      <h2 id="u-title"><span class="guide-num" aria-hidden="true">✎</span>코드는 이렇게 올립니다</h2>
+      <ol class="guide-steps">
+        <li><b>기본은 캡처입니다.</b> 편집기에서 <b>줄 번호가 보이게</b> 캡처해 올리세요. 줄 번호가 있으면 어느 줄을 풀이한 것인지 정확히 짚을 수 있습니다.</li>
+        <li><b>긴 코드는 캡처와 텍스트를 함께</b> 올리세요. 캡처로 줄 번호를, 텍스트로 정확한 글자를 확인합니다.</li>
+        <li><b>텍스트만 붙여넣을 때는 첫 줄에 컴포넌트 이름</b>을 적으세요. 붙여넣은 텍스트는 줄 번호와 어긋나기 쉬워서, 줄 번호 대신 코드 조각을 인용해 풀이합니다.
+          <pre class="gs-pre" id="t-sample">컴포넌트: input1
+hidden: btn1.pressCount &gt; 2
+correct: this.numericValue &gt; 9.99 and this.numericValue &lt; 10.01</pre>
+          <button class="gs-btn" type="button" data-copy-id="t-sample">예시 복사</button></li>
+        <li><b>더 정확한 해석을 원하면</b> 코드가 읽는 다른 컴포넌트의 값(예: <code>input1.numericValue</code>)이나 그래프 안의 변수의 CL도 함께 보내 주세요. 풀이 끝에 어떤 자료가 더 필요한지 알려 줍니다.</li>
+      </ol>
+    </section>
+
+    <section class="guide-step" id="files" aria-labelledby="f-title">
+      <h2 id="f-title"><span class="guide-num" aria-hidden="true">⬇</span>파일</h2>
+      <div class="kbtns">
+        <a class="guide-btn" href="skill/cl-interpreter.zip" download>스킬 zip (Claude·ChatGPT·Gemini)</a>
+        <a class="guide-btn plain" href="skill/cl-interpreter/guides/instructions-short.md" download>지침문 instructions-short.md</a>
+        <a class="guide-btn plain" href="https://github.com/getbetterwithu/amplify-cl-interpreter" target="_blank" rel="noopener noreferrer">GitHub에서 보기 ↗</a>
+      </div>
+      <p class="guide-note">zip에는 지침(SKILL.md)과 지식 문서만 들어 있고 모두 마크다운(.md) 파일입니다. 현재 버전은 v0.3.2입니다.</p>
+    </section>
+
+    <section class="guide-step" id="repos" aria-labelledby="r-title">
+      <h2 id="r-title"><span class="guide-num" aria-hidden="true">🔗</span>관련 공개 저장소</h2>
+      <table class="hubtbl"><thead><tr><th>저장소</th><th>내용</th></tr></thead><tbody>
+        <tr><td><a href="https://github.com/getbetterwithu/amplify-cl-interpreter" target="_blank" rel="noopener noreferrer">amplify-cl-interpreter ↗</a></td><td>CL 해석 스킬 (이 페이지의 스킬). 위 ② 명령으로 설치합니다.</td></tr>
+        <tr><td><a href="https://github.com/getbetterwithu/amplify-math" target="_blank" rel="noopener noreferrer">amplify-math ↗</a></td><td>Amplify 수식 스킬. 설치는 <a href="skill.html">수식 스킬 설치 안내</a>를 보세요.</td></tr>
+        <tr><td><a href="https://github.com/getbetterwithu/amplify-betterwithu" target="_blank" rel="noopener noreferrer">amplify-betterwithu ↗</a></td><td>이 사이트의 소스입니다.</td></tr>
+      </tbody></table>
+    </section>
+
+    <section class="guide-step" id="status" aria-labelledby="s-title">
+      <h2 id="s-title"><span class="guide-num" aria-hidden="true">?</span>무료로도 되나요?</h2>
+      <table class="hubtbl"><thead><tr><th>방법</th><th>무료</th><th>비고</th></tr></thead><tbody>
+        <tr><td>Claude 스킬</td><td class="ok">무료 플랜에서 메뉴가 열림</td><td>zip을 풀지 않고 업로드</td></tr>
+        <tr><td>ChatGPT 스킬</td><td class="no">무료는 막혀 있을 수 있음 (유료 Plus에서 확인)</td><td>zip 업로드와 Codex(②). 무료는 Claude·Gemini 권장</td></tr>
+        <tr><td>Gemini 스킬</td><td class="ok">무료도 가능 (무료였던 Gems가 스킬로 바뀝니다)</td><td>zip을 풀어 폴더째 업로드</td></tr>
+        <tr><td>Claude Code · Antigravity · Codex CLI</td><td class="no">각 도구의 요금제에 따름</td><td>터미널 사용자용</td></tr>
+      </tbody></table>
+      <p class="guide-note">서비스 요금제와 메뉴는 수시로 바뀔 수 있습니다. 이 스킬의 zip은 ChatGPT 웹(유료 계정)에서 올려 등록되는 것만 확인했고, 나머지 서비스의 메뉴는 수식 스킬 안내에서 확인한 내용입니다.</p>
+    </section>
+  </main>
+  <div class="guide-lightbox" id="guideLightbox" role="dialog" aria-modal="true" aria-label="확대 이미지" hidden>
+    <button class="guide-lightbox-close" type="button" aria-label="확대 이미지 닫기">×</button>
+    <img src="" alt="">
+  </div>
+  <footer class="site-footer"><div><a class="footer-brand" href="index.html">Amplify 배움공방</a><p>Amplify 수업자료 제작과 Computation Layer 학습을 돕는 교사용 교육 보조 도구입니다.</p></div><div class="footer-info"><p>개인정보가 포함된 자료는 입력하지 말고, AI 결과는 수업 적용 전에 확인하세요.</p><div class="footer-links"><a href="mailto:jclover2@snu.ac.kr">jclover2@snu.ac.kr</a><a href="privacy.html">개인정보 및 AI 데이터 처리</a><a href="terms.html">이용 안내·저작권</a></div><p class="footer-copy">© 2026 서울대학교사범대학부설중학교 허철호. All Rights Reserved.</p></div><small class="footer-disclaimer">이 사이트는 독립적으로 제작한 비공식 교육 보조 자료이며, Amplify Education, Inc.와 제휴하거나 공식 승인을 받은 서비스가 아닙니다.</small></footer>
+  <div class="gs-toast" id="gsToast" role="status"></div>
+  <script src="guide.js"></script>
+  <script>
+  (function(){
+    var toast=document.getElementById('gsToast');
+    function say(m){toast.textContent=m;toast.classList.add('on');clearTimeout(say.t);say.t=setTimeout(function(){toast.classList.remove('on')},1500);}
+    function copy(t){
+      function ok(){say('복사했습니다');}
+      function fb(){var a=document.createElement('textarea');a.value=t;a.style.position='fixed';a.style.opacity='0';document.body.appendChild(a);a.select();try{document.execCommand('copy');ok();}catch(e){say('복사하지 못했습니다');}document.body.removeChild(a);}
+      if(navigator.clipboard&&window.isSecureContext){navigator.clipboard.writeText(t).then(ok,fb);}else{fb();}
+    }
+    Array.prototype.forEach.call(document.querySelectorAll('[data-copy-id]'),function(b){
+      b.addEventListener('click',function(){copy(document.getElementById(b.getAttribute('data-copy-id')).textContent);});
+    });
+    Array.prototype.forEach.call(document.querySelectorAll('[data-fetch]'),function(b){
+      b.addEventListener('click',function(){
+        var urls=b.getAttribute('data-fetch').split('|');
+        Promise.all(urls.map(function(u){return fetch(u).then(function(r){if(!r.ok)throw 0;return r.text();});}))
+          .then(function(a){copy(a.join('\n\n'));},function(){say('복사하지 못했습니다. 파일을 내려받아 주세요');});
+      });
+    });
+  })();
+  </script>
 </body></html>

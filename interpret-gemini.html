@@ -1,0 +1,156 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="description" content="Gemini에 CL 해석 스킬(Computation Layer 코드 풀이)을 설치하는 방법을 화면 그림과 함께 안내합니다.">
+  <title>Gemini에 CL 해석 스킬 설치하기 | Amplify 배움공방</title>
+  <link rel="stylesheet" href="site.css">
+  <link rel="stylesheet" href="guide.css">
+  <style>
+    .gs-pre{white-space:pre-wrap;word-break:break-word;background:#fffdf6;border:1.5px dashed #b9b3a0;border-radius:10px;padding:12px 14px;font-size:14px;line-height:1.65;margin:8px 0 10px;max-height:260px;overflow:auto}
+    .gs-btn{font:inherit;font-weight:800;font-size:14px;background:#ffe66d;color:#2f241f;border:2px solid #363838;border-radius:999px;padding:7px 16px;cursor:pointer;box-shadow:3px 3px 0 #1eaa9d}
+    .gs-btn:hover{transform:translateY(-1px)}
+    .gs-toast{position:fixed;left:50%;bottom:26px;transform:translateX(-50%);background:#12151b;color:#fff;font-size:14px;font-weight:700;padding:9px 18px;border-radius:999px;opacity:0;pointer-events:none;transition:.18s;z-index:60}
+    .gs-toast.on{opacity:.95}
+    .gs-tag{display:inline-block;font-size:12px;font-weight:800;padding:2px 10px;border-radius:999px;margin-left:8px;vertical-align:2px;background:#d9f3ee;color:#0f5f55}
+    .gs-tag.hold{background:#e8e6dc;color:#4d5551}
+    .guide-btn:not(.plain){background:#12806d;color:#fff;box-shadow:4px 4px 0 var(--ink)}
+    .guide-btn:not(.plain):hover{background:#0f6e5e}
+    .page-title .eyebrow{background:#12806d;color:#fff}
+  </style>
+</head>
+<body class="workbook-home settings-page">
+  <a class="skip" href="#main">본문으로 건너뛰기</a>
+  <header class="topbar">
+    <a class="brand" href="index.html">Amplify 배움공방</a>
+    <nav aria-label="주요 메뉴"><a href="index.html#tools">제작 도구</a><a class="active" href="ai-skill.html">AI 스킬</a><a href="https://cl.betterwithu.kr/">CL 학습자료</a></nav>
+  </header>
+  <main id="main" class="panel guide-panel">
+    <a class="back-link" href="interpret.html"><span aria-hidden="true">←</span> CL 해석 스킬 설치 안내 전체</a>
+    <div class="page-title"><p class="eyebrow">STEP BY STEP · GEMINI SKILL</p><h1>Gemini에 CL 해석 스킬 설치하기</h1><p class="guide-lead">Gemini의 <b>스킬</b> 메뉴에 CL 해석 스킬을 올려 두면, CL 코드를 붙여넣거나 캡처를 올릴 때 Gemini가 지식 파일을 참고해 줄별로 풀이합니다.</p></div>
+
+    <section class="guide-summary" aria-labelledby="sum-title">
+      <h2 id="sum-title">두 가지 방법 중 하나만 하면 됩니다</h2>
+      <ol>
+        <li><b>업로드하기</b> — 스킬 폴더를 그대로 올립니다. 가장 간단합니다. <b>(추천)</b></li>
+        <li><b>Gem으로 쓰기</b> — 스킬 메뉴가 없거나 업로드가 안 될 때 지침을 붙여넣고 파일을 올립니다.</li>
+      </ol>
+    </section>
+
+    <section class="guide-warn" aria-labelledby="warn-title">
+      <h2 id="warn-title">시작하기 전에</h2>
+      <ul>
+        <li><b>이 zip을 Gemini에 올려 확인한 것은 아닙니다.</b> 메뉴 화면은 수식 스킬 안내에서 확인한 것이고, 이 스킬은 수식 스킬(약 20KB)보다 훨씬 큽니다(약 126KB). 되지 않으면 아래 '잘 안 될 때'를 보세요.</li>
+        <li><b>Gems는 2026년 11월 17일부터 스킬로 바뀝니다.</b> Gemini 화면의 안내에 따르면 기존 Gems는 자동으로 스킬로 옮겨지고, 옮겨지기 전까지는 Gems를 쓸 수 있으며, 일부 파일은 보존하려면 조치가 필요할 수 있습니다. 이 안내는 새 <b>스킬</b> 메뉴 기준입니다.</li>
+        <li>메뉴 이름과 화면은 Google이 바꿀 수 있습니다.</li>
+        <li>학교(Workspace) 계정은 관리자 설정에 따라 스킬 메뉴가 없을 수 있습니다. 그때는 개인 Google 계정으로 해 보세요.</li>
+        <li>Gemini의 안내문처럼 <b>신뢰할 수 있는 파일만</b> 올리세요. 이 스킬의 파일은 <a href="https://github.com/getbetterwithu/amplify-cl-interpreter" target="_blank" rel="noopener noreferrer">GitHub ↗</a>에서 내용을 볼 수 있습니다.</li>
+      </ul>
+    </section>
+
+    <section class="guide-step" id="step0" aria-labelledby="s0-title">
+      <h2 id="s0-title"><span class="guide-num" aria-hidden="true">0</span>스킬 메뉴 열기</h2>
+      <ol class="guide-steps">
+        <li><b>Gemini 스킬 메뉴를 엽니다.</b><br>
+          <a class="guide-btn" href="https://gemini.google.com/customize/skills" target="_blank" rel="noopener noreferrer">Gemini 스킬 열기 ↗</a>
+          <small>로그인 화면이 나오면 사용할 Google 계정으로 로그인하세요. 열리지 않으면 Gemini 왼쪽 메뉴의 <b>더보기</b>에서 <b>Gems</b>를 눌러 "스킬 만들기"를 찾으세요.</small></li>
+        <li>위쪽 탭이 <b>탐색 · 커넥터 · 스킬</b>이고 <b>스킬</b>이 선택되어 있는지 확인합니다.</li>
+        <li>오른쪽의 <b>만들기</b> 버튼을 누르면 <b>Gemini로 만들기 · 수동으로 만들기 · 업로드하기</b> 세 가지가 보입니다(그림 1). 아래에서 하나를 고르세요.</li>
+      </ol>
+      <figure class="guide-fig"><button class="guide-image-open" type="button" data-image="img/skill-gemini/sg-02-create-menu.png" aria-label="그림 1 크게 보기"><img src="img/skill-gemini/sg-02-create-menu.png" alt="Gemini 스킬 화면. 오른쪽 위 만들기 버튼을 누르면 Gemini로 만들기, 수동으로 만들기, 업로드하기 세 가지 메뉴가 나타난다." width="1053" height="615" loading="lazy" decoding="async"></button><figcaption>그림 1. <b>만들기</b>를 누르면 세 가지 방법이 나옵니다.</figcaption></figure>
+    </section>
+
+    <section class="guide-step" id="step1" aria-labelledby="s1-title">
+      <h2 id="s1-title"><span class="guide-num" aria-hidden="true">1</span>업로드하기 <span class="gs-tag">추천</span></h2>
+      <p class="guide-goal">스킬 폴더(<b>cl-interpreter</b>)를 통째로 올리는 방법입니다.</p>
+      <ol class="guide-steps">
+        <li><b>스킬 파일을 내려받습니다.</b><br>
+          <a class="guide-btn" href="skill/cl-interpreter.zip" download>스킬 zip 내려받기</a>
+          <small>Gemini의 업로드 창은 PDF·CSV·PY·TXT·MD 파일과 <b>폴더</b>를 받는다고 안내합니다. zip 파일은 목록에 없으므로 다음 단계에서 압축을 풉니다.</small></li>
+        <li><b>압축을 풉니다.</b> Windows는 zip을 오른쪽 클릭해 <b>모두 압축 풀기</b>, 맥은 더블클릭합니다. <b>cl-interpreter</b> 폴더가 나오고 그 안에 <b>SKILL.md</b>, <b>INDEX.md</b>와 <b>knowledge</b>·<b>reference</b> 폴더가 있어야 합니다.</li>
+        <li><b>만들기 → 업로드하기</b>를 누릅니다(그림 1).</li>
+        <li><b>'기능 업로드' 창이 열리면 <u>폴더</u>를 눌러 cl-interpreter 폴더를 고릅니다</b>(그림 2). 폴더를 창 안으로 끌어다 놓아도 됩니다.
+          <small>창의 요구사항 두 가지는 이미 맞춰져 있습니다. 이름 cl-interpreter는 케밥 케이스이고, 최상위 폴더에 SKILL.md가 있습니다.</small></li>
+        <li><b>스킬 목록에 cl-interpreter가 보이면 끝입니다.</b> <a href="#test">아래 시험</a>으로 확인하세요.</li>
+      </ol>
+      <figure class="guide-fig"><button class="guide-image-open" type="button" data-image="img/skill-gemini/sg-05-upload.png" aria-label="그림 2 크게 보기"><img src="img/skill-gemini/sg-05-upload.png" alt="기능 업로드 창. SKILL.md에서 기능 이름에 케밥 케이스를 사용하고 최상위 폴더에 SKILL.md 파일을 포함하라는 안내와, 이미지 파일 또는 폴더를 끌어다 놓는 영역이 있다." width="564" height="627" loading="lazy" decoding="async"></button><figcaption>그림 2. '기능 업로드' 창. <b>폴더</b>를 고르거나 끌어다 놓습니다.</figcaption></figure>
+      <p class="guide-note">업로드가 거절되거나 목록에 보이지 않거나, 올린 뒤 규칙을 모르는 것처럼 답하면 <b>2번 방법</b>으로 하세요.</p>
+    </section>
+
+    <section class="guide-step" id="step2" aria-labelledby="s2-title">
+      <h2 id="s2-title"><span class="guide-num" aria-hidden="true">2</span>Gem으로 쓰기</h2>
+      <p class="guide-goal">스킬 메뉴가 없거나 업로드가 안 될 때 쓰는 대안입니다. 이 스킬은 지식 파일이 커서 전부 붙여넣을 수 없으므로 <b>지침은 붙여넣고 지식 파일은 올립니다.</b> 저장소 안내를 정리한 방법으로 <b>직접 확인하지는 못했습니다.</b></p>
+      <ol class="guide-steps">
+        <li><b>지침문을 복사합니다</b>(약 9KB).<br>
+          <button class="gs-btn" type="button" data-fetch="skill/cl-interpreter/guides/instructions-short.md">지침문 복사</button></li>
+        <li>Gemini 왼쪽 메뉴의 <b>더보기 → Gems</b>에서 새 Gem을 만들고 <b>지침</b> 칸에 붙여넣습니다.</li>
+        <li><b>스킬 zip을 내려받아 풀고</b> 안의 파일을 올립니다. <code>INDEX.md</code>, <code>knowledge/</code> 안 8개, <code>reference/</code> 안 3개입니다. Gem의 <b>지식 파일</b>로 올립니다. 첨부 한도가 10개로 알려져 있으나 Google 공식 안내로 확인하지 못했습니다. 한도에 걸리면 선택 파일인 <code>knowledge/grammar-index.md</code>를 먼저 뺍니다.<br>
+          <a class="guide-btn plain" href="skill/cl-interpreter.zip" download>스킬 zip 내려받기</a></li>
+        <li>저장한 뒤 <a href="#test">아래 시험</a>으로 확인하세요. 이 방법에서는 요청 첫머리의 "cl-interpreter 스킬을 사용해서"를 빼고 보내도 됩니다.</li>
+      </ol>
+    </section>
+
+
+    <section class="guide-step" id="test" aria-labelledby="t-title">
+      <h2 id="t-title"><span class="guide-num" aria-hidden="true">✓</span>잘 설치됐는지 확인하고 시험하기</h2>
+      <ol class="guide-steps">
+        <li><b>먼저 등록됐는지 확인합니다.</b> <b>스킬 목록</b>에 <b>cl-interpreter</b>가 보여야 합니다.</li>
+        <li><b>새 채팅</b>을 열고 아래를 보냅니다.
+          <pre class="gs-pre" id="t-test1">cl-interpreter 스킬을 사용해서 아래 Computation Layer 코드를 줄별로 풀이해 줘.
+
+컴포넌트: input1
+hidden: btn1.pressCount &gt; 2
+correct: this.numericValue &gt; 9.99 and this.numericValue &lt; 10.01</pre>
+          <button class="gs-btn" type="button" data-copy-id="t-test1">복사</button></li>
+        <li><b>이렇게 나오면 성공입니다.</b> 붙여넣은 텍스트의 코드 조각(<code>hidden: btn1.pressCount &gt; 2</code> 등)을 인용하며 줄별로 풀이하고, 문장 끝에 <i>공식 문서</i>·<i>코드 추론</i>·<i>추가검증필요</i> 같은 출처 표시가 붙습니다.</li>
+        <li>실제 수업 코드는 캡처로 올리는 것이 기본입니다. <a href="interpret.html#use">코드를 올리는 방법</a>을 보세요.</li>
+      </ol>
+    </section>
+
+
+    <section class="guide-trouble" aria-labelledby="tr-title">
+      <h2 id="tr-title">잘 안 될 때</h2>
+      <dl>
+        <dt>스킬 메뉴나 추가 버튼이 없습니다</dt>
+        <dd>학교(Workspace) 계정은 관리자 설정에 따라 스킬 메뉴가 없을 수 있습니다. 개인 Google 계정으로 해 보거나 <a href="#step2">Gem으로 쓰기</a>를 쓰세요.</dd>
+        <dt>업로드가 거절됩니다</dt>
+        <dd>폴더를 올렸는지 확인하세요(zip 파일은 받지 않습니다). 최상위 폴더 이름은 <b>cl-interpreter</b>이고 그 안에 <b>SKILL.md</b>가 있어야 합니다. 그래도 안 되면 <a href="#step2">Gem으로 쓰기</a>를 쓰세요.</dd>
+        <dt>올렸는데 CL을 모르는 것처럼 답합니다</dt>
+        <dd>스킬이 켜져 있는지 확인하고, 요청 첫머리에 "cl-interpreter 스킬을 사용해서"라고 이름을 말해 보세요.</dd>
+        <dt>답이 "자료에 없습니다"인데 파일에는 있는 것 같습니다</dt>
+        <dd>지식 파일이 커서 일부만 읽힐 수 있습니다. 질문에 <b>컴포넌트 이름과 sink 이름을 함께</b> 적어 보세요.</dd>
+        <dt>화면이 그림과 다릅니다</dt>
+        <dd>Gems가 스킬로 바뀌는 시기라 화면이 바뀔 수 있습니다. 메뉴 이름에서 <b>스킬</b>과 <b>만들기</b>를 찾으세요.</dd>
+      </dl>
+    </section>
+  </main>
+  <div class="guide-lightbox" id="guideLightbox" role="dialog" aria-modal="true" aria-label="확대 이미지" hidden>
+    <button class="guide-lightbox-close" type="button" aria-label="확대 이미지 닫기">×</button>
+    <img src="" alt="">
+  </div>
+  <footer class="site-footer"><div><a class="footer-brand" href="index.html">Amplify 배움공방</a><p>Amplify 수업자료 제작과 Computation Layer 학습을 돕는 교사용 교육 보조 도구입니다.</p></div><div class="footer-info"><p>개인정보가 포함된 자료는 입력하지 말고, AI 결과는 수업 적용 전에 확인하세요.</p><div class="footer-links"><a href="mailto:jclover2@snu.ac.kr">jclover2@snu.ac.kr</a><a href="privacy.html">개인정보 및 AI 데이터 처리</a><a href="terms.html">이용 안내·저작권</a></div><p class="footer-copy">© 2026 서울대학교사범대학부설중학교 허철호. All Rights Reserved.</p></div><small class="footer-disclaimer">이 사이트는 독립적으로 제작한 비공식 교육 보조 자료이며, Amplify Education, Inc.와 제휴하거나 공식 승인을 받은 서비스가 아닙니다.</small></footer>
+  <div class="gs-toast" id="gsToast" role="status"></div>
+  <script src="guide.js"></script>
+  <script>
+  (function(){
+    var toast=document.getElementById('gsToast');
+    function say(m){toast.textContent=m;toast.classList.add('on');clearTimeout(say.t);say.t=setTimeout(function(){toast.classList.remove('on')},1500);}
+    function copy(t){
+      function ok(){say('복사했습니다');}
+      function fb(){var a=document.createElement('textarea');a.value=t;a.style.position='fixed';a.style.opacity='0';document.body.appendChild(a);a.select();try{document.execCommand('copy');ok();}catch(e){say('복사하지 못했습니다');}document.body.removeChild(a);}
+      if(navigator.clipboard&&window.isSecureContext){navigator.clipboard.writeText(t).then(ok,fb);}else{fb();}
+    }
+    Array.prototype.forEach.call(document.querySelectorAll('[data-copy-id]'),function(b){
+      b.addEventListener('click',function(){copy(document.getElementById(b.getAttribute('data-copy-id')).textContent);});
+    });
+    Array.prototype.forEach.call(document.querySelectorAll('[data-fetch]'),function(b){
+      b.addEventListener('click',function(){
+        var urls=b.getAttribute('data-fetch').split('|');
+        Promise.all(urls.map(function(u){return fetch(u).then(function(r){if(!r.ok)throw 0;return r.text();});}))
+          .then(function(a){copy(a.join('\n\n'));},function(){say('복사하지 못했습니다. 파일을 내려받아 주세요');});
+      });
+    });
+  })();
+  </script>
+</body></html>

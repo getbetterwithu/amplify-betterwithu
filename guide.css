@@ -3,7 +3,7 @@
 .guide-lead{font-size:18px;color:var(--muted)}
 .guide-summary{margin:22px 0 8px;padding:20px 24px;border:2px solid var(--ink);border-radius:16px;background:var(--yellow);box-shadow:5px 5px 0 var(--ink)}
 .guide-summary h2{margin:0 0 8px;font:400 24px/1.3 Jua,sans-serif}
-.guide-summary ol{margin:0;padding-left:22px}
+.guide-summary ol,.guide-summary ul{margin:0;padding-left:22px}
 .guide-summary li{margin:4px 0;font-weight:700;color:#2f241f}
 .guide-warn{margin:22px 0;padding:20px 24px;border:2px dashed var(--teal);border-radius:16px;background:#fff}
 .guide-warn h2{margin:0 0 8px;font:400 22px/1.3 Jua,sans-serif;color:#0f6f66}
@@ -41,3 +41,17 @@ body.lightbox-open{overflow:hidden}
 .guide-trouble dd{margin:4px 0 0;color:var(--ink)}
 .guide-next{margin-top:30px}
 @media(max-width:620px){.guide-step{padding:20px 16px 22px}.guide-steps>li{padding-left:40px}.guide-fig{padding:7px}.guide-btn{width:100%;justify-content:center;margin-right:0}.guide-lightbox{padding:62px 10px 16px}.guide-lightbox-close{top:10px;right:10px}}
+
+/* AI 스킬 안내: 스킬 선택 카드 */
+.skill-pick{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:22px;margin:30px 0 8px}
+.skill-card{position:relative;display:flex;flex-direction:column;gap:10px;min-height:270px;padding:28px 26px 24px;border:2px solid var(--ink);border-radius:6px;background:#fff;color:var(--ink);text-decoration:none;box-shadow:var(--shadow);transition:transform .18s}
+.skill-card:nth-child(1){transform:rotate(-.5deg)}
+.skill-card:nth-child(2){background:var(--teal-soft);transform:rotate(.5deg)}
+.skill-card:hover{transform:translateY(-4px) rotate(0)}
+.skill-card h2{margin:0;font:400 30px/1.25 Jua,sans-serif}
+.skill-card p{margin:0;color:#3f4542}
+.skill-meta{align-self:flex-start;padding:3px 12px;border:2px solid var(--ink);border-radius:999px;background:#fff;font-size:13px;font-weight:800}
+.skill-card .go{margin-top:auto}
+.skill-note{margin-top:26px;color:var(--muted);font-size:14.5px}
+@media(max-width:760px){.skill-pick{grid-template-columns:1fr}.skill-card{min-height:0;transform:none!important}}
+@media(prefers-reduced-motion:reduce){.skill-card{transition:none}}

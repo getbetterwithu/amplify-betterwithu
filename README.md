@@ -9,16 +9,20 @@
 
 | 페이지 | 내용 |
 |---|---|
-| `index.html` | 홈 — 도구 카드 목록 |
+| `index.html` | 홈 — 제작 도구(글자 꾸미기·수식 입력) / AI 스킬 / CL 학습자료 카드 |
+| `ai-skill.html` | AI 스킬 안내 — 스킬이 무엇인지 설명하고 수식 입력 스킬(`skill.html`)·CL 해석 스킬(`interpret.html`) 카드로 연결 |
 | `settings.html` | 수식 변환 AI 설정 |
 | `gemini-key.html` | Gemini API 키 발급 안내(스크린샷은 `img/gemini-key/`) |
-| `interpret.html` | Computation Layer 분석 스킬 소개·설치 안내(다운로드는 준비 중) |
+| `interpret.html` | CL 해석 스킬 설치 허브 (웹·앱 / 문장 하나로 설치 / 지침+파일 올리기, 코드 올리는 방법, 무료 여부). `ai-skill.html`에서 들어옴 |
+| `interpret-claude.html` `interpret-chatgpt.html` `interpret-gemini.html` | CL 해석 스킬의 AI별 설치 안내 (화면 그림은 수식 스킬 안내의 것을 재사용) |
+| `skill/cl-interpreter/`, `skill/cl-interpreter.zip` | CL 해석 스킬 사이트 복사본과 배포 zip. 원본은 `getbetterwithu/amplify-cl-interpreter`(v0.3.2). 아래 갱신 절차 참고 |
 | `text.html` | 글자 꾸미기 (크기·색·굵게) |
-| `math.html` | 수식 입력 (명령어 25개 + 복사용 기호 23개, 입력 칸을 누르면 복사, AI 수식 스킬 안내) |
+| `math.html` | 수식 입력 (명령어 25개 + 복사용 기호 23개, 입력 칸을 누르면 복사, 상단에 "웹에서 해보기(`convert.html`) / 스킬 설치(`skill.html`)" 두 카드) |
 | `skill/amplify-math/` | Claude·GPT·Gemini용 Amplify 수식 스킬 (`SKILL.md`, `references/rules.md`, `instructions.md`). 규칙을 고치면 `skill/amplify-math.zip`도 다시 만듭니다(반드시 파이썬 `zipfile`로 만들 것. GNU tar의 `tar -a`는 .zip 이름의 tar 파일을 만들어 업로드가 실패합니다). Claude Code·Antigravity·Codex CLI는 공개 저장소 `getbetterwithu/amplify-math` 주소로 직접 설치 가능(명령은 `skill.html`에 있음). 스킬 규칙의 원본을 고칠 때는 이 폴더와 `amplify-math` 저장소를 함께 맞춥니다 |
 | `skill.html` | 스킬 설치 허브 (처음이라면·코딩 에이전트·붙여넣기, 무료 여부와 시험 현황) |
 | `skill-claude.html` `skill-chatgpt.html` `skill-gemini.html` | 각 AI별 설치 안내 (화면 그림 포함, `img/skill-*/`) |
 | `convert.html` | AI 수식 변환 · 웹에서 먼저 해보기 (체험용, 같은 규칙의 수식 스킬 설치를 권장) |
+| `topnav.css` | 도구 페이지(`text`·`math`·`convert`)용 상단 메뉴 스타일. 나머지 페이지는 `site.css`의 `.topbar` 사용 |
 | `privacy.html` | 개인정보 및 AI 데이터 처리 안내 |
 | `terms.html` | 이용 안내·저작권·비제휴 고지 |
 
@@ -26,13 +30,14 @@ CL 학습자료는 별도 저장소에서 관리하며 `https://cl.betterwithu.k
 
 ## Computation Layer 분석 스킬
 
-- 웹 질의응답 해석기는 종료했고, `interpret.html`은 스킬 소개·설치 안내 페이지입니다.
-- 스킬 패키지는 별도 세션에서 제작 중이며 다운로드 파일과 버전은 아직 확정되지 않았습니다.
-- 이 페이지는 AI를 호출하지 않습니다.
+- 웹 질의응답 해석기는 종료했고, `interpret.html`은 수식 스킬 안내(`skill.html`)와 같은 틀의 설치 안내 페이지입니다. 이 페이지들은 AI를 호출하지 않습니다.
+- 사이트의 `skill/cl-interpreter/`는 저장소 `skills/cl-interpreter/`의 복사본이고(설치 안내 `guides/install-*.md`는 제외, `guides/instructions-short.md`는 포함), `skill/cl-interpreter.zip`은 그중 `guides/`를 뺀 14개 파일을 `cl-interpreter/` 폴더째 압축한 것입니다.
+- **저장소의 스킬이 바뀌면** 복사본을 다시 받아 같은 규칙으로 zip을 새로 만들고(반드시 파이썬 `zipfile`), PK 헤더·Windows `Expand-Archive`·원본과의 해시 비교로 검증한 뒤, 페이지의 버전 표시(v0.3.2)를 고칩니다.
+- zip은 ChatGPT 웹(유료 계정)에서 올려 등록되는 것을 확인했습니다(2026-11-01). Claude·Gemini는 올려 확인한 적이 없고, 올린 뒤 풀이 품질도 확인하지 못했습니다. 페이지에도 그렇게 적혀 있으니, 확인되면 문구를 고칩니다. 서비스 메뉴는 자주 바뀌므로 페이지는 "확인했을 때는 …"처럼 시점이 드러나는 표현으로 씁니다.
 
 ## 페이지를 추가하려면
 
-`index.html` 아래쪽 `PAGES` 배열에 한 줄만 넣으면 카드가 생깁니다.
+`index.html`의 제작 도구 섹션(`hub-grid`)에 `tool-card` 한 개를 추가합니다. 상단 메뉴는 모든 페이지가 `제작 도구 · AI 스킬 · CL 학습자료` 세 개로 같아야 하므로, 메뉴를 바꾸면 전체 HTML을 함께 고칩니다.
 
 ```js
 { icon:"📊", title:"새 도구", url:"new.html", color:"#0f4c81",
