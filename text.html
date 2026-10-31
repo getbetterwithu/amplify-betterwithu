@@ -24,9 +24,17 @@
   h2.sec { font-size:18px; color:#1f6f54; margin:30px 0 8px; padding-bottom:6px; border-bottom:2px solid #cfe3d8;}
   .sec-desc { font-size:13.5px; color:#666; margin:0 0 14px;}
 
-  /* 복사 카드 — 이 안의 글자를 드래그 복사 */
+  /* 복사 카드 — [서식째 복사] 버튼, 또는 이 안의 글자를 드래그 복사 */
   .grab-card { background:#fff; border:2px solid #b8e0c8; border-radius:12px; margin-bottom:14px; overflow:hidden; box-shadow:0 2px 10px rgba(0,0,0,.05);}
-  .grab-card .gh { background:#e8f5e9; padding:7px 16px; font-size:12px; font-weight:700; color:#2e7d32;}
+  .grab-card .gh { background:#e8f5e9; padding:7px 16px; font-size:12px; font-weight:700; color:#2e7d32; display:flex; align-items:center; justify-content:space-between; gap:10px; flex-wrap:wrap;}
+  .copybtn { font-family:inherit; font-size:12.5px; font-weight:700; background:#2e9e76; color:#fff; border:0; border-radius:8px; padding:6px 13px; min-height:34px; cursor:pointer;}
+  .copybtn:hover { background:#1f6f54;}
+  .copybtn:focus-visible { outline:3px solid #123c6b; outline-offset:2px;}
+  .pal .copybtn { border-radius:0; align-self:stretch; padding:0 14px; background:#eef1f4; color:#39435c; border-left:2px solid #e0e4e8;}
+  .pal .copybtn:hover { background:#dfe5ea;}
+  .toast { position:fixed; left:50%; bottom:26px; transform:translateX(-50%); background:#12151b; color:#fff; font-size:13.5px; font-weight:700; padding:9px 18px; border-radius:999px; opacity:0; pointer-events:none; transition:.18s; z-index:50; max-width:90vw; text-align:center;}
+  .toast.on { opacity:.94;}
+  @media print{ .copybtn, .toast { display:none;} }
   .grab-card .gbody { padding:18px 20px; }
   /* 실제 Amplify에 들어갈 모습 = 여기 그대로 렌더 (드래그 복사 대상) */
   .grab-card .gbody .p-h1 { font-size:30px; font-weight:700; margin:0;}
@@ -120,7 +128,7 @@ a.xlink:hover { box-shadow:0 7px 22px rgba(18,60,107,.45); transform:translateY(
 
 <header class="h">
   <h1>📝 Amplify 글자 꾸미기 — 복사해서 붙이세요</h1>
-  <p>Amplify(Amplify) 텍스트(메모)는 글자를 잘 못 꾸밉니다. 하지만 <b>이미 꾸며진 글자를 복사해서 붙이면</b> 그대로 들어가요.</p>
+  <p>Amplify 텍스트(메모)는 글자를 잘 못 꾸밉니다. 하지만 <b>이미 꾸며진 글자를 복사해서 붙이면</b> 그대로 들어가요.</p>
   <a class="home" href="index.html">← 배움공방 홈</a>
 </header>
 
@@ -128,7 +136,7 @@ a.xlink:hover { box-shadow:0 7px 22px rgba(18,60,107,.45); transform:translateY(
 
 <div class="intro">
   <b>사용법 — 딱 3단계</b>
-  <div class="step"><span class="num">1</span><span class="txt">아래 카드에서 <b>꾸며진 글자를 마우스로 드래그</b>해서 복사 (Cmd+C / Ctrl+C) — <b>여러 줄·여러 색을 한 번에 긁어도 OK</b></span></div>
+  <div class="step"><span class="num">1</span><span class="txt">아래 카드의 <b>[서식째 복사] 버튼</b>을 누르세요. (버튼이 안 되면 꾸며진 글자를 마우스로 드래그해서 Cmd+C / Ctrl+C)</span></div>
   <div class="step"><span class="num">2</span><span class="txt">Amplify의 <b>메모</b> 칸을 클릭하고 붙여넣기 (Cmd+V / Ctrl+V)</span></div>
   <div class="step"><span class="num">3</span><span class="txt">큰 글씨·색깔이 <b>그대로</b> 들어갑니다 ✨</span></div>
   <div class="key">
@@ -140,16 +148,16 @@ a.xlink:hover { box-shadow:0 7px 22px rgba(18,60,107,.45); transform:translateY(
 
 <!-- ① 큰 글씨 -->
 <h2 class="sec">① 큰 글씨 (크기는 2단계뿐)</h2>
-<p class="sec-desc">Amplify에서 글씨 크기는 <b>딱 2단계</b>예요. 아래 글자를 드래그 복사 → 붙이면 그 크기로 들어갑니다.</p>
+<p class="sec-desc">Amplify에서 글씨 크기는 <b>딱 2단계</b>예요. 아래 카드의 [서식째 복사]를 누르고 → 붙이면 그 크기로 들어갑니다.</p>
 
 <div class="grab-card">
-  <div class="gh">📋 드래그 복사 — ① 가장 큰 글씨 (대제목용)</div>
+  <div class="gh">📋① 가장 큰 글씨 (대제목용)</div>
   <div class="gbody"><h1 class="p-h1">닮은 도형의 넓이</h1></div>
   <div class="note">붙이면: 제일 큰 크기 · 화면 제목에 좋아요</div>
 </div>
 
 <div class="grab-card">
-  <div class="gh">📋 드래그 복사 — ② 큰 글씨 (발문용 · 제일 많이 씀)</div>
+  <div class="gh">📋② 큰 글씨 (발문용 · 제일 많이 씀)</div>
   <div class="gbody"><h2 class="p-h2">넓이의 비는 얼마일까요?</h2></div>
   <div class="note">붙이면: 큰 글씨 · 발문에 딱 (여러 줄도 OK)</div>
 </div>
@@ -159,13 +167,13 @@ a.xlink:hover { box-shadow:0 7px 22px rgba(18,60,107,.45); transform:translateY(
 <p class="sec-desc">핵심 단어만 색을 넣어 강조할 수 있어요.</p>
 
 <div class="grab-card">
-  <div class="gh">📋 드래그 복사 — 핵심어만 초록</div>
+  <div class="gh">📋핵심어만 초록</div>
   <div class="gbody"><p class="p-normal">두 도형의 <span style="color:green;font-weight:700;">넓이의 비</span>는 얼마일까요?</p></div>
   <div class="note">붙이면: "넓이의 비"만 초록색</div>
 </div>
 
 <div class="grab-card">
-  <div class="gh">📋 드래그 복사 — 두 가지 색 동시에</div>
+  <div class="gh">📋두 가지 색 동시에</div>
   <div class="gbody"><p class="p-normal"><span style="color:green;font-weight:700;">넓이</span>는 m²:n², &nbsp;<span style="color:deeppink;font-weight:700;">부피</span>는 m³:n³</p></div>
   <div class="note">붙이면: 넓이=초록, 부피=분홍</div>
 </div>
@@ -173,7 +181,7 @@ a.xlink:hover { box-shadow:0 7px 22px rgba(18,60,107,.45); transform:translateY(
 <!-- ③ 굵게 -->
 <h2 class="sec">③ 굵게</h2>
 <div class="grab-card">
-  <div class="gh">📋 드래그 복사 — 숫자만 굵게</div>
+  <div class="gh">📋숫자만 굵게</div>
   <div class="gbody"><p class="p-normal">닮음비가 <b>1:2</b>인 두 직사각형</p></div>
   <div class="note">붙이면: "1:2"만 굵게</div>
 </div>
@@ -183,13 +191,13 @@ a.xlink:hover { box-shadow:0 7px 22px rgba(18,60,107,.45); transform:translateY(
 <p class="sec-desc">제일 쓸모 있는 조합! 큰 글씨 안에서 핵심어만 색을 넣을 수 있어요.</p>
 
 <div class="grab-card">
-  <div class="gh">📋 드래그 복사 — 큰 글씨 + 핵심어 색</div>
+  <div class="gh">📋큰 글씨 + 핵심어 색</div>
   <div class="gbody"><h2 class="p-h2">닮음비 <span style="color:orange;">2:3</span>일 때 부피는?</h2></div>
   <div class="note">붙이면: 전체 큰 글씨, "2:3"만 주황</div>
 </div>
 
 <div class="grab-card">
-  <div class="gh">📋 드래그 복사 — 큰 글씨 + 굵게 + 색 한꺼번에</div>
+  <div class="gh">📋큰 글씨 + 굵게 + 색 한꺼번에</div>
   <div class="gbody"><h2 class="p-h2">닮음비 <b><span style="color:green;">1:2</span></b>면 넓이의 비는?</h2></div>
   <div class="note">붙이면: 큰 글씨 + "1:2" 굵게+초록</div>
 </div>
@@ -197,14 +205,14 @@ a.xlink:hover { box-shadow:0 7px 22px rgba(18,60,107,.45); transform:translateY(
 <!-- ⑤ 여러 줄 -->
 <h2 class="sec">⑤ 여러 줄 (그대로 복사하면 줄도 따라감)</h2>
 <div class="grab-card">
-  <div class="gh">📋 드래그 복사 — 큰 글씨 여러 줄</div>
+  <div class="gh">📋큰 글씨 여러 줄</div>
   <div class="gbody"><h2 class="p-h2">닮음비가 1:2인 두 직사각형.<br>넓이의 비는 얼마일까요?<br>계산하지 말고 직감으로!</h2></div>
   <div class="note">붙이면: 세 줄 모두 큰 글씨</div>
 </div>
 
 <!-- ⑥ 색상 팔레트 -->
 <h2 class="sec">⑥ 색상 팔레트 — 자주 쓰는 10색 (큰 글씨 조합)</h2>
-<p class="sec-desc">원하는 색 글자를 드래그 복사 → Amplify에 붙이고, 글자만 바꿔 쓰면 됩니다. 모두 <b>큰 글씨</b>로 만들어 뒀어요.
+<p class="sec-desc">원하는 색의 [서식째 복사]를 누르고 → Amplify에 붙이고, 글자만 바꿔 쓰면 됩니다. 모두 <b>큰 글씨</b>로 만들어 뒀어요.
 <br>💡 이 색들은 모두 <b>영어 색 이름</b>으로 돼 있어 가장 외우기 쉬워요. (테스트 결과 <code>#f00</code> 같은 짧은 hex·긴 hex·<code>rgb()</code>도 모두 잘 들어갑니다 — 원하는 표기를 쓰면 됩니다.)</p>
 
 <div class="palette">
@@ -251,7 +259,7 @@ a.xlink:hover { box-shadow:0 7px 22px rgba(18,60,107,.45); transform:translateY(
 <div class="tipbox">
   <b>💡 정리</b><br>
   · 크기는 <b>큰 글씨 1종</b>이면 충분 (다른 크기는 줄간격이 깨져 실전에 안 좋아요)<br>
-  · 색은 위 <b>10색 팔레트</b>에서 골라 복사<br>
+  · 색은 위 <b>10색 팔레트</b>에서 골라 [서식째 복사]<br>
   · 꾸미고 싶은 글자가 없으면? 비슷한 카드를 복사한 뒤, Amplify 안에서 글자만 바꿔 쓰세요. 서식은 유지됩니다.
 </div>
 <div class="warn">
@@ -275,5 +283,36 @@ a.xlink:hover { box-shadow:0 7px 22px rgba(18,60,107,.45); transform:translateY(
 </footer>
 
 </div>
+<script>
+(function(){
+  var toast=document.createElement('div');toast.className='toast';toast.setAttribute('role','status');document.body.appendChild(toast);
+  function say(m){toast.textContent=m;toast.classList.add('on');clearTimeout(say.t);say.t=setTimeout(function(){toast.classList.remove('on')},1800);}
+  /* 사람이 드래그해서 복사하는 것과 같은 방식: 견본을 선택 영역으로 잡고 복사한다 */
+  function copyNode(node){
+    var sel=window.getSelection(),r=document.createRange(),ok=false;
+    r.selectNodeContents(node);sel.removeAllRanges();sel.addRange(r);
+    try{ok=document.execCommand('copy');}catch(e){}
+    if(ok)setTimeout(function(){sel.removeAllRanges()},900);
+    return ok;
+  }
+  function addBtn(host,node,label){
+    var b=document.createElement('button');b.type='button';b.className='copybtn';b.textContent='서식째 복사';
+    b.setAttribute('aria-label',label+' 서식째 복사');
+    b.addEventListener('click',function(){
+      if(copyNode(node))say('복사했습니다. Amplify 메모에 붙여넣으세요');
+      else say('복사하지 못했습니다. 선택된 글자를 Ctrl+C(Cmd+C)로 복사해 주세요');
+    });
+    host.appendChild(b);
+  }
+  Array.prototype.forEach.call(document.querySelectorAll('.grab-card'),function(c){
+    var h=c.querySelector('.gh'),body=c.querySelector('.gbody');
+    if(h&&body)addBtn(h,body,h.textContent.replace('📋','').trim());
+  });
+  Array.prototype.forEach.call(document.querySelectorAll('.pal'),function(p){
+    var h=p.querySelector('.ph'),body=p.querySelector('.pb');
+    if(h&&body)addBtn(p,body,h.textContent.trim()+' 글씨');
+  });
+})();
+</script>
 </body>
 </html>
