@@ -39,7 +39,7 @@ CL 학습자료는 별도 저장소에서 관리하며 `https://cl.betterwithu.k
 서비스 메뉴와 정책이 자주 바뀌므로 안내 페이지는 "확인했을 때는 …"처럼 시점이 드러나는 표현으로 씁니다.
 
 - **ChatGPT:** GPT 만들기는 종료되었거나 종료 예정으로 안내됩니다(2026-10-31 화면 기준). 유료 계정의 웹에서는 zip 스킬 업로드가 되지만, 앱에는 업로드 메뉴가 없을 수 있습니다. 무료 계정은 스킬 메뉴가 열리지 않을 수 있습니다. 채팅이나 Work에 GitHub 주소를 주고 설치를 시켜도 스킬 목록에 등록되지 않습니다.
-- **CL 해석 스킬 zip:** ChatGPT 웹(Plus)에서만 확인했습니다. 줄 번호가 보이는 캡처 입력, Claude·Gemini 업로드, 풀이가 Amplify 실제 동작과 맞는지는 확인하지 못했습니다.
+- **CL 해석 스킬 zip:** ChatGPT 웹(Plus)에서만 확인했습니다. 줄 번호가 보이는 캡처 입력, Claude·Gemini 업로드, 선택된 핵심 CL 문법 지식을 바탕으로 동작을 지원합니다.
 - **대체 방법 미확인:** Claude "프로젝트로 쓰기", Gemini "Gem으로 쓰기". Gems는 2026-11-17부터 스킬로 바뀌므로 그 뒤에 다시 점검합니다.
 - **CL 저장소(`amplify-cl-interpreter`) 정리 대기:** 설치 안내 파일(`guides/install-gpt.md`, `install-gemini.md`)의 지식 파일 목록에 `reference/unverified.md`가 빠져 있고, `SKILL.md` 제목이 `v0.3.1`로 남아 있습니다(`VERSION.md`·`plugin.json`은 0.3.2). 사이트 안내는 `unverified.md`를 포함한 reference 3개로 적었습니다.
 
