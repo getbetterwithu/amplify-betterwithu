@@ -45,7 +45,7 @@
       <h2 id="pick-title">어느 방법이 나에게 맞나요?</h2>
       <ol>
         <li><b>AI를 대화창으로만 써 봤다</b> → 아래 <b>① 처음이라면</b>. 코딩 지식 없이 화면만 따라 하면 됩니다.</li>
-        <li><b>VS Code나 터미널에서 Claude Code, Codex, Antigravity 같은 AI를 쓴다</b> → <b>② 문장 하나로 설치</b>. 주소를 알려 주고 설치를 시키면 됩니다.</li>
+        <li><b>VS Code나 터미널에서 Claude Code, Codex, Antigravity 같은 AI를 쓴다</b> → <b>② 문장 하나로 설치</b> (현재 공개 링크 일시 중단, 안내 참고).</li>
         <li><b>스킬 메뉴가 없거나 업로드가 안 된다</b> → <b>③ 지침을 붙여넣고 파일 올리기</b> (Claude·Gemini).</li>
       </ol>
     </section>
@@ -81,28 +81,26 @@
 
     <section class="guide-step" id="expert" aria-labelledby="e-title">
       <h2 id="e-title"><span class="guide-num" aria-hidden="true">②</span>VS Code나 터미널에서 AI를 쓰신다면 — 문장 하나로 설치</h2>
-      <p class="guide-goal">Claude Code, Codex, Antigravity처럼 VS Code나 터미널에서 쓰는 AI라면, <b>저장소 주소를 알려 주고 "설치해 줘"라고 하는 것</b>으로 대부분 끝납니다.</p>
+      <p class="guide-goal">Claude Code, Codex, Antigravity처럼 VS Code나 터미널에서 쓰는 AI라면, 원래 <b>저장소 주소를 알려 주고 "설치해 줘"라고 하는 것</b>으로 간편하게 설치할 수 있는 방식입니다.</p>
+
+      <div class="guide-warn" style="margin:12px 0 16px;border-left:4px solid #d97706;background:#fffbeb;padding:12px 14px;border-radius:8px">
+        <p style="margin:0 0 6px;font-weight:800;color:#92400e">⚠️ 공개 저장소를 통한 설치 일시 중단 안내</p>
+        <p style="margin:0;font-size:14px;line-height:1.6;color:#78350f">현재 Amplify 이용약관 및 저작권 관련 검토로 인해, <b>공개 저장소를 통한 직접 설치(저장소 링크 및 플러그인 CLI 명령어)는 잠시 중단</b>되었습니다. 추후 Amplify의 공식 승인을 받거나 협의가 완료되면 이 페이지에 실제 저장소 링크와 명령어가 다시 복원될 예정입니다. 변경 사항이 있을 수 있으니 페이지를 자주 확인(모니터링)해 주세요. 현재는 연수 현장에서 배포해 드리는 zip 파일을 통한 설치를 권장합니다.</p>
+      </div>
+
       <ol class="guide-steps">
-        <li><b>먼저 아래 문장을 복사해 내 AI에 붙여넣습니다.</b>
-          <pre class="gs-pre" id="t-agent">이 GitHub 저장소의 스킬(skills/cl-interpreter 폴더)을 내 스킬 폴더에 설치해 줘: https://github.com/getbetterwithu/amplify-cl-interpreter</pre>
-          <button class="gs-btn" type="button" data-copy-id="t-agent">문장 복사</button>
-          <small>AI가 폴더를 받아 자기 스킬 폴더에 넣습니다. 설치 뒤 다시 시작하라고 하면 따르세요.</small></li>
-        <li><b>설치됐는지 확인합니다.</b> AI를 다시 시작하고 <b>"cl-interpreter 스킬이 설치돼 있어?"</b>라고 물어 보세요. 설치돼 있다고 하면 끝입니다. 아니라고 하거나 헷갈리게 답하면 아래 직접 명령으로 설치하세요.</li>
-        <li><b>안 되면 직접 명령으로 설치합니다.</b> 터미널에 아래를 한 줄씩 차례로 입력하세요. 설치 뒤 도구를 다시 시작합니다. 제품이 바뀌면 명령이 달라질 수 있습니다.
-          <p style="margin:10px 0 2px"><b>Claude Code</b></p>
-          <pre class="gs-pre" id="t-claude">claude plugin marketplace add getbetterwithu/amplify-cl-interpreter
-claude plugin install amplify-cl-interpreter@amplify-cl-interpreter</pre>
-          <button class="gs-btn" type="button" data-copy-id="t-claude">복사</button>
-          <p style="margin:12px 0 2px"><b>Antigravity</b> — 설치 결과에 <code>skills : 1 processed</code>가 보이면 됩니다.</p>
-          <pre class="gs-pre" id="t-agy">agy plugin install https://github.com/getbetterwithu/amplify-cl-interpreter
-agy plugin list</pre>
-          <button class="gs-btn" type="button" data-copy-id="t-agy">복사</button>
-          <p style="margin:12px 0 2px"><b>Codex CLI</b> — <code>codex plugin list</code>에서 <code>installed, enabled</code>로 보이면 됩니다.</p>
-          <pre class="gs-pre" id="t-codex">codex plugin marketplace add getbetterwithu/amplify-cl-interpreter
-codex plugin add amplify-cl-interpreter@amplify-cl-interpreter
-codex plugin list</pre>
-          <button class="gs-btn" type="button" data-copy-id="t-codex">복사</button></li>
-        <li>설치한 스킬은 에이전트의 권한으로 실행됩니다. 이 스킬은 지침과 지식 문서(.md)만 들어 있고 내용은 <a href="https://github.com/getbetterwithu/amplify-cl-interpreter" target="_blank" rel="noopener noreferrer">GitHub ↗</a>에서 볼 수 있습니다.</li>
+        <li><b>(설치 방식 안내)</b> 저장소가 공개 운영될 때는 아래와 같이 한 줄 문장으로 AI에게 설치를 요청하는 방식입니다.
+          <pre class="gs-pre" id="t-agent" style="opacity:0.85">이 GitHub 저장소의 스킬(skills/cl-interpreter 폴더)을 내 스킬 폴더에 설치해 줘: [저장소 주소 — 승인 후 공개 재개 예정]</pre>
+          <small>AI가 저장소 폴더를 읽어 자기 스킬 폴더에 자동으로 등록합니다. (현재는 승인 검토 중으로 링크가 비활성화되어 있습니다)</small></li>
+        <li><b>터미널 명령어를 통한 설치 (예시)</b>
+          <p style="margin:10px 0 2px"><b>Claude Code / Antigravity / Codex CLI</b></p>
+          <pre class="gs-pre" style="opacity:0.85"># 공식 승인 및 공개 재개 후 아래 명령어로 설치할 수 있습니다:
+claude plugin marketplace add getbetterwithu/amplify-cl-interpreter
+claude plugin install amplify-cl-interpreter@amplify-cl-interpreter
+
+agy plugin install https://github.com/getbetterwithu/amplify-cl-interpreter
+codex plugin marketplace add getbetterwithu/amplify-cl-interpreter</pre>
+          <small>※ 저장소 링크가 복원되면 실제 복사용 버튼과 주소가 활성화됩니다.</small></li>
       </ol>
     </section>
 
@@ -111,7 +109,8 @@ codex plugin list</pre>
       <p class="guide-goal">이 스킬은 지식 파일이 커서(압축 전 약 480KB) 수식 스킬처럼 전부 붙여넣을 수 없습니다. 대신 <b>짧은 지침문은 붙여넣고, 지식 파일은 올립니다.</b> 저장소 안내를 정리한 방법으로 <b>직접 확인하지는 못했습니다.</b></p>
       <ol class="guide-steps">
         <li>아래 버튼으로 지침문(약 9KB)을 복사합니다.<br>
-          <button class="gs-btn" type="button" data-fetch="skill/cl-interpreter/guides/instructions-short.md">지침문 복사</button></li>
+          <!-- instructions-short.md 복사는 연수 제공 파일 또는 아래 대체 방식 사용 -->
+          <button class="gs-btn" type="button" onclick="alert('지침문은 연수에서 전달받은 zip 파일 안의 guides/instructions-short.md를 참고해 주세요.')">지침문 안내</button></li>
         <li>내 AI의 <b>맞춤 도구</b>를 만들고 지침 칸에 붙여넣습니다. Claude는 <b>프로젝트</b>, Gemini는 <b>Gem</b>입니다. ChatGPT는 GPT를 더 이상 만들 수 없어 이 방법을 쓸 수 없습니다. 자세한 순서는 위 ①의 AI별 안내에 있습니다.</li>
         <li>스킬 zip을 <b>풀어서</b> 안의 파일을 <b>지식(Knowledge)</b>으로 올립니다. <code>INDEX.md</code>, <code>knowledge/</code> 안 8개, <code>reference/</code> 안 3개입니다.</li>
         <li>지식 파일이 커서 답이 "자료에 없습니다"로 나오는데 파일에는 있는 경우가 있습니다. 질문에 <b>컴포넌트 이름과 sink 이름을 함께</b> 적어 보세요.</li>
@@ -133,19 +132,18 @@ correct: this.numericValue &gt; 9.99 and this.numericValue &lt; 10.01</pre>
     </section>
 
     <section class="guide-step" id="files" aria-labelledby="f-title">
-      <h2 id="f-title"><span class="guide-num" aria-hidden="true">⬇</span>파일</h2>
-      <div class="kbtns">
-        <a class="guide-btn" href="skill/cl-interpreter.zip" download>스킬 zip (Claude·ChatGPT·Gemini)</a>
-        <a class="guide-btn plain" href="skill/cl-interpreter/guides/instructions-short.md" download>지침문 instructions-short.md</a>
-        <a class="guide-btn plain" href="https://github.com/getbetterwithu/amplify-cl-interpreter" target="_blank" rel="noopener noreferrer">GitHub에서 보기 ↗</a>
+      <h2 id="f-title"><span class="guide-num" aria-hidden="true">⬇</span>파일 안내</h2>
+      <div class="guide-warn" style="margin:12px 0 16px;border-left:4px solid #2563eb;background:#eff6ff;padding:12px 14px;border-radius:8px">
+        <p style="margin:0 0 6px;font-weight:800;color:#1e40af">📦 스킬 배포 파일 안내 (연수 배포용)</p>
+        <p style="margin:0;font-size:14px;line-height:1.6;color:#1e3a8a">CL 해석 스킬 zip 파일(<code>cl-interpreter.zip</code>)은 저작권 및 이용약관 검토에 따라 사이트 직접 다운로드를 중단하고, <b>교사 연수 현장에서 참가자분들께 직접 전달</b>해 드리고 있습니다. 전달받으신 zip 파일을 압축 해제 없이(또는 안내에 따라 폴더째) 각 AI 도구에 등록해 사용하시면 됩니다.</p>
       </div>
-      <p class="guide-note">zip에는 지침(SKILL.md)과 지식 문서만 들어 있고 모두 마크다운(.md) 파일입니다. 현재 버전은 v0.3.2입니다.</p>
+      <p class="guide-note">zip 안에는 지침(SKILL.md), 저작권 및 출처 안내(NOTICE.md), 지식 문서들이 마크다운(.md)으로 들어 있습니다. 현재 버전은 v0.3.2입니다.</p>
     </section>
 
     <section class="guide-step" id="repos" aria-labelledby="r-title">
-      <h2 id="r-title"><span class="guide-num" aria-hidden="true">🔗</span>관련 공개 저장소</h2>
+      <h2 id="r-title"><span class="guide-num" aria-hidden="true">🔗</span>관련 저장소</h2>
       <table class="hubtbl"><thead><tr><th>저장소</th><th>내용</th></tr></thead><tbody>
-        <tr><td><a href="https://github.com/getbetterwithu/amplify-cl-interpreter" target="_blank" rel="noopener noreferrer">amplify-cl-interpreter ↗</a></td><td>CL 해석 스킬 (이 페이지의 스킬). 위 ② 명령으로 설치합니다.</td></tr>
+        <tr><td><b>amplify-cl-interpreter</b> <span class="gs-tag hold">공개 일시 중단</span></td><td>CL 해석 스킬 저장소. 현재 이용약관 및 저작권 검토로 공개 링크가 일시 중단되었습니다. 승인 및 협의 후 재개될 예정입니다.</td></tr>
         <tr><td><a href="https://github.com/getbetterwithu/amplify-math" target="_blank" rel="noopener noreferrer">amplify-math ↗</a></td><td>Amplify 수식 스킬. 설치는 <a href="skill.html">수식 스킬 설치 안내</a>를 보세요.</td></tr>
         <tr><td><a href="https://github.com/getbetterwithu/amplify-betterwithu" target="_blank" rel="noopener noreferrer">amplify-betterwithu ↗</a></td><td>이 사이트의 소스입니다.</td></tr>
       </tbody></table>

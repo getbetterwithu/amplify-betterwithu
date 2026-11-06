@@ -14,7 +14,7 @@
 | `gemini-key.html` | Gemini API 키 발급 안내(스크린샷은 `img/gemini-key/`) |
 | `interpret.html` | CL 해석 스킬 설치 허브 (웹·앱 / 문장 하나로 설치 / 지침+파일 올리기, 코드 올리는 방법, 무료 여부). `ai-skill.html`에서 들어옴 |
 | `interpret-claude.html` `interpret-chatgpt.html` `interpret-gemini.html` | CL 해석 스킬의 AI별 설치 안내 (화면 그림은 수식 스킬 안내의 것을 재사용) |
-| `skill/cl-interpreter/`, `skill/cl-interpreter.zip` | CL 해석 스킬 사이트 복사본과 배포 zip. 원본은 `getbetterwithu/amplify-cl-interpreter`(v0.3.2). 아래 갱신 절차 참고 |
+| `skill/cl-interpreter/`, `skill/cl-interpreter.zip` | (저작권 검토에 따라 사이트 배포 중단 및 삭제 완료, 연수 현장 zip 직접 배포로 전환) |
 | `text.html` | 글자 꾸미기 (크기·색·굵게) |
 | `math.html` | 수식 입력 (명령어 30개 + 복사용 기호 24개, 입력 칸을 누르면 복사, 상단에 "웹에서 해보기(`convert.html`) / 스킬 설치(`skill.html`)" 두 카드) |
 | `skill/amplify-math/` | Claude·GPT·Gemini용 Amplify 수식 스킬 (`SKILL.md`, `references/rules.md`, `instructions.md`). 규칙을 고치면 `skill/amplify-math.zip`도 다시 만듭니다(반드시 파이썬 `zipfile`로 만들 것. GNU tar의 `tar -a`는 .zip 이름의 tar 파일을 만들어 업로드가 실패합니다). Claude Code·Antigravity·Codex CLI는 공개 저장소 `getbetterwithu/amplify-math` 주소로 직접 설치 가능(명령은 `skill.html`에 있음). 스킬 규칙의 원본을 고칠 때는 이 폴더와 `amplify-math` 저장소를 함께 맞춥니다 |
@@ -30,7 +30,7 @@ CL 학습자료는 별도 저장소에서 관리하며 `https://cl.betterwithu.k
 ## Computation Layer 분석 스킬
 
 - 웹 질의응답 해석기는 종료했고, `interpret.html`은 수식 스킬 안내(`skill.html`)와 같은 틀의 설치 안내 페이지입니다. 이 페이지들은 AI를 호출하지 않습니다.
-- 사이트의 `skill/cl-interpreter/`는 저장소 `skills/cl-interpreter/`의 복사본이고(설치 안내 `guides/install-*.md`는 제외, `guides/instructions-short.md`는 포함), `skill/cl-interpreter.zip`은 그중 `guides/`를 뺀 14개 파일을 `cl-interpreter/` 폴더째 압축한 것입니다.
+- 저작권 및 이용약관 검토에 따라 사이트 내 `cl-interpreter.zip` 및 폴더 서빙은 중단되었으며, 교사 연수용 배포 zip(`cl-interpreter.zip`)을 별도로 관리·전달합니다.
 - **저장소의 스킬이 바뀌면** 복사본을 다시 받아 같은 규칙으로 zip을 새로 만들고(반드시 파이썬 `zipfile`), PK 헤더·Windows `Expand-Archive`·원본과의 해시 비교로 검증한 뒤, 페이지의 버전 표시(v0.3.2)를 고칩니다.
 - zip은 ChatGPT 웹(유료 계정)에서 올려 등록되고, 시험 문장에 출처 표시가 붙은 풀이가 나오는 것까지 확인했습니다(2026-11-01). 풀이가 Amplify의 실제 동작과 맞는지는 확인하지 못했고, Claude·Gemini는 올려 확인한 적이 없습니다. 페이지에도 그렇게 적혀 있으니, 확인되면 문구를 고칩니다. 서비스 메뉴는 자주 바뀌므로 페이지는 "확인했을 때는 …"처럼 시점이 드러나는 표현으로 씁니다.
 

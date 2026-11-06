@@ -44,7 +44,7 @@
         <li><b>이 zip을 Claude에 올려 확인한 것은 아닙니다.</b> 메뉴 화면은 수식 스킬 안내에서 확인한 것이고, 이 스킬은 수식 스킬(약 20KB)보다 훨씬 큽니다(약 126KB). 되지 않으면 아래 '잘 안 될 때'를 보세요.</li>
         <li>메뉴 이름과 화면은 Anthropic이 바꿀 수 있습니다.</li>
         <li><b>무료 플랜</b> 화면에서도 이 메뉴가 열렸습니다. 그래도 스킬이 동작하지 않으면 설정의 <b>기능(Capabilities)</b>에서 <b>코드 실행 및 파일 생성</b>이 켜져 있는지 확인하세요. 공식 안내가 스킬에 필요하다고 설명하는 설정입니다.</li>
-        <li>업로드하면 <b>보안 검사</b>가 실행됩니다. 이 스킬의 파일은 <a href="https://github.com/getbetterwithu/amplify-cl-interpreter" target="_blank" rel="noopener noreferrer">GitHub ↗</a>에서 내용을 볼 수 있고, 지침과 지식 문서(.md)만 들어 있고 실행 파일은 없습니다.</li>
+        <li>업로드하면 <b>보안 검사</b>가 실행됩니다. 이 스킬은 지침과 지식 문서(.md)만 들어 있고 실행 파일은 없습니다. (현재 공개 저장소 링크는 저작권 검토로 일시 중단되어, 연수 현장에서 전달해 드리는 zip 파일을 사용합니다.)</li>
       </ul>
     </section>
 
@@ -64,8 +64,8 @@
       <h2 id="s1-title"><span class="guide-num" aria-hidden="true">1</span>Skill 업로드 <span class="gs-tag">추천</span></h2>
       <p class="guide-goal">zip을 <b>풀지 않고 그대로</b> 올립니다. 업로드 화면이 ".zip 또는 .skill 파일에는 SKILL.md 파일이 포함되어야 한다"고 안내하며, 이 zip은 그 조건을 맞춰 두었습니다.</p>
       <ol class="guide-steps">
-        <li><b>스킬 zip을 내려받습니다. 압축은 풀지 않습니다.</b><br>
-          <a class="guide-btn" href="skill/cl-interpreter.zip" download>스킬 zip 내려받기</a></li>
+        <li><b>연수에서 전달받은 스킬 zip(<code>cl-interpreter.zip</code>)을 준비합니다.</b> 압축은 풀지 않습니다.<br>
+          <small style="color:#666">※ 저작권 및 이용약관 검토에 따라 사이트 직접 다운로드는 중단되었으며, 연수 현장에서 파일로 배포해 드립니다.</small></li>
         <li><b>+ 추가 → Skill 업로드</b>를 누릅니다(그림 1).</li>
         <li><b>'Skill 파일' 영역에 zip을 끌어다 놓거나 '찾아보기'로 고릅니다</b>(그림 2).</li>
         <li><b>아래의 '업로드' 버튼을 누릅니다.</b> 업로드할 때 보안 검사가 실행됩니다. 파일을 고르기 전에는 이 버튼이 흐리게 비활성입니다.</li>
@@ -80,10 +80,9 @@
       <p class="guide-goal">스킬 메뉴가 없거나 업로드가 안 될 때 쓰는 대안입니다. 이 스킬은 지식 파일이 커서 전부 붙여넣을 수 없으므로 <b>지침은 붙여넣고 지식 파일은 올립니다.</b> 저장소 안내를 정리한 방법으로 <b>직접 확인하지는 못했습니다.</b></p>
       <ol class="guide-steps">
         <li><b>지침문을 복사합니다</b>(약 9KB).<br>
-          <button class="gs-btn" type="button" data-fetch="skill/cl-interpreter/guides/instructions-short.md">지침문 복사</button></li>
+          <button class="gs-btn" type="button" onclick="alert('지침문은 연수에서 전달받은 zip 파일 안의 guides/instructions-short.md를 참고해 주세요.')">지침문 안내</button></li>
         <li>Claude 왼쪽 메뉴의 <b>프로젝트</b>에서 새 프로젝트를 만들고, <b>지침(Instructions)</b> 칸에 붙여넣습니다.</li>
-        <li><b>스킬 zip을 내려받아 풀고</b> 안의 파일을 올립니다. <code>INDEX.md</code>, <code>knowledge/</code> 안 8개, <code>reference/</code> 안 3개입니다. 프로젝트의 <b>지식(Project knowledge)</b>에 올립니다.<br>
-          <a class="guide-btn plain" href="skill/cl-interpreter.zip" download>스킬 zip 내려받기</a></li>
+        <li><b>연수에서 전달받은 스킬 zip을 풀어</b> 안의 파일을 올립니다. <code>INDEX.md</code>, <code>knowledge/</code> 안 8개, <code>reference/</code> 안 3개입니다. 프로젝트의 <b>지식(Project knowledge)</b>에 올립니다.</li>
         <li>저장한 뒤 <a href="#test">아래 시험</a>으로 확인하세요. 이 방법에서는 요청 첫머리의 "cl-interpreter 스킬을 사용해서"를 빼고 보내도 됩니다.</li>
       </ol>
     </section>
